@@ -4,17 +4,19 @@
     "src": "editor.deps.json"
   },
   "resources/css/app.css": {
-    "file": "assets/app-B0LWlXiN.css",
+    "file": "assets/app-DLoLxSEG.css",
     "src": "resources/css/app.css",
     "isEntry": true,
+    "name": "app",
     "names": [
       "app.css"
     ]
   },
   "resources/css/editor.css": {
-    "file": "assets/editor-BKolDSFK.css",
+    "file": "assets/editor-CqLqD2Xc.css",
     "src": "resources/css/editor.css",
     "isEntry": true,
+    "name": "editor",
     "names": [
       "editor.css"
     ]
@@ -64,7 +66,7 @@
     "src": "resources/images/ring-mask.svg"
   },
   "resources/js/app.js": {
-    "file": "assets/app-isaLi3Uu.js",
+    "file": "assets/app-CxlsQ1YM.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,

@@ -5,21 +5,21 @@ import { wordpressPlugin, wordpressThemeJson } from '@roots/vite-plugin'
 
 export default defineConfig(({ command }) => ({
   server: {
-    host: 'tlc.local',
+    host: 'flowsys.local',
     port: 5981,
     strictPort: true,
     cors: true,
-    origin: 'http://tlc.local:5981',
+    origin: 'http://flowsys.local:5981',
 
     hmr: {
       protocol: 'ws',
-      host: 'tlc.local',
+      host: 'flowsys.local',
       port: 5981,
     },
   },
 
   base: command === 'build'
-    ? '/wp-content/themes/tlc/public/build/'
+    ? '/wp-content/themes/flowsys/public/build/'
     : '/build/',
 
   plugins: [
