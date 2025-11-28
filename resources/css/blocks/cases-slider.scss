@@ -1,0 +1,63 @@
+.cases-slider {
+  .__arrows {
+    width: 100%;
+    top: 56%;
+    transform: translateY(-50%);
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    position: unset;
+    width: calc(var(--swiper-navigation-size) / 44 * 27);
+    height: var(--swiper-navigation-size);
+    margin-top: calc(0px -(var(--swiper-navigation-size) / 2));
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--swiper-navigation-color, var(--swiper-theme-color));
+    width: 64px;
+    height: 64px;
+    background-color: var(--primary);
+    transition: all 0.2s ease-out;
+  }
+  .swiper-button-next:hover,
+  .swiper-button-prev:hover {
+    background-color: var(--p-hover);
+    transition: all 0.2s ease-out;
+  }
+  .swiper-button-next svg,
+  .swiper-button-prev svg {
+    width: 20px;
+    height: 20px;
+  }
+  .swiper-button-next {
+    order: 2;
+    position: absolute;
+    right: 24%;
+  }
+  .swiper-button-prev {
+    transform: scaleX(-1);
+    order: 1;
+    position: absolute;
+    left: -32px;
+  }
+
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    content: '';
+  }
+}
+
+/*---- LG --*/
+@media only screen and (max-width: 1024px) {
+  .cases-slider {
+    .swiper-button-prev {
+      left: -24px;
+    }
+    .swiper-button-next {
+      right: 24px;
+    }
+  }
+}

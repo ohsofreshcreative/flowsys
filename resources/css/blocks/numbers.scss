@@ -1,0 +1,22 @@
+.numbers {
+  .digit-container {
+    display: inline-block;
+    overflow: hidden;
+    height: 1.2em;
+    line-height: 1.2em;
+    font-size: 90px;
+    font-weight: 800;
+  }
+
+  .digit-reel {
+  }
+}
+
+/*---- MD --*/
+@media only screen and (max-width: 768px) {
+  .numbers {
+   .digit-container {
+	font-size: 42px;
+   }
+  }
+}

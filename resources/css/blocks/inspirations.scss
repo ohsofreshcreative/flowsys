@@ -1,0 +1,82 @@
+.inspirations {
+
+  .__photos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    /* Ustawmy minimalną wysokość, aby kontener miał przestrzeń */
+    min-height: 600px;
+    padding-top: 75px;
+    padding-bottom: 75px;
+  }
+
+  /* Obrazek 1 (tło) - bez zmian w pozycjonowaniu */
+  .__img1 {
+    width: 650px;
+    height: 380px;
+  }
+
+  .__img1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Obrazki 2, 3, 4 - teraz kontenery mają position: absolute */
+  .__img2,
+  .__img3,
+  .__img4 {
+    position: absolute;
+    z-index: 2;
+    /* Aby były nad __img1 */
+  }
+
+  /* Obrazki wewnątrz absolutnych kontenerów wypełniają je */
+  .__img2 img,
+  .__img3 img,
+  .__img4 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+    /* Jeśli kontenery mają mieć radius */
+  }
+
+  /* Pozycje i wymiary dla kontenerów */
+  .__img2 {
+    width: 280px;
+    height: 210px;
+    inset: 150px auto auto 109px;
+  }
+
+  .__img3 {
+    width: 250px;
+    height: 155px;
+    inset: 0px 118px auto auto;
+  }
+
+  .__img4 {
+    width: 250px;
+    height: 165px;
+    inset: auto 193px 0% auto;
+  }
+
+  /* Wszystkie obrazki powinny mieć promień, jeśli taki jest design */
+  .radius-img {
+    border-radius: 12px;
+    /* Przykładowa wartość */
+  }
+
+  .__glow {
+	top:10%;
+	right:20%;
+    width: 423px;
+    height: 423px;
+    flex-shrink: 0;
+    position: absolute;
+    border-radius: 423px;
+    background: linear-gradient(315deg, #EFDDC5 47.34%, #EFDDC5 84.97%);
+    filter: blur(75px);
+  }
+}

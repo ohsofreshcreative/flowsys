@@ -1,0 +1,64 @@
+.history {
+  .timeline-line {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 1px;
+    height: 100%; 
+    background-color: var(--primary);
+    transform-origin: top center;
+    transform: translateX(-50%) scaleY(0);
+  }
+
+  .__year {
+
+    .__date {
+      position: relative;
+      width: 50%;
+      height: 100%;
+      margin-top: 40px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background-color: var(--primary);
+        border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+
+    .__card {
+      width: 50%;
+    }
+  }
+
+  .__year:nth-child(2n + 1) {
+    .__card {
+      margin-right: 104px;
+    }
+    .__date::before {
+      left: -75px;
+    }
+  }
+
+  .__year:nth-child(2n) {
+    .__card {
+      order: 2;
+      margin-left: 104px;
+    }
+
+    .__date {
+      order: 1;
+      text-align: right;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    .__date::before {
+      right: -75px;
+    }
+  }
+}

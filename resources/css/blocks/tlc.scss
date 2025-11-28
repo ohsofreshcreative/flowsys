@@ -1,0 +1,23 @@
+.b-tlc {
+  .__cards {
+    .__card:nth-child(2) {
+      grid-column-start: 1;
+    }
+    .__card:nth-child(4) {
+      grid-column-start: 2;
+    }
+  }
+
+/*---- LG --*/
+@media only screen and (max-width: 1024px) {
+  .__cards {
+    .__card:nth-child(2) {
+      grid-column-start: unset !important;
+    }
+    .__card:nth-child(4) {
+      grid-column-start: unset !important;
+    }
+  }
+}
+
+}

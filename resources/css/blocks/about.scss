@@ -1,0 +1,13 @@
+.about {
+  .__glow {
+	top:0;
+	right:20%;
+    width: 480px;
+    height: 480px;
+    flex-shrink: 0;
+    position: absolute;
+    border-radius: 423px;
+    background: linear-gradient(315deg, rgba(160, 134, 103, 0.3) 47.34%, rgba(160, 134, 103, 0.3) 84.97%);
+    filter: blur(75px);
+  }
+}

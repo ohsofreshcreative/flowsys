@@ -1,0 +1,35 @@
+.coop {
+  .__phone,
+  .__mail {
+    display: flex;
+    align-items: center;
+  }
+  .__phone::before {
+    content: url('http://windes.local/wp-content/uploads/2025/10/phone_primary.svg');
+	position: relative;
+	top:2px;
+	margin-right: 16px;
+  }
+
+  .__mail::before {
+    content: url('http://windes.local/wp-content/uploads/2025/10/mail_primary.svg');
+	position: relative;
+	top:4px;
+	margin-right: 16px;
+  }
+  .__glow {
+    top: 0%;
+    left: 0%;
+    width: 423px;
+    height: 423px;
+    flex-shrink: 0;
+    position: absolute;
+    border-radius: 423px;
+    background: linear-gradient(
+      315deg,
+      rgb(239, 221, 197, 0.1) 47.34%,
+      rgb(239, 221, 197, 0.1) 84.97%
+    );
+    filter: blur(75px);
+  }
+}

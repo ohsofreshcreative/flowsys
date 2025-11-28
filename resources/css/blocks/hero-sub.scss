@@ -1,0 +1,32 @@
+.hero-sub {
+  .__arrow {
+    border-radius: 40px;
+    width: max-content;
+    padding: 16px 18px;
+    background-color: #ddf3e7;
+    transition: all 0.3s ease;
+    svg path {
+      fill: #00aa4f;
+      transition: fill 0.3s ease;
+    }
+  }
+  .__arrow:hover {
+    border-radius: 40px;
+    width: max-content;
+    padding: 16px 18px;
+    background-color: #00aa4f;
+    transition: all 0.3s ease;
+    svg path {
+      fill: #fff;
+      transition: all 0.3s ease;
+    }
+  }
+  .__shape {
+    width: 505px;
+    height: 505px;
+    border-radius: 505px;
+    background: linear-gradient(180deg, #00aa4f 0%, rgba(0, 170, 79, 0) 62.07%);
+    transform: rotate(-30deg);
+    flex-shrink: 0;
+  }
+}

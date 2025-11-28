@@ -1,0 +1,62 @@
+.b-services {
+	.__tabs {
+		button {
+			transition: all 0.3s ease;
+		}
+
+		button:hover {
+			background-color: var(--p-800) !important;
+			transition: all 0.3s ease;
+			color: #FFF;
+		}
+	}
+
+	.__card {
+		transition: all 0.3s ease;
+
+		ul {
+			list-style: disc inside;
+			margin-left: 8px;
+			margin-top: 8px;
+		}
+	}
+
+	.__card:hover {
+		border-color: var(--p-800) !important;
+		background-color: var(--p-50);
+		transition: all 0.3s ease;
+	}
+
+	.__card:nth-child(odd) {
+		.__order1 {
+			order: 1;
+		}
+
+		.__order2 {
+			order: 2;
+		}
+	}
+	.__card:nth-child(even) {
+		.__order1 {
+			order: 2;
+		}
+
+		.__order2 {
+			order: 1;
+		}
+	}
+}
+
+/*---- !LG --*/
+@media only screen and (max-width: 1024px) {
+.b-services {	
+	.__card {
+		grid-template-columns: 1fr !important;
+
+		.__order1,
+		.__order2 {
+			order: initial !important;
+		}
+	}
+}
+}

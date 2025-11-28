@@ -1,0 +1,50 @@
+.b-map {
+	.__phone::before {
+		content: url('/wp-content/uploads/2025/11/phone.svg');
+		margin-right: 16px;
+		position: relative;
+		display: inline-block;
+		transition: all 0.6s;
+		top: 2px;
+	}
+
+	.__mail::before {
+		content: url('/wp-content/uploads/2025/11/mail.svg');
+		margin-right: 16px;
+		position: relative;
+		display: inline-block;
+		transition: all 0.6s;
+		top: 3px;
+	}
+
+	.__g-map iframe {
+		width: 100%;
+		height: 280px;
+	}
+
+	.__map-hover path {
+		transition: all 0.3s;
+		stroke: transparent;
+		stroke-width: 12px;
+		transition: all 0.3s;
+	}
+
+	.__map-hover:hover {
+		transition: all 0.3s;
+
+		path:first-child {
+			fill: var(--p-300);
+			transform: translateY(-4px);
+			stroke-width: 12px;
+			stroke: var(--p-300);
+			stroke-width: 12px;
+			transition: all 0.3s;
+		}
+
+		path:last-child {
+			transition: all 0.3s;
+			fill: var(--p-900);
+			stroke-width: 0px;
+		}
+	}
+}

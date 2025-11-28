@@ -1,0 +1,81 @@
+{
+  "editor.deps.json": {
+    "file": "assets/editor.deps-DxpY22xl.json",
+    "src": "editor.deps.json"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-B0LWlXiN.css",
+    "src": "resources/css/app.css",
+    "isEntry": true,
+    "names": [
+      "app.css"
+    ]
+  },
+  "resources/css/editor.css": {
+    "file": "assets/editor-BKolDSFK.css",
+    "src": "resources/css/editor.css",
+    "isEntry": true,
+    "names": [
+      "editor.css"
+    ]
+  },
+  "resources/fonts/SohoPro-Bold.woff2": {
+    "file": "assets/SohoPro-Bold-CvNEMWgj.woff2",
+    "src": "resources/fonts/SohoPro-Bold.woff2"
+  },
+  "resources/fonts/SohoPro-ExtraBold.woff2": {
+    "file": "assets/SohoPro-ExtraBold-D8itJACH.woff2",
+    "src": "resources/fonts/SohoPro-ExtraBold.woff2"
+  },
+  "resources/fonts/SohoPro-ExtraLight.woff2": {
+    "file": "assets/SohoPro-ExtraLight-DOlQY3Qc.woff2",
+    "src": "resources/fonts/SohoPro-ExtraLight.woff2"
+  },
+  "resources/fonts/SohoPro-ExtraLightItalic.woff2": {
+    "file": "assets/SohoPro-ExtraLightItalic-4A182zoi.woff2",
+    "src": "resources/fonts/SohoPro-ExtraLightItalic.woff2"
+  },
+  "resources/fonts/SohoPro-Italic.woff2": {
+    "file": "assets/SohoPro-Italic-BnPzMU3z.woff2",
+    "src": "resources/fonts/SohoPro-Italic.woff2"
+  },
+  "resources/fonts/SohoPro-Light.woff2": {
+    "file": "assets/SohoPro-Light-ftqCK5_D.woff2",
+    "src": "resources/fonts/SohoPro-Light.woff2"
+  },
+  "resources/fonts/SohoPro-Medium.woff2": {
+    "file": "assets/SohoPro-Medium-BbHXlDyH.woff2",
+    "src": "resources/fonts/SohoPro-Medium.woff2"
+  },
+  "resources/fonts/SohoPro-Regular.woff2": {
+    "file": "assets/SohoPro-Regular-BEQL6-pY.woff2",
+    "src": "resources/fonts/SohoPro-Regular.woff2"
+  },
+  "resources/images/mapa-polski.svg": {
+    "file": "assets/mapa-polski-CaNIMG4v.svg",
+    "src": "resources/images/mapa-polski.svg"
+  },
+  "resources/images/ohsofresh.svg": {
+    "file": "assets/ohsofresh-DBDLJZzV.svg",
+    "src": "resources/images/ohsofresh.svg"
+  },
+  "resources/images/ring-mask.svg": {
+    "file": "assets/ring-mask-B_SY1GJM.svg",
+    "src": "resources/images/ring-mask.svg"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-isaLi3Uu.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "css": [
+      "assets/app-DHBATib1.css"
+    ]
+  },
+  "resources/js/editor.js": {
+    "file": "assets/editor-CfU4GbSP.js",
+    "name": "editor",
+    "src": "resources/js/editor.js",
+    "isEntry": true
+  }
+}

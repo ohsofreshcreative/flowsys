@@ -1,0 +1,24 @@
+.s-hero-prod {
+  .__arrow {
+    border-radius: 40px;
+    width: max-content;
+    padding: 16px 18px;
+    background-color: #ddf3e7;
+	transition: all 0.3s ease;
+	svg path {
+	  fill: #00aa4f;
+	  transition: fill 0.3s ease;
+	}
+  }
+  .__arrow:hover {
+    border-radius: 40px;
+    width: max-content;
+    padding: 16px 18px;
+    background-color: #00aa4f;
+	transition: all 0.3s ease;
+    svg path {
+      fill: #fff;
+	transition: all 0.3s ease;
+    }
+  }
+}

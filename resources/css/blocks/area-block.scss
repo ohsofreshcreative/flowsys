@@ -1,0 +1,52 @@
+.area {
+  .__col {
+    grid-template-columns: 2fr 1fr;
+  }
+  .__img img {
+    object-fit: contain;
+  }
+  ul {
+    margin-top: 24px;
+    li {
+      position: relative;
+      padding-left: 1em;
+      border-bottom: 1px solid var(--border-light);
+      width: fit-content;
+      margin-bottom: 8px;
+      padding-bottom: 8px;
+    }
+    li:last-child {
+      border-bottom: 0;
+      margin-bottom: 0px;
+      padding-bottom: 0px;
+    }
+    li:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 6px;
+      width: 7px;
+      height: 12px;
+      background-image: url('http://raab.local/wp-content/uploads/2025/06/check.svg');
+      background-size: cover;
+    }
+  }
+}
+
+/*---- LG --*/
+@media only screen and (max-width: 1024px) {
+  .area {
+    .__col {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+/*---- MD --*/
+@media only screen and (max-width: 768px) {
+  .area {
+    .__col {
+      grid-template-columns: 1fr;
+    }
+  }
+}

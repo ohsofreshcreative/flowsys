@@ -1,0 +1,63 @@
+@import "tailwindcss" theme(static);
+
+@source "../views/";
+@source "../../app/";
+
+@import "../css/variables.scss";
+
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+
+/*-- USED ---*/
+@import '../css/blocks/hero.scss';
+@import '../css/blocks/tlc.scss';
+@import '../css/blocks/offer.scss';
+@import '../css/blocks/text-img.scss';
+@import '../css/blocks/categories.scss';
+@import '../css/blocks/cta-bg.scss';
+@import '../css/blocks/reviews.scss';
+@import '../css/blocks/bottom-block.scss';
+@import '../css/blocks/hero-prod.scss';
+@import '../css/blocks/hero-cat.scss';
+@import '../css/blocks/hero-job.scss';
+@import '../css/blocks/hero-about.scss';
+@import '../css/blocks/selection.scss';
+@import '../css/blocks/order.scss';
+@import '../css/blocks/cards.scss';
+@import '../css/blocks/product-hero.scss';
+@import '../css/blocks/hero-sub.scss';
+@import '../css/blocks/sectors.scss';
+@import '../css/blocks/services.scss';
+@import '../css/blocks/steps.scss';
+@import '../css/blocks/faq.scss';
+@import '../css/blocks/values.scss';
+@import '../css/blocks/tabs.scss';
+@import '../css/blocks/cert.scss';
+@import '../css/blocks/contact.scss';
+@import '../css/blocks/cta.scss';
+@import '../css/blocks/catalogues.scss';
+@import '../css/blocks/jobs.scss';
+@import '../css/blocks/job.scss';
+@import '../css/blocks/image.scss';
+@import '../css/blocks/map.scss';
+@import '../css/blocks/logos.scss';
+@import '../css/blocks/locations.scss';
+
+/*-- NOT USED --*/
+@import '../css/blocks/hero-offer.scss';
+
+@import '../css/blocks/categories.scss';
+@import '../css/blocks/area-block.scss';
+@import '../css/blocks/cases.scss';
+@import '../css/blocks/history.scss';
+@import '../css/blocks/category-posts.scss';
+@import '../css/blocks/cases-slider.scss';
+@import '../css/blocks/proces.scss';
+@import '../css/blocks/path.scss';
+@import '../css/blocks/duotitle.scss';
+@import '../css/blocks/inspirations.scss';
+@import '../css/blocks/about.scss';
+@import '../css/blocks/wysiwyg.scss';
+@import '../css/blocks/connect.scss';
+@import '../css/blocks/coop.scss';

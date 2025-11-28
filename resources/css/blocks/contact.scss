@@ -1,0 +1,50 @@
+.contact {
+  .__data {
+    font-size: 16px;
+  }
+
+  .__data a {
+	color:var(--text-s-light);
+  }
+  
+  .__data a:hover {
+	color:var(--text-s-lighter);
+  }
+
+  .__phone {
+    display: flex;
+  }
+
+  .__phone::before {
+    content: url('http://windes.local/wp-content/uploads/2025/08/phone-1.svg');
+    margin-right: 16px;
+    position: relative;
+    top: 4px;
+    max-width: 40px;
+  }
+
+  .__mail {
+    display: flex;
+  }
+
+  .__mail::before {
+    content: url('http://windes.local/wp-content/uploads/2025/08/mail-1.svg');
+    margin-right: 16px;
+    position: relative;
+    top: 4px;
+    max-width: 40px;
+  }
+
+  .__glow {
+    top: -10%;
+    left: -10%;
+    width: 489px;
+    height: 489px;
+    flex-shrink: 0;
+    position: absolute;
+    border-radius: 489px;
+    background: linear-gradient(315deg, rgba(240, 246, 255, 0.00) 32.21%, #CDDEF4 84.97%);
+
+    filter: blur(15px);
+  }
+}

@@ -1,0 +1,40 @@
+.duotitle {
+  .__img {
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    width: 55vw;
+    height: var(--img-xl);
+    position: absolute;
+    inset: auto 0% 0% 0%;
+    overflow: hidden;
+  }
+
+  .__title {
+  }
+
+  .__bg {
+    top: -152px;
+    right: 0;
+  }
+
+  h3 {
+    font-size: 36px !important;
+  }
+
+  @media only screen and (max-width: 1190px) {
+    .__title {
+      top: -286px;
+    }
+  }
+
+  /*---- LG --*/
+  @media only screen and (max-width: 1024px) {
+    .__title {
+      top: -276px;
+    }
+
+    .__img {
+      position: relative;
+    }
+  }
+}

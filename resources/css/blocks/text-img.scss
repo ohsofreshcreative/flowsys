@@ -1,0 +1,92 @@
+.b-text-img {
+	.__txt {
+		p {
+			margin-bottom: 16px;
+		}
+
+		p:last-child {
+			margin-bottom: 0 !important;
+		}
+
+		ul {
+			margin-top: 8px;
+			margin-bottom: 24px;
+			list-style: none;
+			padding-left: 0;
+
+			li {
+				position: relative;
+				padding-left: 24px;
+				margin-bottom: 0.5em;
+
+				&::before {
+					content: '';
+					position: absolute;
+					left: 0;
+					top: 4px;
+					width: 16px;
+					height: 16px;
+					background-image: url('http://asystent.local/wp-content/uploads/2025/11/check.svg');
+					background-size: contain;
+					background-repeat: no-repeat;
+					background-position: center;
+				}
+			}
+		}
+	}
+}
+
+.b-text-img.choice {
+	img {
+		aspect-ratio: 1 / 1;
+		border-radius: 50% !important;
+		width: 432px;
+		margin: 0 auto;
+	}
+}
+
+.b-text-img.aboutus {
+	.__col {
+		grid-template-columns: 1.5fr 2fr;
+		gap: 80px;
+	}
+
+	.__img {
+		margin-right: calc(80% - 50vw);
+		padding-right: calc(80% - 50vw);
+		box-sizing: border-box;
+	}
+}
+
+
+
+.b-text-img.aboutus {
+	.__col {
+		grid-template-columns: 1.5fr 2fr;
+		gap: 80px;
+	}
+
+	.__img {
+		margin-right: calc(80% - 50vw);
+		padding-right: calc(80% - 50vw);
+		box-sizing: border-box;
+	}
+}
+
+/*---- !LG --*/
+
+@media only screen and (max-width: 1024px) {
+	.b-text-img.aboutus {
+		.__col {
+			grid-template-columns: 1fr !important;
+			gap: 80px;
+		}
+
+		.__img {
+			width: 100% !important;
+			;
+			margin-right: 0 !important;
+			padding-right: 0 !important;
+		}
+	}
+}

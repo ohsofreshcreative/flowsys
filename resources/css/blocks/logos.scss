@@ -1,0 +1,32 @@
+.b-logos {
+	.swiper-wrapper {
+		display: flex;
+	}
+
+	.logos-swiper .swiper-wrapper {
+		transition-timing-function: linear !important;
+	}
+
+	.logos-swiper .swiper-slide {
+		width: auto;
+	}
+
+	.logos-swiper {
+	
+		overflow: hidden;
+
+		.swiper-wrapper {
+		
+			transition-timing-function: linear !important;
+		
+			align-items: center;
+		}
+
+		.swiper-slide {
+			
+			width: max-content !important;
+			flex-shrink: 0;
+		}
+		
+	}
+}

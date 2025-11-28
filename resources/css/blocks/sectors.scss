@@ -1,0 +1,14 @@
+.b-sectors {
+	.__card {
+		.__content {
+		transition: all 0.3s ease;
+		}
+	}
+	.__card:hover {
+		.__content {
+		border-color:var(--p-800) !important;
+		background-color: var(--p-50);
+		transition: all 0.3s ease;
+		}
+	}
+}
