@@ -1,3 +1,13 @@
 .b-hero {
- 
+	.__cta:hover {
+		.underline-btn {
+			transition: all 0.2s ease-out;
+			color: var(--p-500);
+			border-bottom: 1px solid var(--primary);
+		}
+
+		.underline-btn::after {
+			margin-left:12px;
+		}
+	}
 }

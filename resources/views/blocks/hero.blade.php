@@ -8,69 +8,58 @@ $sectionClass .= $nomt ? ' !mt-0' : '';
 <section
 	data-gsap-anim="section"
 	@if(!empty($section_id)) id="{{ $section_id }}" @endif
-	class="s-hero bg-secondary relative min-h-[100svh] {{ $sectionClass }} {{ $section_class }}">
+	class="b-hero bg-secondary relative overflow-hidden {{ $sectionClass }} {{ $section_class }}" style="background-image:linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('{{ $g_hero['image']['url'] }}'); background-size:cover; background-position:center;">
 
-	@if (!empty($g_hero['use_video']) && !empty($g_hero['video']))
-	<video
-		class="absolute inset-0 w-full h-full object-cover z-0"
-		autoplay
-		muted
-		loop
-		playsinline
-		preload="metadata"
-		@if(!empty($g_hero['video_poster']['url'])) poster="{{ $g_hero['video_poster']['url'] }}" @endif
-		aria-hidden="true">
-		<source src="{{ is_array($g_hero['video']) ? ($g_hero['video']['url'] ?? '') : $g_hero['video'] }}"
-			type="{{ is_array($g_hero['video']) ? ($g_hero['video']['mime_type'] ?? 'video/mp4') : 'video/mp4' }}">
-	</video>
-
-	<div class="absolute inset-0 bg-black/40 z-10 pointer-events-none"></div>
-	@endif
-
-	<div class="__wrapper c-wide h-screen grid grid-cols-1 lg:grid-cols-2 gap-8 items-center relative z-20">
+	<div class="__wrapper c-wide grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-8 items-end relative z-20 py-20">
 		<div class="__content pt-20 pb-10 md:py-30">
-			<h1 data-gsap-element="header" class=" text-white">
-				{{ $g_hero['title'] }}
-			</h1>
-			<div data-gsap-element="txt" class="text-white mt-2">
-				{!! $g_hero['txt'] !!}
-			</div>
-			@if (!empty($g_hero['button1']))
-			<div class="inline-buttons m-btn">
-				<a data-gsap-element="button" class="white-btn left-btn"
-					href="{{ $g_hero['button1']['url'] }}"
-					target="{{ $g_hero['button1']['target'] }}">
-					{{ $g_hero['button1']['title'] }}
-				</a>
-				@if (!empty($g_hero['button2']))
-				<a data-gsap-element="button" class="main-btn"
-					href="{{ $g_hero['button2']['url'] }}"
-					target="{{ $g_hero['button2']['target'] }}">
-					{{ $g_hero['button2']['title'] }}
-				</a>
+
+			<div>
+				<h1 data-gsap-element="header" class=" text-white">
+					{{ $g_hero['title'] }}
+				</h1>
+				<div data-gsap-element="txt" class="text-2xl text-white mt-2 w-full md:w-2/3">
+					{!! $g_hero['txt'] !!}
+				</div>
+				@if (!empty($g_hero['button1']))
+				<div class="inline-buttons m-btn">
+					<a data-gsap-element="button" class="white-btn left-btn"
+						href="{{ $g_hero['button1']['url'] }}"
+						target="{{ $g_hero['button1']['target'] }}">
+						{{ $g_hero['button1']['title'] }}
+					</a>
+					@if (!empty($g_hero['button2']))
+					<a data-gsap-element="button" class="main-btn"
+						href="{{ $g_hero['button2']['url'] }}"
+						target="{{ $g_hero['button2']['target'] }}">
+						{{ $g_hero['button2']['title'] }}
+					</a>
+					@endif
+				</div>
 				@endif
 			</div>
-			@endif
+		</div>
 
-			@if (!empty($numbers))
-			<div data-gsap-element="numbers" class="border-top-p flex gap-4 pt-10 mt-10">
-
-				@foreach ($numbers as $item)
-				<div class="border-right-p pr-4">
-					<p class="text-h3 text-white">{{ $item['number'] }}</p>
-					<p class="text-lg text-white">{{ $item['opis'] }}</p>
+		<a class="__cta" href="{{ $g_hero_cta['button1']['url'] }}"
+			target="{{ $g_hero_cta['button1']['target'] }}">
+			<div data-gsap-element="cta" class="__cta flex items-center gap-8 bg-white radius w-max max-w-[432px] p-2">
+				@if (!empty($g_hero_cta['image']))
+				<div data-gsap-element="image" class="">
+					<img class="max-h-[120px] aspect-square radius object-cover" src="{{ $g_hero_cta['image']['url'] }}" alt="{{ $g_hero_cta['image']['alt'] ?? '' }}">
 				</div>
-				@endforeach
+				@endif
+				<div class="__content">
+					<h6 data-gsap-element="header">{{ $g_hero_cta['title'] }}</h6>
+					<p data-gsap-element="button" class="underline-btn left-btn mt-1"
+						href="{{ $g_hero_cta['button1']['url'] }}"
+						target="{{ $g_hero_cta['button1']['target'] }}">
+						{{ $g_hero_cta['button1']['title'] }}
+					</p>
+				</div>
 			</div>
-			@endif
+		</a>
 
-		</div>
-
-		@if (!empty($g_hero['image']))
-		<div data-gsap-element="image" class="">
-			<img src="{{ $g_hero['image']['url'] }}" alt="{{ $g_hero['image']['alt'] ?? '' }}">
-		</div>
-		@endif
 	</div>
+
+	<img class="absolute right-0 bottom-0" src="/wp-content/uploads/2025/12/hero_bg.svg" />
 
 </section>

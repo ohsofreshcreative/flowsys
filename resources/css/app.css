@@ -11,8 +11,11 @@
 
 /*-- USED ---*/
 @import '../css/blocks/hero.scss';
-@import '../css/blocks/tlc.scss';
 @import '../css/blocks/offer.scss';
+
+/*-- NOT USED --*/
+@import '../css/blocks/hero.scss';
+@import '../css/blocks/tlc.scss';
 @import '../css/blocks/text-img.scss';
 @import '../css/blocks/categories.scss';
 @import '../css/blocks/cta-bg.scss';
@@ -44,7 +47,6 @@
 @import '../css/blocks/logos.scss';
 @import '../css/blocks/locations.scss';
 
-/*-- NOT USED --*/
 @import '../css/blocks/hero-offer.scss';
 
 @import '../css/blocks/categories.scss';

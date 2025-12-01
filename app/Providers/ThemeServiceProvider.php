@@ -28,11 +28,11 @@ class ThemeServiceProvider extends SageServiceProvider
 
 		// CUSTOM POST TYPE BRANŻE
 		add_action('init', function () {
-			register_post_type('sectors', [
-				'label' => 'Branże',
+			register_post_type('offer', [
+				'label' => 'Oferta',
 				'public' => true,
 				'has_archive' => false,
-				'rewrite' => ['slug' => 'sectors'],
+				'rewrite' => ['slug' => 'offer'],
 				'supports' => ['title', 'editor', 'thumbnail', 'excerpt'],
 				'show_in_rest' => true,
 				'taxonomies' => ['category'],
@@ -53,30 +53,6 @@ class ThemeServiceProvider extends SageServiceProvider
 				'menu_icon' => 'dashicons-open-folder',
 			]);
 		});
-
-		// CUSTOM POST TYPE KATEGORIE USŁUG
-		add_action('init', function () {
-            // Najpierw rejestrujemy taksonomię (kategorie)
-            register_taxonomy('uslugi_category', 'uslugi', [
-                'label' => 'Kategorie Usług',
-                'rewrite' => ['slug' => 'kategorie-uslug'],
-                'hierarchical' => true,
-                'show_admin_column' => true,
-                'show_in_rest' => true,
-            ]);
-
-            // Następnie rejestrujemy CPT i łączymy go z taksonomią
-            register_post_type('uslugi', [
-                'label' => 'Usługi',
-                'public' => true,
-                'has_archive' => false,
-                'rewrite' => ['slug' => 'uslugi'],
-                'supports' => ['title', 'editor', 'thumbnail', 'excerpt'],
-                'show_in_rest' => true,
-                'menu_icon' => 'dashicons-admin-generic',
-                'taxonomies' => ['uslugi_category'], // Tutaj łączymy CPT z nową taksonomią
-            ]);
-        });
 
 		// USATAWIENIA MOTYWU
 		add_action('acf/init', function () {

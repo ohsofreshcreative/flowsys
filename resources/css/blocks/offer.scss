@@ -1,5 +1,8 @@
-.s-offer {
-  img {
-	max-width: 80px;
-  }
+.b-offer {
+	.__card:hover {
+		.bg-p-light {
+			background-color: var(--p-300) !important;
+			transition: all 0.3s ease;
+		}
+	}
 }

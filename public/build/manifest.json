@@ -4,7 +4,7 @@
     "src": "editor.deps.json"
   },
   "resources/css/app.css": {
-    "file": "assets/app-Cm7qf8_5.css",
+    "file": "assets/app-G2rxBpXx.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "name": "app",
@@ -13,7 +13,7 @@
     ]
   },
   "resources/css/editor.css": {
-    "file": "assets/editor-CqLqD2Xc.css",
+    "file": "assets/editor-BizOmNff.css",
     "src": "resources/css/editor.css",
     "isEntry": true,
     "name": "editor",
@@ -21,37 +21,21 @@
       "editor.css"
     ]
   },
-  "resources/fonts/SohoPro-Bold.woff2": {
-    "file": "assets/SohoPro-Bold-CvNEMWgj.woff2",
-    "src": "resources/fonts/SohoPro-Bold.woff2"
+  "resources/fonts/CabinetGrotesk-Variable.eot": {
+    "file": "assets/CabinetGrotesk-Variable-BQ8MQmR9.eot",
+    "src": "resources/fonts/CabinetGrotesk-Variable.eot"
   },
-  "resources/fonts/SohoPro-ExtraBold.woff2": {
-    "file": "assets/SohoPro-ExtraBold-D8itJACH.woff2",
-    "src": "resources/fonts/SohoPro-ExtraBold.woff2"
+  "resources/fonts/CabinetGrotesk-Variable.ttf": {
+    "file": "assets/CabinetGrotesk-Variable-DZ-mBhZu.ttf",
+    "src": "resources/fonts/CabinetGrotesk-Variable.ttf"
   },
-  "resources/fonts/SohoPro-ExtraLight.woff2": {
-    "file": "assets/SohoPro-ExtraLight-DOlQY3Qc.woff2",
-    "src": "resources/fonts/SohoPro-ExtraLight.woff2"
+  "resources/fonts/CabinetGrotesk-Variable.woff": {
+    "file": "assets/CabinetGrotesk-Variable-DRyS-JTJ.woff",
+    "src": "resources/fonts/CabinetGrotesk-Variable.woff"
   },
-  "resources/fonts/SohoPro-ExtraLightItalic.woff2": {
-    "file": "assets/SohoPro-ExtraLightItalic-4A182zoi.woff2",
-    "src": "resources/fonts/SohoPro-ExtraLightItalic.woff2"
-  },
-  "resources/fonts/SohoPro-Italic.woff2": {
-    "file": "assets/SohoPro-Italic-BnPzMU3z.woff2",
-    "src": "resources/fonts/SohoPro-Italic.woff2"
-  },
-  "resources/fonts/SohoPro-Light.woff2": {
-    "file": "assets/SohoPro-Light-ftqCK5_D.woff2",
-    "src": "resources/fonts/SohoPro-Light.woff2"
-  },
-  "resources/fonts/SohoPro-Medium.woff2": {
-    "file": "assets/SohoPro-Medium-BbHXlDyH.woff2",
-    "src": "resources/fonts/SohoPro-Medium.woff2"
-  },
-  "resources/fonts/SohoPro-Regular.woff2": {
-    "file": "assets/SohoPro-Regular-BEQL6-pY.woff2",
-    "src": "resources/fonts/SohoPro-Regular.woff2"
+  "resources/fonts/CabinetGrotesk-Variable.woff2": {
+    "file": "assets/CabinetGrotesk-Variable-DI2t1LFl.woff2",
+    "src": "resources/fonts/CabinetGrotesk-Variable.woff2"
   },
   "resources/images/mapa-polski.svg": {
     "file": "assets/mapa-polski-CaNIMG4v.svg",

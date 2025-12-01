@@ -91,32 +91,33 @@ body {
 
 :root {
 	--body: #12141a !important;
-	--primary: #00aa4f;
-	--p-hover: #008a40;
-	--p-50: #f2fbf6;
-	--p-100: #cceddb;
-	--p-200: #aae1c4;
-	--p-300: #80d2a6;
-	--p-400: #55c488;
-	--p-500: #2bb56b;
-	--p-600: #008a40;
-	--p-700: #006f33;
-	--p-800: #005327;
-	--p-900: #00371a;
-	--p-dark: #00210f;
 
-	--secondary: #181918;
-	--s-hover: #141514;
-	--s-100: #d1d1d1;
-	--s-200: #b2b2b2;
-	--s-300: #8b8c8b;
-	--s-400: #656665;
-	--s-500: #3f3f3f;
-	--s-600: #141514;
-	--s-700: #101110;
-	--s-800: #0c0d0c;
-	--s-900: #080808;
-	--s-dark: #050505;
+	--primary: #2BB209;
+	--p-hover: #249408;
+	--p-50: #F2FBF6;
+	--p-100: #D5F0CE;
+	--p-200: #B8E5AD;
+	--p-300: #95D884;
+	--p-400: #72CC5B;
+	--p-500: #4EBF32;
+	--p-600: #249408;
+	--p-700: #1D7706;
+	--p-800: #165905;
+	--p-900: #0E3B03;
+	--p-dark: #092402;
+
+	--secondary: #071622;
+	--s-hover: #06121C;
+	--s-100: #CCD7DF;
+	--s-200: #A5B4C0;
+	--s-300: #7A8B99;
+	--s-400: #526575;
+	--s-500: #2A3F50;
+	--s-600: #06121C;
+	--s-700: #050F17;
+	--s-800: #040B11;
+	--s-900: #02070B;
+	--s-dark: #010407;
 
 	--text-p-light: var(--p-400);
 	--text-p-lighter: var(--p-200);
@@ -137,9 +138,9 @@ body {
 	--border-s: var(--s-300);
 	--border-s-light: var(--s-200);
 
-	--header: 'SohoPro', serif;
-	--txt: 'adelle-sans', sans-serif;
-	--btns-font: 'adelle-sans', sans-serif;
+	--header: 'CabinetGrotesk-Variable', serif;
+	--txt: 'CabinetGrotesk-Variable', sans-serif;
+	--btns-font: 'CabinetGrotesk-Variable', sans-serif;
 
 	--smt: 104px;
 	--spt: 104px;
@@ -151,7 +152,7 @@ body {
 	--img-s: 240px;
 	--img-m: 360px;
 	--img-l: 408px;
-	--img-xl: 432px;
+	--img-xl: 496px;
 	--img-2xl: 608px;
 	--img-3xl: 776px;
 
@@ -174,63 +175,12 @@ body {
 }
 
 @font-face {
-	font-family: 'SohoPro';
-	src: url('../fonts/SohoPro-Bold.woff2') format('woff2');
-	font-weight: 700;
-	/* Bold */
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'SohoPro';
-	src: url('../fonts/SohoPro-ExtraBold.woff2') format('woff2');
-}
-
-@font-face {
-	font-family: 'SohoPro';
-	src: url('../fonts/SohoPro-ExtraLight.woff2') format('woff2');
-	font-weight: 200;
-	/* ExtraLight */
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'SohoPro';
-	src: url('../fonts/SohoPro-ExtraLightItalic.woff2') format('woff2');
-	font-weight: 200;
-	/* ExtraLight */
-	font-style: italic;
-}
-
-@font-face {
-	font-family: 'SohoPro';
-	src: url('../fonts/SohoPro-Italic.woff2') format('woff2');
-	font-weight: normal;
-	/* Domyślny, jeśli nie ma w nazwie */
-	font-style: italic;
-}
-
-@font-face {
-	font-family: 'SohoPro';
-	src: url('../fonts/SohoPro-Light.woff2') format('woff2');
-	font-weight: 300;
-	/* Light */
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'SohoPro';
-	src: url('../fonts/SohoPro-Medium.woff2') format('woff2');
-	font-weight: 500;
-	/* Medium */
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'SohoPro';
-	src: url('../fonts/SohoPro-Regular.woff2') format('woff2');
-	font-weight: 400;
-	/* Regular */
+	font-family: 'CabinetGrotesk-Variable';
+	src: url('../fonts/CabinetGrotesk-Variable.woff2') format('woff2'),
+		url('../fonts/CabinetGrotesk-Variable.woff') format('woff'),
+		url('../fonts/CabinetGrotesk-Variable.ttf') format('truetype');
+	font-weight: 100 900;
+	font-display: swap;
 	font-style: normal;
 }
 
@@ -745,48 +695,48 @@ h6,
 	border-radius: var(--radius) !important;
 }
 
-.border-solid-p {
-	border: 1px solid var(--border-p) !important;
-}
-
 .dashed-p-3 {
-	border: 3px dashed var(--border-p) !important;
+	border: 3px solid var(--border-p) !important;
 }
 
 .border-p {
-	border: 1px dashed var(--border-p) !important;
+	border: 1px solid var(--border-p) !important;
 }
 
 .border-p-light {
-	border: 1px dashed var(--border-p-light) !important;
+	border: 1px solid var(--border-p-light) !important;
 }
 
 .border-p-dark {
-	border: 1px dashed var(--border-p-dark) !important;
+	border: 1px solid var(--border-p-dark) !important;
 }
 
 .border-s {
-	border: 1px dashed var(--border-s) !important;
+	border: 1px solid var(--border-s) !important;
 }
 
 .border-s-light {
-	border: 1px dashed var(--border-s-light) !important;
+	border: 1px solid var(--border-s-light) !important;
 }
 
 .border-top-p {
-	border-top: 1px dashed var(--border-p) !important;
+	border-top: 1px solid var(--border-p) !important;
 }
 
 .border-right-p {
-	border-right: 1px dashed var(--border-p) !important;
+	border-right: 1px solid var(--border-p) !important;
 }
 
 .border-bottom-p {
-	border-bottom: 1px dashed var(--border-p) !important;
+	border-bottom: 1px solid var(--border-p) !important;
+}
+
+.b-bottom-p-light {
+	border-bottom: 1px solid var(--border-p-light) !important;
 }
 
 .border-left-p {
-	border-left: 1px dashed var(--border-p) !important;
+	border-left: 1px solid var(--border-p) !important;
 }
 
 .border-right-p:last-child {
@@ -1009,31 +959,30 @@ h6,
 	display: inline-block;
 	transition: all 0.2s ease-out;
 	border-radius: 0;
-	font-weight: 600;
+	font-weight: 500;
 	text-decoration: none;
 	white-space: nowrap;
 	border-bottom: 1px solid var(--primary);
 	width: max-content;
 }
 
-.underline-btn::before {
-	content: url('/wp-content/uploads/2025/11/arrow.svg');
-	height: 10px;
-	width: 10px;
-	margin-right: 8px;
+.underline-btn::after {
+	content: url('http://flowsys.local/wp-content/uploads/2025/12/btn-arrow.svg');
+	height: 12px;
+	width: 12px;
+	margin-left: 8px;
 	transition: all 0.2s ease-out;
 }
 
 .underline-btn:hover {
 	transition: all 0.2s ease-out;
+	color: var(--p-500);
+	border-bottom: 1px solid var(--primary);
 }
 
-.underline-btn:hover::before {
-	content: url('/wp-content/uploads/2025/11/arrow.svg');
-	height: 10px;
-	width: 10px;
-	margin-right: 12px;
+.underline-btn:hover::after {
 	transition: all 0.2s ease-out;
+	margin-left: 12px;
 }
 
 .menu-btn {
@@ -1067,17 +1016,17 @@ h6,
 /*--- !MENU  ---*/
 
 .fixed-top {
-	 height: var(--menu-height);
-    position: fixed;
-    left: 1rem;
-    right: 1rem; 
-    width: auto; 
-    max-width: 100%;
-    z-index: 49;
-    transition: all 0.3s;
-    transition-delay: 0s;
-    box-shadow: 0 3px 5px rgba(27, 106, 23, 0.2) !important;
-    border-radius: 200px;
+	height: var(--menu-height);
+	position: fixed;
+	left: 1rem;
+	right: 1rem;
+	width: auto;
+	max-width: 100%;
+	z-index: 49;
+	transition: all 0.3s;
+	transition-delay: 0s;
+	box-shadow: 0 3px 5px rgba(27, 106, 23, 0.2) !important;
+	border-radius: 200px;
 
 	.contact__btn {
 		background-color: var(--primary);
@@ -1110,7 +1059,7 @@ h6,
 .fixed-top.scrollDown {
 	background-color: #fff !important;
 	box-shadow: 0 3px 5px rgba(27, 106, 23, 0.2) !important;
-	margin-top:0 !important;
+	margin-top: 0 !important;
 }
 
 .fixed-top.scrollDown .nav-link {
@@ -1469,7 +1418,7 @@ footer {
 		margin-right: 8px;
 		position: relative;
 		top: 8px;
-		width:24px;
+		width: 24px;
 		height: 24px;
 	}
 
@@ -1478,7 +1427,7 @@ footer {
 		margin-right: 8px;
 		position: relative;
 		top: 6px;
-		width:24px;
+		width: 24px;
 		height: 24px;
 	}
 }
@@ -1703,7 +1652,7 @@ footer {
 		transition: transform 0.3s;
 		display: block !important;
 		width: 12px;
-		margin-top:-6px;
+		margin-top: -6px;
 	}
 
 	.__widget {
