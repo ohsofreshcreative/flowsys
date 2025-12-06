@@ -12,6 +12,7 @@
 /*-- USED ---*/
 @import '../css/blocks/hero.scss';
 @import '../css/blocks/offer.scss';
+@import '../css/blocks/complex.scss';
 
 /*-- NOT USED --*/
 @import '../css/blocks/hero.scss';

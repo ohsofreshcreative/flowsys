@@ -5,83 +5,77 @@ namespace App\Blocks;
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
-class Proces extends Block
-
+class Complex extends Block
 {
-
-
-	public $name = 'Rozwijane panele';
-	public $description = 'proces';
-	public $slug = 'proces';
+	public $name = 'Kompleksowe instalacje';
+	public $description = 'complex';
+	public $slug = 'complex';
 	public $category = 'formatting';
-	public $icon = 'feedback';
-	public $keywords = ['proces'];
-	public $mode = 'edit'; 
+	public $icon = 'star-filled';
+	public $keywords = ['complex', 'kafelki'];
+	public $mode = 'edit';
 	public $supports = [
 		'align' => false,
 		'mode' => false,
 		'jsx' => true,
-		'anchor' => true,
-		'customClassName' => true,
 	];
 
 	public function fields()
 	{
-		$proces = new FieldsBuilder('proces');
+		$complex = new FieldsBuilder('complex');
 
-		$proces
-			->setLocation('block', '==', 'acf/proces') // ważne!
+		$complex
+			->setLocation('block', '==', 'acf/complex') // ważne!
 			->addText('block-title', [
 				'label' => 'Tytuł',
 				'required' => 0,
 			])
-
-			->addAccordion('proces1', [
-				'label' => 'Rozwijane panele',
+			->addAccordion('accordion1', [
+				'label' => 'Kompleksowe instalacje',
 				'open' => false,
 				'multi_expand' => true,
 			])
-
 			/*--- TAB #1 ---*/
-			->addTab('Treść', ['placement' => 'top'])
-			->addGroup('g_proces', ['label' => ''])
-			->addText('title', ['label' => 'Tytuł'])
-
+			->addTab('Treści', ['placement' => 'top'])
+			->addGroup('g_complex', ['label' => ''])
 			->addImage('image', [
 				'label' => 'Obraz',
 				'return_format' => 'array', // lub 'url', lub 'id'
-				'preview_size' => 'medium',
+				'preview_size' => 'thumbnail',
 			])
-
-			->addWysiwyg('txt', [
+			->addText('header', ['label' => 'Nagłówek'])
+			->addWysiwyg('text', [
 				'label' => 'Treść',
 				'tabs' => 'all', // 'visual', 'text', 'all'
 				'toolbar' => 'full', // 'basic', 'full'
 				'media_upload' => true,
 			])
+			->addLink('button', [
+				'label' => 'Przycisk',
+				'return_format' => 'array',
+			])
 			->endGroup()
 
 			/*--- TAB #2 ---*/
-			->addTab('Elementy', ['placement' => 'top'])
-			->addRepeater('repeater', [
-				'label' => 'proces',
+			->addTab('Kafelki', ['placement' => 'top'])
+			->addRepeater('r_complex', [
+				'label' => 'Kafelki',
 				'layout' => 'table', // 'row', 'block', albo 'table'
 				'min' => 1,
-				'button_label' => 'Dodaj pytanie'
+				'button_label' => 'Dodaj kafelek'
+			])
+			->addImage('image', [
+				'label' => 'Obraz',
+				'return_format' => 'array', // lub 'url', lub 'id'
+				'preview_size' => 'medium',
 			])
 			->addText('title', [
-				'label' => 'Pytanie',
-			])
-			->addWysiwyg('txt', [
-				'label' => 'Odpowiedź',
-				'tabs' => 'all', // 'visual', 'text', 'all'
-				'toolbar' => 'full', // 'basic', 'full'
-				'media_upload' => true,
+				'label' => 'Nagłówek',
 			])
 			->endRepeater()
 
 			/*--- USTAWIENIA BLOKU ---*/
-		
+
 			->addTab('Ustawienia bloku', ['placement' => 'top'])
 			->addText('section_id', [
 				'label' => 'ID',
@@ -89,7 +83,6 @@ class Proces extends Block
 			->addText('section_class', [
 				'label' => 'Dodatkowe klasy CSS',
 			])
-			
 			->addTrueFalse('flip', [
 				'label' => 'Odwrotna kolejność',
 				'ui' => 1,
@@ -114,49 +107,37 @@ class Proces extends Block
 				'ui_on_text' => 'Tak',
 				'ui_off_text' => 'Nie',
 			])
-			->addTrueFalse('lightbg', [
-				'label' => 'Jasne tło',
-				'ui' => 1,
-				'ui_on_text' => 'Tak',
-				'ui_off_text' => 'Nie',
-			])
-			->addTrueFalse('graybg', [
-				'label' => 'Szare tło',
-				'ui' => 1,
-				'ui_on_text' => 'Tak',
-				'ui_off_text' => 'Nie',
-			])
-			->addTrueFalse('whitebg', [
-				'label' => 'Białe tło',
-				'ui' => 1,
-				'ui_on_text' => 'Tak',
-				'ui_off_text' => 'Nie',
-			])
-			->addTrueFalse('brandbg', [
-				'label' => 'Tło marki',
-				'ui' => 1,
-				'ui_on_text' => 'Tak',
-				'ui_off_text' => 'Nie',
-			]);
+			->addSelect('background', [
+                'label' => 'Kolor tła',
+                'choices' => [
+                    'none' => 'Brak (domyślne)',
+                    'section-white' => 'Białe',
+                    'section-light' => 'Jasne',
+                    'section-gray' => 'Szare',
+                    'section-brand' => 'Marki',
+                    'section-gradient' => 'Gradient',
+                    'section-dark' => 'Ciemne',
+                ],
+                'default_value' => 'none',
+                'ui' => 0, // Ulepszony interfejs
+                'allow_null' => 0,
+            ]);
 
-		return $proces;
+		return $complex;
 	}
 
 	public function with()
 	{
 		return [
-			'g_proces' => get_field('g_proces'),
+			'g_complex' => get_field('g_complex'),
+			'r_complex' => get_field('r_complex'),
 			'section_id' => get_field('section_id'),
 			'section_class' => get_field('section_class'),
-			'repeater' => get_field('repeater'),
 			'flip' => get_field('flip'),
 			'wide' => get_field('wide'),
 			'nomt' => get_field('nomt'),
 			'gap' => get_field('gap'),
-			'lightbg' => get_field('lightbg'),
-			'graybg' => get_field('graybg'),
-			'whitebg' => get_field('whitebg'),
-			'brandbg' => get_field('brandbg'),
+			'background' => get_field('background'),
 		];
 	}
 }

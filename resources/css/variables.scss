@@ -126,6 +126,7 @@ body {
 
 	--gray: #63656a;
 	--bg: #fafafa;
+	--bg-gray: var(--s-500);
 	--bg-dark: #002704;
 	--bg-p-light: #DDF3E7;
 	--bg-p-lighter: var(--p-200);
@@ -298,7 +299,7 @@ body {
 }
 
 .section-brand {
-	background: var(--p-hover);
+	background: var(--p-dark);
 	padding: var(--smt) 0;
 
 	h1,
@@ -320,27 +321,6 @@ body {
 
 .section-primary {
 	background: var(--primary);
-	padding: var(--smt) 0;
-
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6,
-	p,
-	b,
-	strong,
-	i,
-	ul,
-	ul li,
-	a {
-		color: #fff !important;
-	}
-}
-
-.section-secondary {
-	background: var(--secondary);
 	padding: var(--smt) 0;
 
 	h1,
@@ -388,7 +368,7 @@ body {
 }
 
 .section-dark {
-	background: var(--bg-dark);
+	background: var(--secondary);
 	padding: var(--smt) 0;
 
 	h1,
@@ -632,10 +612,6 @@ h6,
 	background-color: var(--secondary);
 }
 
-.bg-s-400 {
-	background-color: var(--s-400);
-}
-
 .bg-s-light {
 	background-color: var(--bg-s-light);
 }
@@ -662,6 +638,10 @@ h6,
 
 .bg-gradient-light {
 	background-image: var(--gradient-light) !important;
+}
+
+.bg-gray {
+	background-color: var(--bg-gray) !important;
 }
 
 .bg-dark {
