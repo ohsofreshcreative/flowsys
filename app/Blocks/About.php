@@ -11,8 +11,8 @@ class About extends Block
 	public $description = 'about';
 	public $slug = 'about';
 	public $category = 'formatting';
-	public $icon = 'admin-users';
-	public $keywords = ['about', 'o nas'];
+	public $icon = 'align-pull-left';
+	public $keywords = ['tresc', 'zdjecie'];
 	public $mode = 'edit';
 	public $supports = [
 		'align' => false,
@@ -40,36 +40,21 @@ class About extends Block
 			/*--- GROUP ---*/
 			->addTab('Elementy', ['placement' => 'top'])
 			->addGroup('g_about', ['label' => ''])
-			->addAccordion('accordion2', [
-				'label' => 'Lewa strona',
-				'open' => false,
-				'multi_expand' => false,
-			])
 			->addImage('image', [
-				'label' => 'Obraz #1',
+				'label' => 'Obraz',
 				'return_format' => 'array', // lub 'url', lub 'id'
-				'preview_size' => 'medium',
-			])
-			->addText('nr', ['label' => 'Liczba'])
-			->addText('description', ['label' => 'Opis'])
-			
-			->addAccordion('accordion3', [
-				'label' => 'Prawa strona',
-				'open' => false,
-				'multi_expand' => false,
-			])
-			->addImage('image2', [
-				'label' => 'Obraz #2',
-				'return_format' => 'array', // lub 'url', lub 'id'
-				'preview_size' => 'medium',
+				'preview_size' => 'thumbnail',
 			])
 			->addText('title', ['label' => 'Tytuł'])
-			->addText('header', ['label' => 'Nagłówek'])
 			->addWysiwyg('txt', [
 				'label' => 'Treść',
 				'tabs' => 'all', // 'visual', 'text', 'all'
 				'toolbar' => 'full', // 'basic', 'full'
 				'media_upload' => true,
+			])
+			->addLink('button', [
+				'label' => 'Przycisk',
+				'return_format' => 'array',
 			])
 			->endGroup()
 
@@ -106,21 +91,21 @@ class About extends Block
 				'ui_on_text' => 'Tak',
 				'ui_off_text' => 'Nie',
 			])
-			->addSelect('bg', [
-				'label' => 'Tło sekcji',
-				'choices' => [
-					'x' => '— brak —',
-					'light' => 'Jasne tło',
-					'gray' => 'Szare tło',
-					'white' => 'Białe tło',
-					'brand' => 'Tło marki',
-					'dark' => 'Ciemne tło',
-				],
-				'default_value' => '',
-				'allow_null'    => 0,
-				'multiple'      => 0,
-				'ui'            => 1,
-			]);
+			->addSelect('background', [
+                'label' => 'Kolor tła',
+                'choices' => [
+                    'none' => 'Brak (domyślne)',
+                    'section-white' => 'Białe',
+                    'section-light' => 'Jasne',
+                    'section-gray' => 'Szare',
+                    'section-brand' => 'Marki',
+                    'section-gradient' => 'Gradient',
+                    'section-dark' => 'Ciemne',
+                ],
+                'default_value' => 'none',
+                'ui' => 0, // Ulepszony interfejs
+                'allow_null' => 0,
+            ]);
 
 		return $about;
 	}
@@ -135,7 +120,7 @@ class About extends Block
 			'wide' => get_field('wide'),
 			'nomt' => get_field('nomt'),
 			'gap' => get_field('gap'),
-			'bg' => get_field('bg'),
+			'background' => get_field('background'),
 		];
 	}
 }

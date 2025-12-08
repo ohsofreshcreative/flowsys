@@ -41,6 +41,11 @@ class Bottom extends Field
 				'toolbar' => 'full', // 'basic', 'full'
 				'media_upload' => true,
 			])
+			->addText('phone', ['label' => 'Telefon'])
+			->addLink('button', [
+				'label' => 'Przycisk',
+				'return_format' => 'array',
+			])
 			->addText('shortcode', [
 				'label' => 'Kod formularza',
 				'instructions' => 'Wklej kod formularza:  [contact-form-7 id="f12c470" title="Contact form 1"]',

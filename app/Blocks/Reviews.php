@@ -39,6 +39,7 @@ class Reviews extends Block
 			->addTab('Treści', ['placement' => 'top'])
 			->addGroup('g_reviews', ['label' => ''])
 			->addText('title', ['label' => 'Tytuł'])
+			->addWysiwyg('text', ['label' => 'Opis', 'media_upload' => 0, 'tabs' => 'visual'])
 			->endGroup()
 
 			/*--- OPINIE ---*/
@@ -139,8 +140,8 @@ class Reviews extends Block
 		];
 	}
 
-    public function enqueue()
-    {
-        // Pozostaw tę metodę pustą.
-    }
+	public function enqueue()
+	{
+		// Pozostaw tę metodę pustą.
+	}
 }

@@ -16,6 +16,8 @@
 @import '../css/blocks/proces.scss';
 @import '../css/blocks/works.scss';
 @import '../css/blocks/reviews.scss';
+@import '../css/blocks/about.scss';
+@import '../css/blocks/category-posts.scss';
 
 /*-- NOT USED --*/
 @import '../css/blocks/hero.scss';
@@ -56,12 +58,10 @@
 @import '../css/blocks/area-block.scss';
 @import '../css/blocks/cases.scss';
 @import '../css/blocks/history.scss';
-@import '../css/blocks/category-posts.scss';
 @import '../css/blocks/cases-slider.scss';
 @import '../css/blocks/path.scss';
 @import '../css/blocks/duotitle.scss';
 @import '../css/blocks/inspirations.scss';
-@import '../css/blocks/about.scss';
 @import '../css/blocks/wysiwyg.scss';
 @import '../css/blocks/connect.scss';
 @import '../css/blocks/coop.scss';

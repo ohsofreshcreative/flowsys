@@ -12,6 +12,7 @@ import './footer-accordion.js';
 import './swiper.js';
 import './blocks/works.js';
 import './blocks/reviews.js';
+import './blocks/category-posts.js';
 
 /*--- INICJALIZACJA BIBLIOTEK ---*/
 // Uruchom Alpine.js

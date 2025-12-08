@@ -170,7 +170,7 @@ body {
 
 	--footer-py: 156px 0;
 
-	--gradient: linear-gradient(-90deg, var(--secondary) 0%, #006f11 100%);
+	--gradient: linear-gradient(90deg, #0E3B03 0%, #249408 100%);
 
 	--gradient-light: linear-gradient(-90deg, #005303 0%, #00890E 100%);
 }
@@ -469,6 +469,8 @@ a {
 	margin-right: 8px;
 }
 
+/*--- !HEADERS ---*/
+
 h1,
 .text-h1,
 h2,
@@ -500,7 +502,7 @@ h1,
 h2,
 .text-h2 {
 	font-size: 60px !important;
-	line-height: 4.3rem;
+	line-height: 3.7rem;
 }
 
 h3,
@@ -594,6 +596,10 @@ h6,
 
 .bg-primary {
 	background-color: var(--primary);
+}
+
+.bg-brand {
+	background-color: var(--p-900);
 }
 
 .bg-p-light {
