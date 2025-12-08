@@ -40,13 +40,13 @@ class ThemeServiceProvider extends SageServiceProvider
 			]);
 		});
 
-		// CUSTOM POST TYPE OFERTY PRACY
+		// CUSTOM POST TYPE REALIZACJE
 		add_action('init', function () {
-			register_post_type('job_offers', [
-				'label' => 'Oferty Pracy',
+			register_post_type('works', [
+				'label' => 'Realizacje',
 				'public' => true,
 				'has_archive' => false,
-				'rewrite' => ['slug' => 'job_offers'],
+				'rewrite' => ['slug' => 'works'],
 				'supports' => ['title', 'editor', 'thumbnail', 'excerpt'],
 				'show_in_rest' => true,
 				'taxonomies' => ['category'],

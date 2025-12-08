@@ -1,4 +1,4 @@
-.s-reviews {
+.b-reviews {
   .swiper {
     .__img img {
       width: 56px;
@@ -14,51 +14,4 @@
     right: 0;
     top: -80px;
   }
-	.swiper-button-next,
-	.swiper-button-prev {
-		position: unset !important;
-		width: calc(var(--swiper-navigation-size) / 44 * 27);
-		height: var(--swiper-navigation-size);
-		margin-top: calc(0px -(var(--swiper-navigation-size) / 2));
-		z-index: 10;
-		cursor: pointer;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		color: var(--swiper-navigation-color, var(--swiper-theme-color));
-		width: 64px;
-		height: 64px;
-		background-color: var(--p-50);
-		transition: all 0.2s ease-out;
-		border:1px dotted var(--primary)
-	}
-	.swiper-button-next:hover,
-	.swiper-button-prev:hover {
-		background-color: var(--p-100);
-		transition: all 0.2s ease-out;
-	}
-	.swiper-button-next svg,
-	.swiper-button-prev svg {
-		width: 20px;
-		height: 20px;
-	}
-	.swiper-button-next {
-		order: 2;
-		position: absolute;
-		right: 24%;
-	}
-
-	.swiper-button-prev {
-		transform: scaleX(-1);
-		order: 1;
-		position: absolute;
-		left: -32px;
-	}
-
-	.swiper-button-next:after,
-	.swiper-button-prev:after {
-		content: url('/wp-content/uploads/2025/11/arrow.svg');
-		height: 100%;
-		position: relative;
-	}
 }

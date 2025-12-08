@@ -25,13 +25,13 @@ document.addEventListener('DOMContentLoaded', () => {
         },
 
         navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
+          nextEl: ".__next",
+          prevEl: ".__prev",
         },
         breakpoints: {
           0: { slidesPerView: 1.2, spaceBetween: 20 },
           768: { slidesPerView: 2.5, spaceBetween: 30 },
-          1024: { slidesPerView: 4, spaceBetween: 32 },
+          1024: { slidesPerView: 3.2, spaceBetween: 32 },
         },
         on: {
           init: function () {

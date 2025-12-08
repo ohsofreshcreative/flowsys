@@ -1,13 +1,90 @@
-.proces {
-  .__repeater {
-    .__card:nth-child(odd) {
-      .__img {
-        order: 2;
-      }
+.b-proces {
+  /*Section used for centering process*/
+  input.acc-check {
+    position: absolute !important;
+    opacity: 0 !important;
+    z-index: -1 !important;
+  }
 
-      .__content {
-        order: 1;
-      }
+  .proces-wrapper {
+    /*     padding-bottom: 15px;
+    margin-bottom: 15px; */
+  }
+
+  .proces-wrapper:last-child {
+    border-bottom: none;
+  }
+
+  .proces {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 16px !important;
+    border: 1px solid var(--border);
+  }
+
+  .proces-label {
+    padding: 16px 24px;
+    margin-bottom: 0px !important;
+    cursor: pointer;
+    color: var(--body);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .proces-label:hover {
+  }
+
+  .proces-label::after {
+    content: url('http://flowsys.local/wp-content/uploads/2025/12/plus.svg');
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    top: 1px;
+    position: relative;
+	background-color: var(--bg-p-light);
+	border-radius: 50px;
+	width: 24px;
+	height: 24px;
+	text-align: center;
+  }
+
+  .proces-content {
+    max-height: 0;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    padding: 0 24px;
+    overflow: hidden;
+
+    strong {
+      display: block;
+      padding-top: 24px;
+      padding-bottom: 8px;
     }
+    p {
+      margin: 0;
+      color: var(--body) !important;
+      font-size: 16px;
+    }
+    ul {
+      list-style-type: disc;
+      padding-left: 16px;
+    }
+  }
+
+  .proces-content input:checked {
+    border: 1px solid var(--primary);
+  }
+
+  input:checked + .proces-label::after {
+    content: url('http://flowsys.local/wp-content/uploads/2025/12/minus.svg');
+  }
+
+  .proces:has(input:checked) {
+    padding-bottom: 0px;
+  }
+
+  input:checked ~ .proces-content {
+    max-height: 1200px;
+    margin: 0 24px 24px 24px;
   }
 }

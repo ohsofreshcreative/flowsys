@@ -37,41 +37,70 @@ class Works extends Block
 			])
 			/*--- FIELDS ---*/
 			->addTab('Treści', ['placement' => 'top'])
-			->addGroup('tiles', ['label' => ''])
-
-			->addText('title', ['label' => 'Tytuł'])
-
-			->addRepeater('repeater', [
-				'label' => 'Slider',
-				'layout' => 'table', // 'row', 'block', albo 'table'
-				'min' => 1,
-				'max' => 4,
-				'button_label' => 'Dodaj kafelek'
+			->addGroup('g_works', ['label' => ''])
+			->addText('header', ['label' => 'Nagłówek'])
+			->addWysiwyg('txt', [
+				'label' => 'Treść',
+				'tabs' => 'all', // 'visual', 'text', 'all'
+				'toolbar' => 'full', // 'basic', 'full'
+				'media_upload' => true,
 			])
-			->addImage('card_image', [
-				'label' => 'Obraz',
-				'return_format' => 'array', // lub 'url', lub 'id'
-				'preview_size' => 'medium',
+			->addLink('button', [
+				'label' => 'Przycisk',
+				'return_format' => 'array',
 			])
-			->addText('card_title', [
-				'label' => 'Nagłówek',
-			])
-			->addTextarea('card_txt', [
-				'label' => 'Opis',
-			])
-			->endRepeater()
 
 			->endGroup()
 
 			/*--- USTAWIENIA BLOKU ---*/
 
 			->addTab('Ustawienia bloku', ['placement' => 'top'])
+			->addText('section_id', [
+				'label' => 'ID',
+			])
+			->addText('section_class', [
+				'label' => 'Dodatkowe klasy CSS',
+			])
 			->addTrueFalse('flip', [
 				'label' => 'Odwrotna kolejność',
 				'ui' => 1,
 				'ui_on_text' => 'Tak',
 				'ui_off_text' => 'Nie',
-			]);
+			])
+			->addTrueFalse('wide', [
+				'label' => 'Szeroka kolumna',
+				'ui' => 1,
+				'ui_on_text' => 'Tak',
+				'ui_off_text' => 'Nie',
+			])
+			->addTrueFalse('nomt', [
+				'label' => 'Usunięcie marginesu górnego',
+				'ui' => 1,
+				'ui_on_text' => 'Tak',
+				'ui_off_text' => 'Nie',
+			])
+			->addTrueFalse('gap', [
+				'label' => 'Większy odstęp',
+				'ui' => 1,
+				'ui_on_text' => 'Tak',
+				'ui_off_text' => 'Nie',
+			])
+			->addSelect('background', [
+                'label' => 'Kolor tła',
+                'choices' => [
+                    'none' => 'Brak (domyślne)',
+                    'section-white' => 'Białe',
+                    'section-light' => 'Jasne',
+                    'section-gray' => 'Szare',
+                    'section-brand' => 'Marki',
+                    'section-gradient' => 'Gradient',
+                    'section-dark' => 'Ciemne',
+                ],
+                'default_value' => 'none',
+                'ui' => 0, // Ulepszony interfejs
+                'allow_null' => 0,
+            ]);
+
 
 
 
@@ -81,9 +110,27 @@ class Works extends Block
 	public function with()
 	{
 		return [
-			'tiles' => get_field('tiles'),
-			'about2' => get_field('about2'),
+			'g_works' => get_field('g_works'),
+			'works' => $this->getWorks(),
+			'section_id' => get_field('section_id'),
+			'section_class' => get_field('section_class'),
 			'flip' => get_field('flip'),
+			'wide' => get_field('wide'),
+			'nomt' => get_field('nomt'),
+			'gap' => get_field('gap'),
+			'background' => get_field('background'),
 		];
+	}
+
+	public function getWorks()
+	{
+		$args = [
+			'post_type' => 'works',
+			'posts_per_page' => -1,
+		];
+
+		$query = new \WP_Query($args);
+
+		return $query->posts;
 	}
 }

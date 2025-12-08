@@ -1,0 +1,6 @@
+.b-works {
+	.__prev:hover, .__next:hover {
+		background-color: var(--bg-p-lighter);
+		transition: all 0.4s ease-out;
+	}
+}

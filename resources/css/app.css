@@ -13,6 +13,9 @@
 @import '../css/blocks/hero.scss';
 @import '../css/blocks/offer.scss';
 @import '../css/blocks/complex.scss';
+@import '../css/blocks/proces.scss';
+@import '../css/blocks/works.scss';
+@import '../css/blocks/reviews.scss';
 
 /*-- NOT USED --*/
 @import '../css/blocks/hero.scss';
@@ -20,7 +23,6 @@
 @import '../css/blocks/text-img.scss';
 @import '../css/blocks/categories.scss';
 @import '../css/blocks/cta-bg.scss';
-@import '../css/blocks/reviews.scss';
 @import '../css/blocks/bottom-block.scss';
 @import '../css/blocks/hero-prod.scss';
 @import '../css/blocks/hero-cat.scss';
@@ -56,7 +58,6 @@
 @import '../css/blocks/history.scss';
 @import '../css/blocks/category-posts.scss';
 @import '../css/blocks/cases-slider.scss';
-@import '../css/blocks/proces.scss';
 @import '../css/blocks/path.scss';
 @import '../css/blocks/duotitle.scss';
 @import '../css/blocks/inspirations.scss';

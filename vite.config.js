@@ -9,7 +9,7 @@ export default defineConfig(({ command }) => ({
     port: 5981,
     strictPort: true,
     cors: true,
-    origin: 'http://flowsys.local:5981',
+   /*  origin: 'http://flowsys.local:5981', */
 
     hmr: {
       protocol: 'ws',

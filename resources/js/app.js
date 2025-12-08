@@ -10,9 +10,8 @@ import.meta.glob(['../images/**', '../fonts/**']);
 import './menubar.js';
 import './footer-accordion.js';
 import './swiper.js';
-import './blocks/categories.js';
-import './blocks/logos.js';
-import './blocks/map.js';
+import './blocks/works.js';
+import './blocks/reviews.js';
 
 /*--- INICJALIZACJA BIBLIOTEK ---*/
 // Uruchom Alpine.js
