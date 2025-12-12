@@ -43,9 +43,8 @@ class CtaBg extends Block
 				'return_format' => 'array', // lub 'url', lub 'id'
 				'preview_size' => 'medium',
 			])
-			->addText('subtitle', ['label' => 'Podtytuł'])
-			->addText('title', ['label' => 'Tytuł'])
-			->addWysiwyg('content', [
+			->addText('header', ['label' => 'Tytuł'])
+			->addWysiwyg('txt', [
 				'label' => 'Treść',
 				'tabs' => 'all', // 'visual', 'text', 'all'
 				'toolbar' => 'full', // 'basic', 'full'

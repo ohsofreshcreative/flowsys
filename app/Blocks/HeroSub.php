@@ -35,27 +35,31 @@ class HeroSub extends Block
 				'open' => false,
 				'multi_expand' => true,
 			])
+			/*--- TAB #1 ---*/
 			->addTab('Treść', ['placement' => 'top'])
-			->addGroup('g_hero_sub', ['label' => 'Hero - Podstrona'])
+			->addGroup('g_hero_sub', ['label' => 'hero-sub'])
 			->addImage('image', [
 				'label' => 'Obraz',
-				'return_format' => 'array', // lub 'url', lub 'id'
+				'return_format' => 'array',
 				'preview_size' => 'medium',
-				'required' => 1,
 			])
-			->addText('header', [
-				'label' => 'Tytuł',
-				'required' => 1,
+			->addText('title', ['label' => 'Tytuł'])
+			->addWysiwyg('txt', [
+				'label' => 'Treść',
+				'tabs' => 'all', // 'visual', 'text', 'all'
+				'toolbar' => 'full', // 'basic', 'full'
+				'media_upload' => true,
 			])
-			->addTextarea('txt', [
-				'label' => 'Opis',
-				'rows' => 4,
-				'placeholder' => 'Wpisz opis...',
-				'new_lines' => 'br',
+			->addLink('button1', [
+				'label' => 'Przycisk #1',
+				'return_format' => 'array',
 			])
-
+			->addLink('button2', [
+				'label' => 'Przycisk #2',
+				'return_format' => 'array',
+			])
 			->endGroup()
-
+			
 			/*--- USTAWIENIA BLOKU ---*/
 
 			->addTab('Ustawienia bloku', ['placement' => 'top'])

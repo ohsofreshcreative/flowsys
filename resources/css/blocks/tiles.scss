@@ -1,0 +1,73 @@
+.b-tiles {
+  .__txt {
+    p {
+      margin-bottom: 16px;
+    }
+
+    p:last-child {
+      margin-bottom: 0 !important;
+    }
+
+    ul {
+      margin-top: 8px;
+      margin-bottom: 24px;
+      list-style: none;
+      padding-left: 40px;
+
+      li {
+        position: relative;
+        margin-bottom: 16px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid var(--border-p-light);
+
+        b,
+        strong {
+          font-size: 24px;
+        }
+
+        &::before {
+          content: url('http://flowsys.local/wp-content/uploads/2025/12/check.svg');
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+          position: relative;
+          left: -16px;
+          top: 8px;
+          width: 24px;
+          height: 24px;
+          margin-left: -32px;
+        }
+      }
+    }
+  }
+}
+
+/*--- BRAK PUNKTATORÓW ---*/
+
+.b-tiles.no-list {
+  .__txt {
+    ul {
+      margin-top: 8px;
+      margin-bottom: 24px;
+      list-style: none;
+      padding-left: 0;
+
+      li {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 4px;
+        padding-bottom: 0 !important;
+
+        &::before {
+          content: '•';
+          position: relative;
+          left: 0;
+          top: 0;
+          margin-right: 8px;
+          margin-left: 0 !important;
+        }
+      }
+    }
+  }
+}

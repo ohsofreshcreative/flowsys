@@ -5,14 +5,14 @@ namespace App\Blocks;
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
-class HeroProd extends Block
+class HeroOffer extends Block
 {
-	public $name = 'Hero - Produkt';
-	public $description = 'hero-prod';
-	public $slug = 'hero-prod';
+	public $name = 'Hero - Oferta';
+	public $description = 'hero-offer';
+	public $slug = 'hero-offer';
 	public $category = 'formatting';
 	public $icon = 'align-full-width';
-	public $keywords = ['tresc', 'zdjecie'];
+	public $keywords = ['hero', 'oferta'];
 	public $mode = 'edit';
 	public $supports = [
 		'align' => false,
@@ -22,36 +22,43 @@ class HeroProd extends Block
 
 	public function fields()
 	{
-		$hero_prod = new FieldsBuilder('hero-prod');
+		$hero_offer = new FieldsBuilder('hero-offer');
 
-		$hero_prod
-			->setLocation('block', '==', 'acf/hero-prod') // ważne!
+		$hero_offer
+			->setLocation('block', '==', 'acf/hero-offer') // ważne!
 			->addText('block-title', [
 				'label' => 'Tytuł',
 				'required' => 0,
 			])
 			->addAccordion('accordion1', [
-				'label' => 'Hero - Produkt',
+				'label' => 'Hero - Oferta',
 				'open' => false,
 				'multi_expand' => true,
 			])
 			->addTab('Treść', ['placement' => 'top'])
-			->addGroup('g_hero_prod', ['label' => 'Hero - Produkt'])
+			->addGroup('g_hero_offer', ['label' => 'Hero - Produkt'])
 			->addImage('image', [
 				'label' => 'Obraz',
 				'return_format' => 'array', // lub 'url', lub 'id'
-				'preview_size' => 'medium',
+				'preview_size' => 'thumbnail',
 				'required' => 1,
 			])
 			->addText('header', [
-				'label' => 'Tytuł',
+				'label' => 'Nagłówek',
 				'required' => 1,
 			])
 			->addTextarea('txt', [
 				'label' => 'Opis',
 				'rows' => 4,
-				'placeholder' => 'Wpisz opis...',
 				'new_lines' => 'br',
+			])
+			->addLink('button1', [
+				'label' => 'Przycisk #1',
+				'return_format' => 'array',
+			])
+			->addLink('button2', [
+				'label' => 'Przycisk #2',
+				'return_format' => 'array',
 			])
 
 			->endGroup()
@@ -77,13 +84,13 @@ class HeroProd extends Block
 				'ui_off_text' => 'Nie',
 			]);
 
-		return $hero_prod;
+		return $hero_offer;
 	}
 
 	public function with()
 	{
 		return [
-			'g_hero_prod' => get_field('g_hero_prod'),
+			'g_hero_offer' => get_field('g_hero_offer'),
 			'section_id' => get_field('section_id'),
 			'section_class' => get_field('section_class'),
 			'flip' => get_field('flip'),

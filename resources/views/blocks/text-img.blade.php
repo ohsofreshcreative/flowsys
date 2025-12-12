@@ -1,6 +1,7 @@
 @php
 $sectionClass = '';
 $sectionClass .= $flip ? ' order-flip' : '';
+$sectionClass .= $nolist ? ' no-list' : '';
 $sectionClass .= $wide ? ' wide' : '';
 $sectionClass .= $nomt ? ' !mt-0' : '';
 $sectionClass .= $gap ? ' wider-gap' : '';
@@ -25,7 +26,7 @@ $sectionClass .= ' ' . $background;
 			<div class="__content order2">
 				<h4 data-gsap-element="header" class="">{{ $g_textimg['title'] }}</h4>
 
-				<div data-gsap-element="txt" class="mt-2">
+				<div data-gsap-element="txt" class="__txt mt-2">
 					{!! $g_textimg['txt'] !!}
 				</div>
 

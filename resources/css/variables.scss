@@ -85,12 +85,13 @@ html,
 body {
 	overflow-x: clip;
 	background-color: var(--bg);
+	color:(--text-body);
 }
 
 /*--- !ROOT ---*/
 
 :root {
-	--body: #12141a !important;
+	--body: #2A3F50 !important;
 
 	--primary: #2BB209;
 	--p-hover: #249408;
@@ -127,6 +128,7 @@ body {
 	--gray: #63656a;
 	--bg: #E7F4FF;
 	--bg-gray: var(--s-500);
+	--bg-light: #F1F9FF;
 	--bg-dark: #002704;
 	--bg-p-light: var(--p-200);
 	--bg-p-lighter: var(--p-100);
@@ -138,6 +140,7 @@ body {
 	--border-p-dark: var(--p-800);
 	--border-s: var(--s-300);
 	--border-s-light: var(--s-200);
+	--border-s-lighter: var(--s-100);
 
 	--header: 'CabinetGrotesk-Variable', serif;
 	--txt: 'CabinetGrotesk-Variable', sans-serif;
@@ -278,15 +281,13 @@ body {
 }
 
 .section-light {
-	background: var(--bg-p-lighter);
+	background: var(--bg-light);
 	padding: 120px 0;
 }
 
 .section-white {
 	background-color: #fff;
 	padding: var(--smt) 0;
-	border-top: 1px dashed var(--primary);
-	border-bottom: 1px dashed var(--primary);
 }
 
 .section-s-light {
@@ -315,7 +316,7 @@ body {
 	ul,
 	ul li,
 	a {
-		color: #fff !important;
+		color: #fff;
 	}
 }
 
@@ -427,6 +428,20 @@ body {
 
 /*--- !TYPOGRAPHY ---*/
 
+p, ul, li, span, i, em, div, .__txt {
+	font-family: var(--txt);
+	font-weight: 400;
+}
+
+ul, li {
+	color: var(--body);
+}
+
+b, strong {
+	font-weight: 600;
+	color: var(--body);
+}
+
 .font-header {
 	font-family: var(--header);
 }
@@ -447,14 +462,7 @@ a {
 
 .subtitle-p {
 	display: block;
-	font-size: 16px;
-	color: var(--p-400);
-	padding-bottom: 16px;
-}
-
-.subtitle-p:before {
-	content: '•';
-	margin-right: 8px;
+	color: var(--primary) !important;
 }
 
 .subtitle-s {
@@ -658,6 +666,10 @@ h6,
 	background-color: #fff;
 }
 
+.bg-background {
+	background-color: var(--bg);
+}
+
 .bg-light {
 	background-color: var(--bg-light) !important;
 }
@@ -719,6 +731,10 @@ h6,
 
 .b-bottom-p-light {
 	border-bottom: 1px solid var(--border-p-light) !important;
+}
+
+.b-bottom-s-lighter {
+	border-bottom: 1px solid var(--border-s-lighter) !important;
 }
 
 .border-left-p {
@@ -1034,7 +1050,7 @@ h6,
 
 .fixed-top #menu-menu a {
 	color: var(--body) !important;
-	font-size: 14px;
+	font-size: 16px;
 }
 
 .fixed-top.scrollUp {
@@ -1396,28 +1412,6 @@ article.post:hover img {
 	}
 }
 
-/*--- !CTA - STOPKA ---*/
-
-footer {
-	.__phone::before {
-		content: url('/wp-content/uploads/2025/11/phone.svg');
-		margin-right: 8px;
-		position: relative;
-		top: 8px;
-		width: 24px;
-		height: 24px;
-	}
-
-	.__mail::before {
-		content: url('/wp-content/uploads/2025/11/mail.svg');
-		margin-right: 8px;
-		position: relative;
-		top: 6px;
-		width: 24px;
-		height: 24px;
-	}
-}
-
 /*--- !WOOCOMMERCE ---*/
 
 /*--- !SHOP PAGE ---*/
@@ -1552,20 +1546,21 @@ footer {
 	}
 
 	.__widgets {
-		grid-template-columns: repeat(4, 1fr);
+		grid-template-columns: 2fr 1fr 1fr;
 
 		p {
-			color: #fff;
+			color: var(--text-body);
 		}
 
 		a {
-			color: rgba(255, 255, 255, 0.7);
+			color: var(--text-body);
 			transition: all 0.3s;
 		}
 
 		a:hover {
-			color: rgba(255, 255, 255, 1);
+			color: var(--text-body);
 			transition: all 0.3s;
+			opacity:.6;
 		}
 
 		ul.sub-menu {
@@ -1595,6 +1590,28 @@ footer {
 	}
 }
 
+/*--- !FOOTER - CTA ---*/
+
+footer {
+	.__phone::before {
+		content: url('http://flowsys.local/wp-content/uploads/2025/12/phone.svg');
+		margin-right: 8px;
+		position: relative;
+		top: 8px;
+		width: 24px;
+		height: 24px;
+	}
+
+	.__mail::before {
+		content: url('http://flowsys.local/wp-content/uploads/2025/12/mail.svg');
+		margin-right: 8px;
+		position: relative;
+		top: 6px;
+		width: 24px;
+		height: 24px;
+	}
+}
+
 /*--- FOOTER MOBILE ---*/
 
 /* Ukryj menu na telefonach */
@@ -1619,7 +1636,7 @@ footer {
 	}
 
 	.widget-title::after {
-		content: url('/wp-content/uploads/2025/11/arrow-1.svg');
+		content: url('http://flowsys.local/wp-content/uploads/2025/12/btn-arrow.svg');
 		position: absolute;
 		/*top: 50%;*/
 		right: 10px;
@@ -1630,7 +1647,7 @@ footer {
 	}
 
 	.footer_widget.open .widget-title::after {
-		content: url('/wp-content/uploads/2025/11/arrow-1.svg');
+		content: url('http://flowsys.local/wp-content/uploads/2025/12/btn-arrow.svg');
 		position: absolute;
 		/*top: 50%;*/
 		right: 10px;

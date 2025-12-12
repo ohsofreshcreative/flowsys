@@ -7,12 +7,12 @@ use StoutLogic\AcfBuilder\FieldsBuilder;
 
 class Tiles extends Block
 {
-	public $name = 'Tekst + Kafelki';
+	public $name = 'Tekst oraz lista kafelków';
 	public $description = 'tiles';
 	public $slug = 'tiles';
 	public $category = 'formatting';
-	public $icon = 'align-pull-right';
-	public $keywords = ['tiles', 'kafelki'];
+	public $icon = 'table-col-before';
+	public $keywords = ['tresc', 'zdjecie'];
 	public $mode = 'edit';
 	public $supports = [
 		'align' => false,
@@ -33,49 +33,50 @@ class Tiles extends Block
 				'required' => 0,
 			])
 			->addAccordion('accordion1', [
-				'label' => 'Tekst + kafelki',
+				'label' => 'Tekst oraz lista kafelków',
 				'open' => false,
 				'multi_expand' => true,
 			])
-
-			/*--- TAB #1 ---*/
-			->addTab('Treści', ['placement' => 'top'])
-			->addGroup('tiles', ['label' => ''])
-			->addText('title', ['label' => 'Tytuł'])
-			->addText('subtitle', ['label' => 'Śródtytuł'])
-			->addTextarea('text', [
-				'label' => 'Opis',
-				'rows' => 4,
-				'placeholder' => 'Wpisz opis...',
-				'new_lines' => 'br',
-			])
-			->endGroup()
-
-			/*--- TAB #2 ---*/
-			->addTab('Kafelki', ['placement' => 'top'])
-			->addRepeater('repeater', [
-				'label' => 'Kafelki',
-				'layout' => 'table', // 'row', 'block', albo 'table'
-				'min' => 1,
-				'max' => 4,
-				'button_label' => 'Dodaj kafelek'
-			])
-			->addImage('card_image', [
+			/*--- GROUP ---*/
+			->addTab('Elementy', ['placement' => 'top'])
+			->addGroup('g_tiles', ['label' => ''])
+			->addImage('image', [
 				'label' => 'Obraz',
 				'return_format' => 'array', // lub 'url', lub 'id'
-				'preview_size' => 'medium',
+				'preview_size' => 'thumbnail',
 			])
-			->addText('card_title', [
-				'label' => 'Nagłówek',
+			->addText('header', ['label' => 'Nagłówek'])
+			->addText('title', [
+				'label' => 'Tytuł',
+				'instructions' => 'Nagłówek nad listą kafelków',
 			])
-			->addTextarea('card_txt', [
-				'label' => 'Opis',
+			->addWysiwyg('txt', [
+				'label' => 'Treść',
+				'tabs' => 'all', // 'visual', 'text', 'all'
+				'toolbar' => 'full', // 'basic', 'full'
+				'media_upload' => true,
 			])
-			->endRepeater()
+			->addLink('button', [
+				'label' => 'Przycisk',
+				'return_format' => 'array',
+			])
+			->endGroup()
 
 			/*--- USTAWIENIA BLOKU ---*/
 
 			->addTab('Ustawienia bloku', ['placement' => 'top'])
+			->addText('section_id', [
+				'label' => 'ID',
+			])
+			->addText('section_class', [
+				'label' => 'Dodatkowe klasy CSS',
+			])
+			->addTrueFalse('nolist', [
+				'label' => 'Brak punktatorów',
+				'ui' => 1,
+				'ui_on_text' => 'Tak',
+				'ui_off_text' => 'Nie',
+			])
 			->addTrueFalse('flip', [
 				'label' => 'Odwrotna kolejność',
 				'ui' => 1,
@@ -88,29 +89,32 @@ class Tiles extends Block
 				'ui_on_text' => 'Tak',
 				'ui_off_text' => 'Nie',
 			])
-			->addTrueFalse('lightbg', [
-				'label' => 'Jasne tło',
-				'ui' => 1,
-				'ui_on_text' => 'Tak',
-				'ui_off_text' => 'Nie',
-			])
-			->addTrueFalse('greybg', [
-				'label' => 'Szare tło',
-				'ui' => 1,
-				'ui_on_text' => 'Tak',
-				'ui_off_text' => 'Nie',
-			])
-			->addTrueFalse('whitebg', [
-				'label' => 'Białe tło',
-				'ui' => 1,
-				'ui_on_text' => 'Tak',
-				'ui_off_text' => 'Nie',
-			])
 			->addTrueFalse('nomt', [
 				'label' => 'Usunięcie marginesu górnego',
 				'ui' => 1,
 				'ui_on_text' => 'Tak',
 				'ui_off_text' => 'Nie',
+			])
+			->addTrueFalse('gap', [
+				'label' => 'Większy odstęp',
+				'ui' => 1,
+				'ui_on_text' => 'Tak',
+				'ui_off_text' => 'Nie',
+			])
+			->addSelect('background', [
+				'label' => 'Kolor tła',
+				'choices' => [
+					'none' => 'Brak (domyślne)',
+					'section-white' => 'Białe',
+					'section-light' => 'Jasne',
+					'section-gray' => 'Szare',
+					'section-brand' => 'Marki',
+					'section-gradient' => 'Gradient',
+					'section-dark' => 'Ciemne',
+				],
+				'default_value' => 'none',
+				'ui' => 0, // Ulepszony interfejs
+				'allow_null' => 0,
 			]);
 
 		return $tiles;
@@ -119,14 +123,15 @@ class Tiles extends Block
 	public function with()
 	{
 		return [
-			'tiles' => get_field('tiles'),
-			'repeater' => get_field('repeater'),
+			'g_tiles' => get_field('g_tiles'),
+			'section_id' => get_field('section_id'),
+			'section_class' => get_field('section_class'),
+			'nolist' => get_field('nolist'),
 			'flip' => get_field('flip'),
 			'wide' => get_field('wide'),
-			'lightbg' => get_field('lightbg'),
-			'greybg' => get_field('greybg'),
-			'whitebg' => get_field('whitebg'),
 			'nomt' => get_field('nomt'),
+			'gap' => get_field('gap'),
+			'background' => get_field('background'),
 		];
 	}
 }

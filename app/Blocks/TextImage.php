@@ -7,7 +7,7 @@ use StoutLogic\AcfBuilder\FieldsBuilder;
 
 class TextImage extends Block
 {
-	public $name = 'Treść oraz zdjęcie';
+	public $name = 'Tekst oraz zdjęcie';
 	public $description = 'text-img';
 	public $slug = 'text-img';
 	public $category = 'formatting';
@@ -33,7 +33,7 @@ class TextImage extends Block
 				'required' => 0,
 			])
 			->addAccordion('accordion1', [
-				'label' => 'Treść oraz zdjęcie',
+				'label' => 'Tekst oraz zdjęcie',
 				'open' => false,
 				'multi_expand' => true,
 			])
@@ -66,6 +66,12 @@ class TextImage extends Block
 			])
 			->addText('section_class', [
 				'label' => 'Dodatkowe klasy CSS',
+			])
+			->addTrueFalse('nolist', [
+				'label' => 'Brak punktatorów',
+				'ui' => 1,
+				'ui_on_text' => 'Tak',
+				'ui_off_text' => 'Nie',
 			])
 			->addTrueFalse('flip', [
 				'label' => 'Odwrotna kolejność',
@@ -116,6 +122,7 @@ class TextImage extends Block
 			'g_textimg' => get_field('g_textimg'),
 			'section_id' => get_field('section_id'),
 			'section_class' => get_field('section_class'),
+			'nolist' => get_field('nolist'),
 			'flip' => get_field('flip'),
 			'wide' => get_field('wide'),
 			'nomt' => get_field('nomt'),

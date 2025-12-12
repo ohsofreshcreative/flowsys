@@ -5,70 +5,75 @@ namespace App\Blocks;
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
-class Overlap extends Block
+class Twin extends Block
 {
-	public $name = 'Treść oraz duże kafelki';
-	public $description = 'overlap';
-	public $slug = 'overlap';
+	public $name = 'Najlepiej działają razem';
+	public $description = 'twin';
+	public $slug = 'twin';
 	public $category = 'formatting';
-	public $icon = 'align-wide';
-	public $keywords = ['tresc', 'zdjecie', 'overlap'];
+	public $icon = 'insert';
+	public $keywords = ['twin', 'kafelki'];
 	public $mode = 'edit';
 	public $supports = [
 		'align' => false,
 		'mode' => false,
 		'jsx' => true,
-		'anchor' => true,
-		'customClassName' => true,
 	];
 
 	public function fields()
 	{
-		$overlap = new FieldsBuilder('overlap');
+		$twin = new FieldsBuilder('twin');
 
-		$overlap
-			->setLocation('block', '==', 'acf/overlap') // ważne!
+		$twin
+			->setLocation('block', '==', 'acf/twin') // ważne!
 			->addText('block-title', [
 				'label' => 'Tytuł',
 				'required' => 0,
 			])
 			->addAccordion('accordion1', [
-				'label' => 'Treść oraz duże kafelki',
+				'label' => 'Najlepiej działają razem',
 				'open' => false,
 				'multi_expand' => true,
 			])
-			/*--- GROUP ---*/
-			->addTab('Elementy', ['placement' => 'top'])
-			->addGroup('g_overlap', ['label' => ''])
+			/*--- TAB #1 ---*/
+			->addTab('Treści', ['placement' => 'top'])
+			->addGroup('g_twin', ['label' => ''])
+			->addText('header', ['label' => 'Nagłówek'])
+			->addTextarea('text', [
+				'label' => 'Opis',
+				'rows' => 4,
+				'new_lines' => 'br',
+			])
 
-			->addText('title', ['label' => 'Tytuł'])
-			->addWysiwyg('content', [
-				'label' => 'Treść',
-				'tabs' => 'all', // 'visual', 'text', 'all'
-				'toolbar' => 'full', // 'basic', 'full'
-				'media_upload' => true,
+			->addLink('button', [
+				'label' => 'Przycisk',
+				'return_format' => 'array',
 			])
 			->endGroup()
 
+			/*--- TAB #2 ---*/
 			->addTab('Kafelki', ['placement' => 'top'])
-			->addRepeater('r_overlap', [
+			->addRepeater('r_twin', [
 				'label' => 'Kafelki',
 				'layout' => 'table', // 'row', 'block', albo 'table'
 				'min' => 1,
 				'button_label' => 'Dodaj kafelek'
 			])
-			->addImage('r_image', [
-				'label' => 'Obraz',
-				'return_format' => 'array', // lub 'url', lub 'id'
-				'preview_size' => 'thumbnail',
-			])
-			->addText('r_header', [
+			->addText('title', [
 				'label' => 'Nagłówek',
 			])
-			->addTextarea('r_txt', [
-				'label' => 'Opis',
-				'rows' => 5,
-				'new_lines' => 'br',
+			->addWysiwyg('txt', [
+				'label' => 'Treść',
+				'tabs' => 'all', // 'visual', 'text', 'all'
+				'toolbar' => 'full', // 'basic', 'full'
+				'media_upload' => true,
+			])
+			->addRelationship('selected_offers', [
+				'label' => 'Wybierz oferty',
+				'post_type' => ['offer'],
+				'filters' => ['search'],
+				'return_format' => 'object',
+				'max' => 2,
 			])
 			->endRepeater()
 
@@ -80,12 +85,6 @@ class Overlap extends Block
 			])
 			->addText('section_class', [
 				'label' => 'Dodatkowe klasy CSS',
-			])
-			->addTrueFalse('nolist', [
-				'label' => 'Brak punktatorów',
-				'ui' => 1,
-				'ui_on_text' => 'Tak',
-				'ui_off_text' => 'Nie',
 			])
 			->addTrueFalse('flip', [
 				'label' => 'Odwrotna kolejność',
@@ -127,17 +126,16 @@ class Overlap extends Block
 				'allow_null' => 0,
 			]);
 
-		return $overlap;
+		return $twin;
 	}
 
 	public function with()
 	{
 		return [
-			'g_overlap' => get_field('g_overlap'),
-			'r_overlap' => get_field('r_overlap'),
+			'g_twin' => get_field('g_twin'),
+			'r_twin' => get_field('r_twin'),
 			'section_id' => get_field('section_id'),
 			'section_class' => get_field('section_class'),
-			'nolist' => get_field('nolist'),
 			'flip' => get_field('flip'),
 			'wide' => get_field('wide'),
 			'nomt' => get_field('nomt'),

@@ -16,17 +16,17 @@
 
 			li {
 				position: relative;
-				padding-left: 24px;
 				margin-bottom: 0.5em;
+				display: flex;
+				gap:8px;
+				align-items: center;
 
 				&::before {
-					content: '';
-					position: absolute;
+					content: url('http://flowsys.local/wp-content/uploads/2025/12/check.svg');
 					left: 0;
 					top: 4px;
-					width: 16px;
-					height: 16px;
-					background-image: url('http://asystent.local/wp-content/uploads/2025/11/check.svg');
+					width: 32px;
+					height: 32px;
 					background-size: contain;
 					background-repeat: no-repeat;
 					background-position: center;
@@ -36,57 +36,65 @@
 	}
 }
 
-.b-text-img.choice {
-	img {
-		aspect-ratio: 1 / 1;
-		border-radius: 50% !important;
-		width: 432px;
-		margin: 0 auto;
-	}
-}
+/*--- BRAK PUNKTATORÓW ---*/
 
-.b-text-img.aboutus {
-	.__col {
-		grid-template-columns: 1.5fr 2fr;
-		gap: 80px;
-	}
+.b-text-img.no-list {
+	.__txt {
+		ul {
+			margin-top: 8px;
+			margin-bottom: 24px;
+			list-style: none;
+			padding-left: 0;
 
-	.__img {
-		margin-right: calc(80% - 50vw);
-		padding-right: calc(80% - 50vw);
-		box-sizing: border-box;
-	}
-}
+			li {
+				position: relative;
+				display: inline-block;
 
-
-
-.b-text-img.aboutus {
-	.__col {
-		grid-template-columns: 1.5fr 2fr;
-		gap: 80px;
-	}
-
-	.__img {
-		margin-right: calc(80% - 50vw);
-		padding-right: calc(80% - 50vw);
-		box-sizing: border-box;
-	}
-}
-
-/*---- !LG --*/
-
-@media only screen and (max-width: 1024px) {
-	.b-text-img.aboutus {
-		.__col {
-			grid-template-columns: 1fr !important;
-			gap: 80px;
+				&::before {
+					content: '•';
+					position: relative;
+					left: 0;
+					top: 0;
+					margin-right: 8px;
+				}
+			}
 		}
+	}
+}
 
-		.__img {
-			width: 100% !important;
-			;
-			margin-right: 0 !important;
-			padding-right: 0 !important;
+/*--- FLOWSYS ABOUT ---*/
+
+.b-text-img.b-text-map {
+	h5 {
+		margin-top:16px;
+	}
+	h5::before {
+		content: url('http://flowsys.local/wp-content/uploads/2025/12/phone.svg');
+		margin-right: 8px;
+		position: relative;
+		display: inline-block;
+		transition: all 0.6s;
+		top:2px;
+	}
+}
+
+/*--- FLOWSYS OFFER ---*/
+
+.b-text-img.__offer {
+	.__wrapper {
+		background-color: var(--bg);
+		border-radius: var(--radius);
+		padding:40px 40px 0 40px !important;
+		margin-top:-200px !important;
+	}
+}
+
+/*---- !SM --*/
+@media only screen and (max-width: 640px) {
+	.b-text-img.__offer {
+		.__wrapper {
+			margin-top:var(--smt) !important;
+			padding:0 24px !important;
 		}
 	}
 }

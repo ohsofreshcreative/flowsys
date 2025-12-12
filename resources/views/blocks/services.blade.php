@@ -11,80 +11,33 @@ $sectionClass .= ' ' . $background;
 
 @endphp
 
-<!--- services -->
+<!--- services --->
 
-@if (!empty($service_tabs))
-<section @if(!empty($section_id)) id="{{ $section_id }}" @endif class="b-services -smt {{ $sectionClass }} {{ $section_class }}">
-	<div class="c-main">
-		@if ($title)
-		<h2 class="text-center m-header">{{ $title }}</h2>
+<section data-gsap-anim="section" @if(!empty($section_id)) id="{{ $section_id }}" @endif class="b-services relative -smt {{ $sectionClass }} {{ $section_class }}">
+	<div class="__wrapper c-main relative">
+
+		@if (!empty($g_services['header']))
+		<h3 data-gsap-element="header" class="relative w-full md:w-1/2 z-10">{{ $g_services['header'] }}</h3>
 		@endif
 
-		<div x-data="{ activeTab: {{ $service_tabs[0]['term']->term_id }} }" class="mt-12">
-			{{-- Przyciski zakładek --}}
-			<div
-				x-data="{
-                    isDown: false,
-                    startX: null,
-                    scrollLeft: null,
-                }"
-				@mousedown.prevent="
-                    isDown = true;
-                    startX = $event.pageX - $el.offsetLeft;
-                    scrollLeft = $el.scrollLeft;
-                    $el.classList.add('cursor-grabbing');
-                "
-				@mouseleave="isDown = false; $el.classList.remove('cursor-grabbing');"
-				@mouseup="isDown = false; $el.classList.remove('cursor-grabbing');"
-				@mousemove.prevent="
-                    if (!isDown) return;
-                    const x = $event.pageX - $el.offsetLeft;
-                    const walk = (x - startX) * 1.5;
-                    $el.scrollLeft = scrollLeft - walk;
-                "
-				class="__tabs flex justify-start md:justify-center gap-4 bg-dark rounded-full p-4 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] cursor-grab select-none">
-				@foreach ($service_tabs as $tab)
-				<button
-					@click="activeTab = {{ $tab['term']->term_id }}"
-					:class="{ 'border-primary text-primary !pointer-events-none': activeTab === {{ $tab['term']->term_id }}, 'cursor-pointer border-transparent bg-dark text-white': activeTab !== {{ $tab['term']->term_id }} }"
-					class="bg-white text-white text-sm whitespace-nowrap py-4 px-6 rounded-full border-solid-p shrink-0">
-					{{ $tab['term']->name }}
-				</button>
-				@endforeach
-			</div>
-
-			{{-- Treść zakładek --}}
-			<div class="">
-				@foreach ($service_tabs as $tab)
-				<div x-show="activeTab === {{ $tab['term']->term_id }}" x-cloak>
-					<div class="">
-						@foreach ($tab['posts'] as $service_post)
-						<div class="__card grid grid-cols-1 lg:grid-cols-[1.5fr_1.4fr] items-center gap-10 bg-white radius border-p p-6 mt-10">
-							@if (has_post_thumbnail($service_post->ID))
-							<a class="__order1 href=" {{ get_permalink($service_post->ID) }}">
-								<img src="{{ get_the_post_thumbnail_url($service_post->ID, 'large') }}" alt="{{ $service_post->post_title }}" class="img-l w-full object-cover rounded-xl">
-							</a>
-							@endif
-							<div class="__order2 p-6">
-								<h4 class="text-xl font-bold mb-2">
-									<a href="{{ get_permalink($service_post->ID) }}">{{ $service_post->post_title }}</a>
-								</h4>
-								<div class="text-gray-600 text-sm mb-4 prose max-w-none">
-									{!! get_field('short_description', $service_post->ID) !!}
-								</div>
-								<!-- <a href="{{ get_permalink($service_post->ID) }}" class="underline-btn">
-									Dowiedz się więcej
-								</a> -->
-							</div>
-						</div>
-						@endforeach
+		<div class="__cards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mt-10">
+			@if($offer)
+			@foreach ($offer as $sector)
+			<a href="{{ get_permalink($sector->ID) }}" class="">
+				<div data-gsap-element="stagger" class="__card bg-white radius p-10">
+					@if (has_post_thumbnail($sector->ID))
+					<img class="w-20 aspect-square radius" src="{{ get_the_post_thumbnail_url($sector->ID, 'large') }}" alt="{{ $sector->post_title }}" class="w-full img-s object-cover rounded-t-2xl">
+					@endif
+					<h5 class="mt-4">
+						{{ $sector->post_title }}
+					</h5>
+					<div class="__arrow bg-p-light w-max rounded-full p-3 transition-all duration-500 mt-6">
+						<img class="" src="/wp-content/uploads/2025/12/arrow-right.svg" />
 					</div>
 				</div>
-				@endforeach
-			</div>
+			</a>
+			@endforeach
+			@endif
 		</div>
 	</div>
 </section>
-@elseif (is_admin())
-<p>Blok Usługi: Dodaj wpisy do CPT "Usługi" i przypisz je do "Kategorii Usług", aby wyświetlić je w zakładkach.</p>
-@endif

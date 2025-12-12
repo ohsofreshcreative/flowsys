@@ -18,25 +18,29 @@
 @import '../css/blocks/reviews.scss';
 @import '../css/blocks/about.scss';
 @import '../css/blocks/category-posts.scss';
+@import '../css/blocks/hero-sub.scss';
+@import '../css/blocks/text-img.scss';
+@import '../css/blocks/how.scss';
+@import '../css/blocks/quote.scss';
+@import '../css/blocks/services.scss';
+@import '../css/blocks/cta-bg.scss';
+@import '../css/blocks/twin.scss';
+@import '../css/blocks/hero-offer.scss';
+@import '../css/blocks/order.scss';
+@import '../css/blocks/cards.scss';
+@import '../css/blocks/tiles.scss';
+@import '../css/blocks/overlap.scss';
 
 /*-- NOT USED --*/
-@import '../css/blocks/hero.scss';
 @import '../css/blocks/tlc.scss';
-@import '../css/blocks/text-img.scss';
 @import '../css/blocks/categories.scss';
-@import '../css/blocks/cta-bg.scss';
 @import '../css/blocks/bottom-block.scss';
-@import '../css/blocks/hero-prod.scss';
 @import '../css/blocks/hero-cat.scss';
 @import '../css/blocks/hero-job.scss';
 @import '../css/blocks/hero-about.scss';
 @import '../css/blocks/selection.scss';
-@import '../css/blocks/order.scss';
-@import '../css/blocks/cards.scss';
 @import '../css/blocks/product-hero.scss';
-@import '../css/blocks/hero-sub.scss';
 @import '../css/blocks/sectors.scss';
-@import '../css/blocks/services.scss';
 @import '../css/blocks/steps.scss';
 @import '../css/blocks/faq.scss';
 @import '../css/blocks/values.scss';
@@ -52,7 +56,6 @@
 @import '../css/blocks/logos.scss';
 @import '../css/blocks/locations.scss';
 
-@import '../css/blocks/hero-offer.scss';
 
 @import '../css/blocks/categories.scss';
 @import '../css/blocks/area-block.scss';

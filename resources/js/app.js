@@ -13,6 +13,8 @@ import './swiper.js';
 import './blocks/works.js';
 import './blocks/reviews.js';
 import './blocks/category-posts.js';
+import './blocks/how.js';
+import './blocks/overlap.js';
 
 /*--- INICJALIZACJA BIBLIOTEK ---*/
 // Uruchom Alpine.js
@@ -98,3 +100,5 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
+
