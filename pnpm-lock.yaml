@@ -11,6 +11,9 @@ importers:
       alpinejs:
         specifier: ^3.14.9
         version: 3.15.2
+      baguettebox.js:
+        specifier: ^1.13.0
+        version: 1.13.0
       gsap:
         specifier: ^3.13.0
         version: 3.13.0
@@ -670,6 +673,9 @@ packages:
     hasBin: true
     peerDependencies:
       postcss: ^8.1.0
+
+  baguettebox.js@1.13.0:
+    resolution: {integrity: sha512-/Hsb8QVqNsizgbmdf/Tnt19jF5gMLhkYIboc3jktIR+ftiyCG+hvaM7O025bBUnQtsTcfhuiojALsCB90OpmCQ==}
 
   baseline-browser-mapping@2.8.32:
     resolution: {integrity: sha512-OPz5aBThlyLFgxyhdwf/s2+8ab3OvT7AdTNvKHBwpXomIYeXqpUUuT8LrdtxZSsWJ4R4CU1un4XGh5Ez3nlTpw==}
@@ -1668,6 +1674,8 @@ snapshots:
       picocolors: 1.1.1
       postcss: 8.5.6
       postcss-value-parser: 4.2.0
+
+  baguettebox.js@1.13.0: {}
 
   baseline-browser-mapping@2.8.32: {}
 

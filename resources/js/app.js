@@ -15,6 +15,7 @@ import './blocks/reviews.js';
 import './blocks/category-posts.js';
 import './blocks/how.js';
 import './blocks/overlap.js';
+import baguetteBox from 'baguettebox.js';
 
 /*--- INICJALIZACJA BIBLIOTEK ---*/
 // Uruchom Alpine.js
@@ -25,6 +26,11 @@ Alpine.start();
 /*--- SKRYPTY URUCHAMIANE PO ZAŁADOWANIU STRONY ---*/
 
 document.addEventListener('DOMContentLoaded', function () {
+
+  // Inicjalizacja baguetteBox.js dla galerii
+  if (document.querySelector('.lightbox-gallery')) {
+    baguetteBox.run('.lightbox-gallery');
+  }
 
   // Sprawdzenie, czy globalny GSAP istnieje. Jeśli nie, nic nie robimy, aby uniknąć błędów.
   if (typeof gsap === 'undefined') {

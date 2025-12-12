@@ -43,5 +43,6 @@ $sectionClass .= ' ' . $background;
 			<img class="__bg absolute -top-10 -left-6 pointer-events-none" src="/wp-content/uploads/2025/12/proces_bg.svg" />
 		</div>
 	</div>
+
 	<img class="__bg absolute -bottom-16 -left-16 pointer-events-none" src="/wp-content/uploads/2025/12/logo-stroke.svg" />
 </section>

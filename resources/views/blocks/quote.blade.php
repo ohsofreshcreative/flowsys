@@ -18,7 +18,7 @@ $sectionClass .= ' ' . $background;
 
 		<div class="__content order2">
 			<h5 data-gsap-element="header" class="subtitle-p">{{ $g_quote['title'] }}</h5>
-			<div data-gsap-element="header" class="text-h3 mt-4">{!! $g_quote['txt'] !!}</div>
+			<div data-gsap-element="text" class="text-h4 mt-4">{!! $g_quote['txt'] !!}</div>
 
 			<div class="__signature flex flex-col md:flex-row items-start md:items-center gap-6 mt-6">
 				@if (!empty($g_quote['image']))
@@ -26,7 +26,7 @@ $sectionClass .= ' ' . $background;
 					<img class="object-cover w-full __img radius-img max-h-24 aspect-square" src="{{ $g_quote['image']['url'] }}" alt="{{ $g_quote['image']['alt'] ?? '' }}">
 				</div>
 				@endif
-				<div data-gsap-element="header" class="text-h6 text-white">{{ $g_quote['signature'] }}</div>
+				<div data-gsap-element="text" class="text-h6">{{ $g_quote['signature'] }}</div>
 			</div>
 
 		</div>

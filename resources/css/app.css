@@ -8,6 +8,7 @@
 @import 'swiper/css';
 @import 'swiper/css/navigation';
 @import 'swiper/css/pagination';
+@import 'baguettebox.js/dist/baguetteBox.min.css';
 
 /*-- USED ---*/
 @import '../css/blocks/hero.scss';
@@ -30,6 +31,11 @@
 @import '../css/blocks/cards.scss';
 @import '../css/blocks/tiles.scss';
 @import '../css/blocks/overlap.scss';
+@import '../css/blocks/what.scss';
+@import '../css/blocks/image.scss';
+@import '../css/blocks/cta.scss';
+@import '../css/blocks/connect.scss';
+@import '../css/blocks/gallery.scss';
 
 /*-- NOT USED --*/
 @import '../css/blocks/tlc.scss';
@@ -47,11 +53,9 @@
 @import '../css/blocks/tabs.scss';
 @import '../css/blocks/cert.scss';
 @import '../css/blocks/contact.scss';
-@import '../css/blocks/cta.scss';
 @import '../css/blocks/catalogues.scss';
 @import '../css/blocks/jobs.scss';
 @import '../css/blocks/job.scss';
-@import '../css/blocks/image.scss';
 @import '../css/blocks/map.scss';
 @import '../css/blocks/logos.scss';
 @import '../css/blocks/locations.scss';
@@ -66,5 +70,4 @@
 @import '../css/blocks/duotitle.scss';
 @import '../css/blocks/inspirations.scss';
 @import '../css/blocks/wysiwyg.scss';
-@import '../css/blocks/connect.scss';
 @import '../css/blocks/coop.scss';

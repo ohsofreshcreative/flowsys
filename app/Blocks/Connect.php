@@ -56,15 +56,6 @@ class Connect extends Block
 				'rows' => 2,
 				'new_lines' => 'br',
 			])
-			->addTextarea('data', [
-				'label' => 'Nip, Regon',
-				'rows' => 3,
-				'new_lines' => 'br',
-			])
-			->addLink('button', [
-				'label' => 'Przycisk',
-				'return_format' => 'array',
-			])
 			->addImage('image', [
 				'label' => 'Obraz w tle',
 				'return_format' => 'array',

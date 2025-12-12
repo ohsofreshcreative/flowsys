@@ -3,3 +3,25 @@
 #tinymce > div > h6 {
 		font-size:40px;
 }
+
+.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+    list-style-type: disc !important;
+}
+
+.editor-styles-wrapper ul.wp-block-list {
+    list-style: none; /* Usuwamy domyślne punktory */
+    padding-left: 0;
+}
+
+.editor-styles-wrapper ul.wp-block-list li {
+    display: flex; /* Ustawiamy li jako kontener flex */
+    align-items: flex-start; /* Wyrównujemy elementy do góry */
+    margin-bottom: 0.5em;
+}
+
+.editor-styles-wrapper ul.wp-block-list li::before {
+    content: "•";
+    margin-right: 0.75em; /* Odstęp między punktorem a tekstem */
+    font-weight: bold;
+    display: inline; /* Upewniamy się, że jest to element liniowy */
+}

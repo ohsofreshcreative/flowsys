@@ -85,7 +85,7 @@ html,
 body {
 	overflow-x: clip;
 	background-color: var(--bg);
-	color:(--text-body);
+	color: (--text-body);
 }
 
 /*--- !ROOT ---*/
@@ -303,12 +303,12 @@ body {
 	background: var(--p-900);
 	padding: var(--smt) 0;
 
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6,
+	h1, .text-h1,
+	h2, .text-h2,
+	h3, .text-h3,
+	h4, .text-h4,
+	h5, .text-h5,
+	h6, .text-h6,
 	p,
 	b,
 	strong,
@@ -324,12 +324,12 @@ body {
 	background: var(--primary);
 	padding: var(--smt) 0;
 
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6,
+	h1, .text-h1,
+	h2, .text-h2,
+	h3, .text-h3,
+	h4, .text-h4,
+	h5, .text-h5,
+	h6, .text-h6,
 	p,
 	b,
 	strong,
@@ -345,12 +345,12 @@ body {
 	background: var(--gradient);
 	padding: var(--smt) 0;
 
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6,
+	h1, .text-h1,
+	h2, .text-h2,
+	h3, .text-h3,
+	h4, .text-h4,
+	h5, .text-h5,
+	h6, .text-h6,
 	p,
 	b,
 	strong,
@@ -372,12 +372,12 @@ body {
 	background: var(--secondary);
 	padding: var(--smt) 0;
 
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6,
+	h1, .text-h1,
+	h2, .text-h2,
+	h3, .text-h3,
+	h4, .text-h4,
+	h5, .text-h5,
+	h6, .text-h6,
 	p,
 	b,
 	strong,
@@ -428,16 +428,24 @@ body {
 
 /*--- !TYPOGRAPHY ---*/
 
-p, ul, li, span, i, em, div, .__txt {
+p,
+ul,
+li,
+span,
+i,
+em,
+div,
+.__txt {
 	font-family: var(--txt);
-	font-weight: 400;
 }
 
-ul, li {
+ul,
+li {
 	color: var(--body);
 }
 
-b, strong {
+b,
+strong {
 	font-weight: 600;
 	color: var(--body);
 }
@@ -1196,7 +1204,7 @@ input[type='checkbox'] {
 }
 
 .acceptance .wpcf7-list-item-label {
-	color: var(--p-200);
+	color: var(--p-900);
 	font-size: 14px;
 }
 
@@ -1284,27 +1292,17 @@ input[type='checkbox'] {
 
 .category-tabs {
 	.__tab {
-		border-bottom: 2px solid #FFF;
 		transition: all 0.3s;
+		border:1px solid var(--primary);
 	}
 
 	.__tab:hover {
-		border-bottom: 2px solid var(--p-200);
 		transition: all 0.3s;
+		background-color: #FFF;
 	}
 
 	.active {
-		border-bottom: 2px solid var(--primary);
-	}
-}
-
-.featured-post a:hover .blog-btn,
-article.post:hover .blog-btn {
-	background-color: var(--p-500);
-	transition: all 0.3s;
-
-	path {
-		fill: #fff;
+		background-color: var(--primary);
 	}
 }
 
@@ -1318,22 +1316,34 @@ article.post:hover .blog-btn {
 	.__card:hover {
 		.__content {
 			border-color: var(--p-800) !important;
-			background-color: var(--p-50);
 			transition: all 0.3s ease;
 		}
 	}
 }
 
-.featured-post img,
 article.post img {
 	width: 100%;
 	display: block;
-	transition: transform 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
 }
 
-.featured-post:hover img,
-article.post:hover img {
-	transform: scale(1.1);
+article.post:hover {
+	.underline-btn {
+		transition: all 0.2s ease-out;
+		color: var(--p-500);
+		border-bottom: 1px solid var(--primary);
+	}
+
+	.underline-btn::after {
+		transition: all 0.2s ease-out;
+		margin-left: 12px;
+	}
+
+	img {
+		transform: scale(1.1);
+		filter: hue-rotate(20deg);
+
+	}
 }
 
 .toc ul li {
@@ -1375,18 +1385,21 @@ article.post:hover img {
 	.__entry {
 		h2 {
 			font-size: 36px !important;
+			line-height: 1.3em;
 			margin-top: 24px;
 			margin-bottom: 8px;
 		}
 
 		h2:first-child {
 			font-size: 36px !important;
+			line-height: 1.3em;
 			margin-top: 0;
 			margin-bottom: 0;
 		}
 
 		h3 {
 			font-size: 30px !important;
+			line-height: 1.3em;
 			margin-top: 24px;
 			margin-bottom: 8px;
 		}
@@ -1560,7 +1573,7 @@ article.post:hover img {
 		a:hover {
 			color: var(--text-body);
 			transition: all 0.3s;
-			opacity:.6;
+			opacity: .6;
 		}
 
 		ul.sub-menu {

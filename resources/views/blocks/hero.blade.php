@@ -39,24 +39,26 @@ $sectionClass .= $nomt ? ' !mt-0' : '';
 			</div>
 		</div>
 
-		<a class="__cta" href="{{ $g_hero_cta['button1']['url'] }}"
-			target="{{ $g_hero_cta['button1']['target'] }}">
+		@if (!empty($g_hero_cta) && is_array($g_hero_cta))
+		<a class="__cta" href="{{ $g_hero_cta['button1']['url'] ?? '#' }}"
+			target="{{ $g_hero_cta['button1']['target'] ?? '_self' }}">
 			<div data-gsap-element="cta" class="__cta flex items-center gap-8 bg-white radius w-max max-w-[432px] p-2">
 				@if (!empty($g_hero_cta['image']))
 				<div data-gsap-element="image" class="">
-					<img class="max-h-[120px] aspect-square radius object-cover" src="{{ $g_hero_cta['image']['url'] }}" alt="{{ $g_hero_cta['image']['alt'] ?? '' }}">
+					<img class="max-h-[120px] aspect-square radius object-cover" src="{{ $g_hero_cta['image']['url'] ?? '' }}" alt="{{ $g_hero_cta['image']['alt'] ?? '' }}">
 				</div>
 				@endif
 				<div class="__content">
-					<h6 data-gsap-element="header">{{ $g_hero_cta['title'] }}</h6>
-					<p data-gsap-element="button" class="underline-btn left-btn mt-1"
-						href="{{ $g_hero_cta['button1']['url'] }}"
-						target="{{ $g_hero_cta['button1']['target'] }}">
-						{{ $g_hero_cta['button1']['title'] }}
+					<h6 data-gsap-element="header">{{ $g_hero_cta['title'] ?? '' }}</h6>
+					@if (!empty($g_hero_cta['button1']))
+					<p data-gsap-element="button" class="underline-btn left-btn mt-1">
+						{{ $g_hero_cta['button1']['title'] ?? '' }}
 					</p>
+					@endif
 				</div>
 			</div>
 		</a>
+		@endif
 
 	</div>
 

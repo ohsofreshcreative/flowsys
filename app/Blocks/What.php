@@ -5,56 +5,60 @@ namespace App\Blocks;
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
-class Quote extends Block
+class What extends Block
 {
-	public $name = 'Cytat';
-	public $description = 'quote';
-	public $slug = 'quote';
+	public $name = 'Co obejmuje';
+	public $description = 'what';
+	public $slug = 'what';
 	public $category = 'formatting';
-	public $icon = 'format-quote';
-	public $keywords = ['tresc', 'cytat'];
+	public $icon = 'ellipsis';
+	public $keywords = ['what', 'kafelki'];
 	public $mode = 'edit';
 	public $supports = [
 		'align' => false,
 		'mode' => false,
 		'jsx' => true,
-		'anchor' => true,
-		'customClassName' => true,
 	];
 
 	public function fields()
 	{
-		$quote = new FieldsBuilder('quote');
+		$what = new FieldsBuilder('what');
 
-		$quote
-			->setLocation('block', '==', 'acf/quote') // ważne!
+		$what
+			->setLocation('block', '==', 'acf/what') // ważne!
 			->addText('block-title', [
 				'label' => 'Tytuł',
 				'required' => 0,
 			])
 			->addAccordion('accordion1', [
-				'label' => 'Cytat',
+				'label' => 'Co obejmuje',
 				'open' => false,
 				'multi_expand' => true,
 			])
-			/*--- GROUP ---*/
-			->addTab('Elementy', ['placement' => 'top'])
-			->addGroup('g_quote', ['label' => ''])
+			/*--- TAB #1 ---*/
+			->addTab('Treści', ['placement' => 'top'])
+			->addGroup('g_what', ['label' => ''])
 			->addImage('image', [
 				'label' => 'Obraz',
 				'return_format' => 'array', // lub 'url', lub 'id'
 				'preview_size' => 'thumbnail',
 			])
-			->addText('title', ['label' => 'Tytuł'])
-			->addWysiwyg('txt', [
-				'label' => 'Treść',
-				'tabs' => 'all', // 'visual', 'text', 'all'
-				'toolbar' => 'full', // 'basic', 'full'
-				'media_upload' => true,
-			])
-			->addText('signature', ['label' => 'Podpis'])
-			
+			->addText('header', ['label' => 'Nagłówek'])
+			->addText('text', ['label' => 'Tekst'])
 			->endGroup()
+
+			/*--- TAB #2 ---*/
+			->addTab('Kafelki', ['placement' => 'top'])
+			->addRepeater('r_what', [
+				'label' => 'Kafelki',
+				'layout' => 'table', // 'row', 'block', albo 'table'
+				'min' => 1,
+				'button_label' => 'Dodaj kafelek'
+			])
+			->addText('points', [
+				'label' => 'Punkty',
+			])
+			->endRepeater()
 
 			/*--- USTAWIENIA BLOKU ---*/
 
@@ -100,18 +104,19 @@ class Quote extends Block
                     'section-gradient' => 'Gradient',
                     'section-dark' => 'Ciemne',
                 ],
-                'default_value' => 'section-brand',
+                'default_value' => 'none',
                 'ui' => 0, // Ulepszony interfejs
                 'allow_null' => 0,
             ]);
 
-		return $quote;
+		return $what;
 	}
 
 	public function with()
 	{
 		return [
-			'g_quote' => get_field('g_quote'),
+			'g_what' => get_field('g_what'),
+			'r_what' => get_field('r_what'),
 			'section_id' => get_field('section_id'),
 			'section_class' => get_field('section_class'),
 			'flip' => get_field('flip'),
