@@ -15,7 +15,7 @@ $sectionClass .= $nomt ? ' !mt-0' : '';
 
 			<div>
 				<h1 data-gsap-element="header" class=" text-white">
-					{{ $g_hero_sub['title'] }}
+					{!! $g_hero_sub['title'] !!}
 				</h1>
 				<div data-gsap-element="txt" class="text-2xl text-white mt-2 w-full md:w-2/3">
 					{!! $g_hero_sub['txt'] !!}

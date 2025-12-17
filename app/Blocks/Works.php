@@ -7,7 +7,7 @@ use StoutLogic\AcfBuilder\FieldsBuilder;
 
 class Works extends Block
 {
-	public $name = 'Realizacje - Galeria';
+	public $name = 'Realizacje';
 	public $description = 'works';
 	public $slug = 'works';
 	public $category = 'formatting';
@@ -31,7 +31,7 @@ class Works extends Block
 				'required' => 0,
 			])
 			->addAccordion('accordion1', [
-				'label' => 'Realizacje - Galeria',
+				'label' => 'Realizacje',
 				'open' => false,
 				'multi_expand' => true,
 			])
@@ -61,6 +61,16 @@ class Works extends Block
 			->addText('section_class', [
 				'label' => 'Dodatkowe klasy CSS',
 			])
+			->addSelect('display_mode', [
+				'label' => 'Tryb wyświetlania',
+				'choices' => [
+					'slider' => 'Slider',
+					'grid' => 'Siatka',
+				],
+				'default_value' => 'slider',
+				'ui' => 1,
+				'allow_null' => 0,
+			])
 			->addTrueFalse('flip', [
 				'label' => 'Odwrotna kolejność',
 				'ui' => 1,
@@ -86,20 +96,20 @@ class Works extends Block
 				'ui_off_text' => 'Nie',
 			])
 			->addSelect('background', [
-                'label' => 'Kolor tła',
-                'choices' => [
-                    'none' => 'Brak (domyślne)',
-                    'section-white' => 'Białe',
-                    'section-light' => 'Jasne',
-                    'section-gray' => 'Szare',
-                    'section-brand' => 'Marki',
-                    'section-gradient' => 'Gradient',
-                    'section-dark' => 'Ciemne',
-                ],
-                'default_value' => 'none',
-                'ui' => 0, // Ulepszony interfejs
-                'allow_null' => 0,
-            ]);
+				'label' => 'Kolor tła',
+				'choices' => [
+					'none' => 'Brak (domyślne)',
+					'section-white' => 'Białe',
+					'section-light' => 'Jasne',
+					'section-gray' => 'Szare',
+					'section-brand' => 'Marki',
+					'section-gradient' => 'Gradient',
+					'section-dark' => 'Ciemne',
+				],
+				'default_value' => 'none',
+				'ui' => 0, // Ulepszony interfejs
+				'allow_null' => 0,
+			]);
 
 
 
@@ -119,6 +129,7 @@ class Works extends Block
 			'nomt' => get_field('nomt'),
 			'gap' => get_field('gap'),
 			'background' => get_field('background'),
+			'display_mode' => get_field('display_mode') ?: 'slider',
 		];
 	}
 

@@ -297,3 +297,46 @@ add_action('after_setup_theme', function () {
     remove_action('woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
     remove_action('woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
 });
+
+/**
+ * Shortcode do wyświetlania opcji z kalkulatora w CF7.
+ */
+add_shortcode('cf7_calculator_options', function() {
+    if (!function_exists('get_field')) {
+        return 'ACF not found.';
+    }
+
+   $options = get_field('services', 'option'); 
+    if (empty($options)) {
+        return '';
+    }
+
+    $output = '<div class="cf7-calculator-wrapper">';
+    $output .= '<span class="wpcf7-form-control-wrap zainteresowania">';
+    
+    foreach ($options as $option) {
+        $title = esc_attr($option['title']);
+        $icon_url = esc_url($option['icon']);
+
+        // Generujemy checkbox dla CF7. Każdy element to label dla ukrytego checkboxa.
+        $output .= sprintf(
+            '<label class="cf7-calculator-option">
+                <input type="checkbox" name="zainteresowania[]" value="%s" class="hidden">
+                <span class="option-content">
+                    <img src="%s" alt="%s" class="option-icon">
+                    <span class="option-title">%s</span>
+                    <span class="option-circle"></span>
+                </span>
+            </label>',
+            $title,
+            $icon_url,
+            $title,
+            esc_html($option['title'])
+        );
+    }
+
+    $output .= '</span>';
+    $output .= '</div>';
+
+    return $output;
+});

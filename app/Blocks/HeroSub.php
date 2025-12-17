@@ -43,7 +43,11 @@ class HeroSub extends Block
 				'return_format' => 'array',
 				'preview_size' => 'medium',
 			])
-			->addText('title', ['label' => 'Tytuł'])
+			->addTextarea('title', [
+				'label' => 'Nagłówek',
+				'rows' => 2,
+				'new_lines' => 'br',
+			])
 			->addWysiwyg('txt', [
 				'label' => 'Treść',
 				'tabs' => 'all', // 'visual', 'text', 'all'
@@ -59,7 +63,7 @@ class HeroSub extends Block
 				'return_format' => 'array',
 			])
 			->endGroup()
-			
+
 			/*--- USTAWIENIA BLOKU ---*/
 
 			->addTab('Ustawienia bloku', ['placement' => 'top'])

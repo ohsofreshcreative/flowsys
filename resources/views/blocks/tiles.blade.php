@@ -13,9 +13,9 @@ $sectionClass .= ' ' . $background;
 
 <!--- tiles -->
 
-<section data-gsap-anim="section" @if(!empty($section_id)) id="{{ $section_id }}" @endif class="b-tiles relative -smt {{ $sectionClass }} {{ $section_class }}">
+<section data-gsap-anim="section" @if(!empty($section_id)) id="{{ $section_id }}" @endif class="b-tiles relative -spt overflow-hidden {{ $sectionClass }} {{ $section_class }}">
 
-	<div class="__wrapper c-main relative">
+	<div class="__wrapper c-main relative z-10">
 
 		<h2 data-gsap-element="header" class="w-full md:w-1/2">{{ $g_tiles['header'] }}</h2>
 
@@ -42,4 +42,5 @@ $sectionClass .= ' ' . $background;
 		</div>
 	</div>
 
+	<img data-gsap-element="bg" class="__bg absolute w-[400px] -top-52 right-0 pointer-events-none" src="/wp-content/uploads/2025/12/sign_small.svg" />
 </section>

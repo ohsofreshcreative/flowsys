@@ -20,6 +20,7 @@
 @import '../css/blocks/about.scss';
 @import '../css/blocks/category-posts.scss';
 @import '../css/blocks/hero-sub.scss';
+@import '../css/blocks/hero-brand.scss';
 @import '../css/blocks/text-img.scss';
 @import '../css/blocks/how.scss';
 @import '../css/blocks/quote.scss';
@@ -29,6 +30,7 @@
 @import '../css/blocks/hero-offer.scss';
 @import '../css/blocks/order.scss';
 @import '../css/blocks/cards.scss';
+@import '../css/blocks/gains.scss';
 @import '../css/blocks/tiles.scss';
 @import '../css/blocks/overlap.scss';
 @import '../css/blocks/what.scss';
@@ -36,6 +38,7 @@
 @import '../css/blocks/cta.scss';
 @import '../css/blocks/connect.scss';
 @import '../css/blocks/gallery.scss';
+@import '../css/blocks/calc.scss';
 
 /*-- NOT USED --*/
 @import '../css/blocks/tlc.scss';

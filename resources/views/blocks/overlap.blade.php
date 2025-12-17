@@ -15,7 +15,7 @@ $sectionClass .= ' ' . $background;
 
 <section data-gsap-anim="section" @if(!empty($section_id)) id="{{ $section_id }}" @endif class="b-overlap relative -smt {{ $sectionClass }} {{ $section_class }}">
 
-	<div class="__wrapper c-main relative">
+	<div class="__wrapper c-main relative z-10">
 		<div class="__content order2">
 			<div class="__txt w-full md:w-1/2 mx-auto">
 				<h2 data-gsap-element="header" class="text-center m-header">{{ $g_overlap['title'] }}</h2>
@@ -29,8 +29,8 @@ $sectionClass .= ' ' . $background;
 				@foreach ($r_overlap as $item)
 				<div class="gsap__cards __cards sticky top-20 mt-4">
 					<div class="gsap__card __card  b-border p-8 rounded-4xl" style="background-image:url({{ $item['r_image']['url'] }}); background-size: cover; background-position: center;">
-						<div class="flex bg-white rounded-3xl w-full md:w-1/2 p-6 md:p-10 mt-80 mb-0 md:mb-10 mx-0 md:mx-20">
-							<svg xmlns="http://www.w3.org/2000/svg" width="57" height="61" viewBox="0 0 57 61" fill="none">
+						<div class="flex items-start bg-white rounded-3xl w-full md:w-1/2 gap-4 p-6 md:p-10 mt-80 mb-0 md:mb-10 mx-0 md:mx-20">
+							<svg xmlns="http://www.w3.org/2000/svg" width="120" viewBox="0 0 57 61" fill="none">
 								<path d="M57 15.4824L39.1123 60.9883L39.0869 61H15.501L0 25.4463H23.5859L27.3799 34.1338L40.7979 0L57 15.4824ZM27.4775 39.3535L22.2764 27.4463H3.05371L16.8105 59H37.7451L54.6465 16.001L41.5693 3.50391L27.4775 39.3535Z" fill="#2BB209" />
 							</svg>
 							<div class="__content">
@@ -47,4 +47,5 @@ $sectionClass .= ' ' . $background;
 		</div>
 	</div>
 
+	<img data-gsap-element="bg" class="__bg absolute w-[400px] -left-60 top-32 pointer-events-none" src="/wp-content/uploads/2025/12/sign_small.svg" />
 </section>

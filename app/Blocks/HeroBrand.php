@@ -5,11 +5,11 @@ namespace App\Blocks;
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
-class Hero extends Block
+class HeroBrand extends Block
 {
-	public $name = 'Hero';
-	public $description = 'Hero';
-	public $slug = 'hero';
+	public $name = 'Hero - Brand';
+	public $description = 'hero-brand';
+	public $slug = 'hero-brand';
 	public $category = 'formatting';
 	public $icon = 'align-full-width';
 	public $keywords = ['tresc', 'zdjecie'];
@@ -22,22 +22,22 @@ class Hero extends Block
 
 	public function fields()
 	{
-		$hero = new FieldsBuilder('hero');
+		$hero_brand = new FieldsBuilder('hero-brand');
 
-		$hero
-			->setLocation('block', '==', 'acf/hero') // ważne!
+		$hero_brand
+			->setLocation('block', '==', 'acf/hero-brand') // ważne!
 			->addText('block-title', [
 				'label' => 'Tytuł',
 				'required' => 0,
 			])
 			->addAccordion('accordion1', [
-				'label' => 'Hero',
+				'label' => 'Hero - Brand',
 				'open' => false,
 				'multi_expand' => true,
 			])
 			/*--- TAB #1 ---*/
 			->addTab('Treść', ['placement' => 'top'])
-			->addGroup('g_hero', ['label' => 'Hero'])
+			->addGroup('g_hero_brand', ['label' => 'hero-brand'])
 			->addImage('image', [
 				'label' => 'Obraz',
 				'return_format' => 'array',
@@ -59,22 +59,7 @@ class Hero extends Block
 				'return_format' => 'array',
 			])
 			->endGroup()
-
-			/*--- TAB #1 ---*/
-			->addTab('CTA', ['placement' => 'top'])
-			->addGroup('g_hero_cta', ['label' => 'Hero'])
-			->addImage('image', [
-				'label' => 'Obraz',
-				'return_format' => 'array',
-				'preview_size' => 'medium',
-			])
-			->addText('title', ['label' => 'Tytuł'])
-			->addLink('button1', [
-				'label' => 'Przycisk #1',
-				'return_format' => 'array',
-			])
-			->endGroup()
-
+			
 			/*--- USTAWIENIA BLOKU ---*/
 
 			->addTab('Ustawienia bloku', ['placement' => 'top'])
@@ -91,14 +76,13 @@ class Hero extends Block
 				'ui_off_text' => 'Nie',
 			]);
 
-		return $hero;
+		return $hero_brand;
 	}
 
 	public function with()
 	{
 		return [
-			'g_hero' => get_field('g_hero'),
-			'g_hero_cta' => get_field('g_hero_cta'),
+			'g_hero_brand' => get_field('g_hero_brand'),
 			'section_id' => get_field('section_id'),
 			'section_class' => get_field('section_class'),
 			'nomt' => get_field('nomt'),

@@ -35,6 +35,25 @@ $sectionClass .= ' ' . $background;
 		</div>
 
 		<div class="relative mt-10">
+			@if ($display_mode === 'grid')
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-6 -smb">
+				@foreach ($works as $work)
+				<div>
+					<a href="{{ get_permalink($work->ID) }}">
+						<div data-gsap-element="card" class="__card bg-white radius p-6 h-full">
+							<div class="">
+								<img src="{{ get_the_post_thumbnail_url($work->ID, 'large') }}" alt="{{ $work->post_title }}" class="__img w-full img-m object-cover rounded-lg" loading="lazy">
+							</div>
+							<div class="mt-4">
+								<h6 class="">{{ $work->post_title }}</h6>
+							</div>
+							<p class="underline-btn mt-6">Zobacz realizację</p>
+						</div>
+					</a>
+				</div>
+				@endforeach
+			</div>
+			@else
 			<div data-gsap-element="swiper" class="swiper offer-swiper !overflow-visible">
 				<div class="swiper-wrapper">
 					@foreach ($works as $work)
@@ -68,6 +87,7 @@ $sectionClass .= ' ' . $background;
 					</svg>
 				</div>
 			</div>
-
+			@endif
 		</div>
+	</div>
 </section>
