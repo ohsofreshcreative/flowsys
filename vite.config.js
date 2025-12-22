@@ -2,6 +2,10 @@ import { defineConfig } from 'vite'
 import tailwindcss from '@tailwindcss/vite'
 import laravel from 'laravel-vite-plugin'
 import { wordpressPlugin, wordpressThemeJson } from '@roots/vite-plugin'
+// --- POCZĄTEK ZMIANY ---
+// Importujemy moduł 'path' z Node.js, aby stworzyć absolutną ścieżkę
+import path from 'path'
+// --- KONIEC ZMIANY ---
 
 export default defineConfig(({ command }) => ({
   server: {
@@ -9,8 +13,6 @@ export default defineConfig(({ command }) => ({
     port: 5981,
     strictPort: true,
     cors: true,
-   /*  origin: 'http://flowsys.local:5981', */
-
     hmr: {
       protocol: 'ws',
       host: 'flowsys.local',
@@ -23,7 +25,12 @@ export default defineConfig(({ command }) => ({
     : '/build/',
 
   plugins: [
-    tailwindcss(),
+    // --- POCZĄTEK ZMIANY ---
+    // Zmuszamy wtyczkę Tailwind do użycia konkretnego pliku konfiguracyjnego
+    tailwindcss({
+      config: path.resolve(__dirname, 'tailwind.config.js'),
+    }),
+    // --- KONIEC ZMIANY ---
 
     laravel({
       input: [
@@ -31,13 +38,13 @@ export default defineConfig(({ command }) => ({
         'resources/js/app.js',
         'resources/css/editor.css',
         'resources/js/editor.js',
-		'resources/js/blocks/calc.js',
       ],
       refresh: true,
     }),
 
     wordpressPlugin(),
 
+    // Upraszczamy tę wtyczkę, usuwając ustawienia kolorów, które nie działały
     wordpressThemeJson({
       disableTailwindColors: false,
       disableTailwindFonts: false,

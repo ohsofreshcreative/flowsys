@@ -15,6 +15,8 @@ import './blocks/reviews.js';
 import './blocks/category-posts.js';
 import './blocks/how.js';
 import './blocks/overlap.js';
+import './blocks/calc.js';
+import './blocks/category-slider.js';
 import baguetteBox from 'baguettebox.js';
 
 /*--- INICJALIZACJA BIBLIOTEK ---*/

@@ -4,7 +4,7 @@
     "src": "editor.deps.json"
   },
   "resources/css/app.css": {
-    "file": "assets/app-Dc9e49EI.css",
+    "file": "assets/app-BblRMSYA.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "name": "app",
@@ -13,7 +13,7 @@
     ]
   },
   "resources/css/editor.css": {
-    "file": "assets/editor-DbD4Owmm.css",
+    "file": "assets/editor-Csn8UsMH.css",
     "src": "resources/css/editor.css",
     "isEntry": true,
     "name": "editor",
@@ -50,19 +50,13 @@
     "src": "resources/images/ring-mask.svg"
   },
   "resources/js/app.js": {
-    "file": "assets/app-B744v311.js",
+    "file": "assets/app-P2c5_wHg.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
       "assets/app-DHBATib1.css"
     ]
-  },
-  "resources/js/blocks/calc.js": {
-    "file": "assets/calc-CQ0S0hvG.js",
-    "name": "calc",
-    "src": "resources/js/blocks/calc.js",
-    "isEntry": true
   },
   "resources/js/editor.js": {
     "file": "assets/editor-CfU4GbSP.js",

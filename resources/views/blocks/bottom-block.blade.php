@@ -14,18 +14,16 @@ $sectionClass .= $nomt ? ' !mt-0' : '';
 				<div data-gsap-element="txt" class="mt-2 text-white">
 					{!! $bottom['txt'] !!}
 				</div>
-				<a data-gsap-element="phone" href="tel:{{ $bottom['phone'] }}" class="block text-h3 text-p-lighter w-max mt-6">{{ $bottom['phone'] }}</a>
+				<a data-gsap-element="phone" href="tel:{{ $bottom['phone'] }}" class="block text-h3 !text-primary-light hover:!text-primary-lighter w-max mt-6">{{ $bottom['phone'] }}</a>
 				@if (!empty($bottom['button']))
 				<a data-gsap-element="btn" class="main-btn m-btn align-self-bottom" href="{{ $bottom['button']['url'] }}">{{ $bottom['button']['title'] }}</a>
 				@endif
 			</div>
 
-			<!-- <div data-gsap-element="form" data-gsap-element="form" class="mt-8">
-				{!! do_shortcode($bottom['shortcode']) !!}
-			</div> -->
 		</div>
 
 		<div data-gsap-element="img" class="__img inset-y-0 h-full">
+	<img class="__bg absolute top-1/2 -translate-y-1/2 -left-21 w-44 pointer-events-none" src="/wp-content/uploads/2025/12/sign_small.svg" />
 			@php
 			$unique_id = 'clip_'.uniqid();
 			@endphp

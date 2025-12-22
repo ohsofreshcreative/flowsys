@@ -26,7 +26,7 @@
 				align-items: center;
 
 				&::before {
-					content: url('http://flowsys.local/wp-content/uploads/2025/12/check.svg');
+					content: url('/wp-content/uploads/2025/12/check.svg');
 					left: 0;
 					top: 4px;
 					width: 32px;
@@ -74,7 +74,7 @@
 	}
 
 	h5::before {
-		content: url('http://flowsys.local/wp-content/uploads/2025/12/phone.svg');
+		content: url('/wp-content/uploads/2025/12/phone.svg');
 		margin-right: 8px;
 		position: relative;
 		display: inline-block;

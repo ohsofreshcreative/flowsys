@@ -16,8 +16,8 @@ $sectionClass .= ' ' . $background;
 	<div class="__wrapper c-main">
 
 		<div class="__top">
-			<h3 class="text-p-lighter text-center m-header">{{ strip_tags($g_cards['header']) }}</h3>
-			<p>{{ $g_cards['text'] }}</p>
+			<h3 data-gsap-element="header" class="text-p-lighter text-center m-header">{{ strip_tags($g_cards['header']) }}</h3>
+			<p data-gsap-element="txt">{{ $g_cards['text'] }}</p>
 		</div>
 
 		@if (!empty($r_cards))
@@ -32,15 +32,15 @@ $sectionClass .= ' ' . $background;
 
 		<div class="grid {{ $gridClass }} gap-8 mt-10">
 			@foreach ($r_cards as $item)
-			<div class="__card relative bg-background radius p-10">
+			<div data-gsap-element="card" class="__card relative bg-background radius p-10">
 				@if (!empty($item['image']['url']))
 				<img class="mb-6" src="{{ $item['image']['url'] }}" alt="{{ $item['image']['alt'] ?? '' }}" />
 				@endif
 				@if (!empty($item['title']))
-				<h6 class="text-body mb-4">{{ $item['title'] }}</h6>
+				<h6 class="!text-body mb-4">{{ $item['title'] }}</h6>
 				@endif
 				@if (!empty($item['text']))
-				<p class="text-body">{{ $item['text'] }}</p>
+				<p class="!text-body">{{ $item['text'] }}</p>
 				@endif
 			</div>
 			@endforeach

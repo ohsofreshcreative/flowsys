@@ -41,7 +41,7 @@ $sectionClass .= $brandbg ? ' section-brand' : '';
 			</div>
 
 			@if (!empty($g_totals['image']))
-			<div data-gsap-element="img-right" class="__img radius-img order1">
+			<div data-gsap-element="img" class="__img radius-img order1">
 				<img class="object-cover w-full __img img-2xl radius-img" src="{{ $g_totals['image']['url'] }}" alt="{{ $g_totals['image']['alt'] ?? '' }}">
 			</div>
 			@endif

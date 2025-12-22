@@ -27,9 +27,9 @@ $imageUrl = !empty($g_connect_1['image']['url']) ? "url(" . $g_connect_1['image'
 
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
 					<div data-gsap-element="data" class="__data flex flex-col gap-4">
-						<a href="tel:{{ preg_replace('/\s+/', '', $g_connect_1['phone']) }}" class="__phone flex items-center text-xl text-white">{{ $g_connect_1['phone'] }}</a>
-						<a href="mailto:{{ $g_connect_1['email'] }}" class="__mail flex items-center text-xl text-white">{{ $g_connect_1['email'] }}</a>
-						<p class="text-lg __address text-white">{!! $g_connect_1['address'] !!}</p>
+						<a href="tel:{{ preg_replace('/\s+/', '', $g_connect_1['phone']) }}" class="__phone flex items-center text-xl !text-white hover:!text-primary-light">{{ $g_connect_1['phone'] }}</a>
+						<a href="mailto:{{ $g_connect_1['email'] }}" class="__mail flex items-center text-xl !text-white hover:!text-primary-light">{{ $g_connect_1['email'] }}</a>
+						<p class="text-lg __address !text-white">{!! $g_connect_1['address'] !!}</p>
 					</div>
 				</div>
 

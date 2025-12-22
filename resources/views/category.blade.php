@@ -34,7 +34,7 @@ $unique_id = 'clip_'.uniqid();
 				{!! $category_header ?: get_the_archive_title() !!}
 			</h2>
 			@if ($category_description)
-			<div class="text-white text-2xl">
+			<div class="text-white text-xl md:text-2xl">
 				{!! $category_description !!}
 			</div>
 			@endif
@@ -43,15 +43,23 @@ $unique_id = 'clip_'.uniqid();
 
 </div>
 
-<div id="category-tabs" class="c-main !-mt-16 category-tabs z-20 relative pt-8">
-	<div class="__wrapper bg-white rounded-full flex justify-center gap-4 p-3">
-		<a href="/kategorie/wszystkie-kategorie" class="__tab font-bold rounded-full px-4 py-2 {{ is_category('wszystkie-kategorie') ? 'active' : '' }}">Wszystkie kategorie</a>
-		@foreach($categories as $category)
-		@if($category->name !== 'Wszystkie kategorie')
-		<a href="{{ get_category_link($category->term_id) }}#category-tabs" class="__tab font-bold rounded-full px-4 py-2 {{ $term && $term->term_id === $category->term_id ? 'active' : '' }}">{{ $category->name }}</a>
-		@endif
-		@endforeach
-	</div>
+<div id="category-tabs" class="c-main !-mt-16 category-tabs z-20 relative bg-white rounded-full p-3">
+    <!-- Swiper -->
+    <div class="swiper category-swiper lg:flex lg:justify-center">
+        <div class="swiper-wrapper lg:w-fit">
+            <!-- Slides -->
+            <div class="swiper-slide !w-auto">
+                <a href="/kategorie/wszystkie-kategorie" class="__tab block font-bold rounded-full px-4 py-2 {{ is_category('wszystkie-kategorie') ? 'active' : '' }}">Wszystkie kategorie</a>
+            </div>
+            @foreach($categories as $category)
+                @if($category->name !== 'Wszystkie kategorie')
+                <div class="swiper-slide !w-auto">
+                    <a href="{{ get_category_link($category->term_id) }}#category-tabs" class="__tab block font-bold rounded-full px-4 py-2 {{ $term && $term->term_id === $category->term_id ? 'active' : '' }}">{{ $category->name }}</a>
+                </div>
+                @endif
+            @endforeach
+        </div>
+    </div>
 </div>
 
 @if (have_posts())

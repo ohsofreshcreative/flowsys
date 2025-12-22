@@ -1,7 +1,7 @@
 .b-offer {
 	.__card:hover {
-		.bg-p-light {
-			background-color: var(--p-300) !important;
+		.__arrow {
+			background-color: var(--color-primary-lighter) !important;
 			transition: all 0.3s ease;
 		}
 	}

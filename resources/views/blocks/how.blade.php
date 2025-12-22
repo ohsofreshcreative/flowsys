@@ -39,7 +39,7 @@ $sectionClass .= ' ' . $background;
                 <div class="how-cards space-y-4">
                     @foreach ($r_how as $item)
                         <div 
-                            class="how-card __card relative bg-white radius p-10 cursor-pointer transition-colors {{ $loop->first ? 'active bg-primary' : '' }}"
+                            class="how-card __card relative bg-white hover:bg-primary-lighter radius p-10 cursor-pointer transition-colors {{ $loop->first ? 'active bg-primary' : '' }}"
                             data-index="{{ $loop->index }}"
                         >
                             @if (!empty($item['title']))

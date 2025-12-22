@@ -1,64 +1,70 @@
 .b-calc {
-	.cf7-calculator-wrapper {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-		gap: 1rem;
-		margin-top: 1rem;
-	}
 
-	.cf7-calculator-option {
-		display: block;
-		border: 2px solid #e0f2f1;
-		background-color: #ffffff;
-		border-radius: 12px;
-		padding: 1.5rem 1rem;
-		cursor: pointer;
-		transition: all 0.2s ease-in-out;
-		text-align: center;
-	}
+	/*--- !INPUT CONTACT ---*/
 
-	.cf7-calculator-option:hover {
-		border-color: #4caf50;
-	}
+		input[type='text'],
+		input[type='tel'],
+		input[type='email'],
+		input[type='number'],
+		select,
+		textarea {
+			width: 100%;
+			background-color: #FFF;
+			border: none;
+			color: var(--p-dark);
+			border: 1px solid var(--border-p);
+			padding: 12px 16px;
+			transition: all 0.2s ease-out;
+			border-radius: 4px;
+			font-size: 16px;
+		}
 
-	/* Styl dla zaznaczonego elementu */
-	.cf7-calculator-option input:checked+.option-content {
-		/* Możesz dodać tu style dla zaznaczenia */
-	}
+		input::placeholder,
+		textarea::placeholder {
+			color: #706e68;
+			opacity: 1;
+		}
 
-	.cf7-calculator-option input:checked+.option-content .option-circle {
-		background-color: #4caf50;
-		border-color: #4caf50;
-	}
+		input[type='text']:focus,
+		input[type='tel']:focus,
+		input[type='email']:focus,
+		input[type='number']:focus,
+		textarea:focus {
+			width: 100%;
+			background-color: var(--p-100);
+			border: 1px dashed var(--p-600);
+			outline: none;
+			transition: all 0.2s ease-out;
+		}
 
-	.option-content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 0.75rem;
-	}
+		textarea {
+			height: 120px;
+		}
 
-	.option-icon {
-		width: 40px;
-		height: 40px;
-		object-fit: contain;
-	}
+		input[type='submit'] {
+			font-size: 16px;
+			background: var(--primary);
+			color: #fff;
+			padding: 15px 45px;
+			display: inline-block;
+			transition: all 0.2s ease-out;
+			border-radius: 8px;
+			font-weight: 600;
+			border: 1px solid transparent;
+			text-decoration: none;
+			white-space: nowrap;
+			width: unset !important;
+			margin-top: 8px;
+			cursor: pointer;
+		}
 
-	.option-title {
-		font-weight: 600;
-		color: #333;
-	}
-
-	.option-circle {
-		display: inline-block;
-		width: 20px;
-		height: 20px;
-		border-radius: 50%;
-		border: 2px solid #ccc;
-		transition: all 0.2s ease-in-out;
-	}
-
-	.hidden {
-		display: none;
-	}
+		input[type='submit']:hover {
+			color: #fff;
+			background: var(--s-hover);
+			transition: all 0.2s ease-out;
+			border: 1px solid transparent;
+		}
+		.wpcf7-list-item {
+			margin-left: 0 !important;
+		}
 }

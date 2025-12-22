@@ -12,7 +12,7 @@ $sectionClass .= ' ' . $background;
 
 <!--- cta --->
 
-<section @if(!empty($section_id)) id="{{ $section_id }}" @endif class="b-cta bg-brand radius mt-20 {{ $sectionClass }} {{ $section_class }}">
+<section @if(!empty($section_id)) id="{{ $section_id }}" @endif class="b-cta bg-background-brand radius mt-20 {{ $sectionClass }} {{ $section_class }}">
 
 	<div class="__wrapper relative radius grid grid-cols-1 lg:grid-cols-2 items-center section-gap z-10 p-10">
 		@if (!empty($g_cta['image']))
@@ -23,7 +23,7 @@ $sectionClass .= ' ' . $background;
 		<div class="__content">
 
 			<h3 data-gsap-element="header" class="text-white mt-6">{{ $g_cta['header'] }}</h3>
-			<p data-gsap-element="text" class="text-white">{{ strip_tags($g_cta['text']) }}</p>
+			<p data-gsap-element="text" class="text-white">{!! strip_tags($g_cta['text']) !!}</p>
 
 			@if (!empty($g_cta['button']))
 			<a data-gsap-element="btn" class="main-btn m-btn" href="{{ $g_cta['button']['url'] }}">{{ $g_cta['button']['title'] }}</a>

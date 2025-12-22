@@ -62,3 +62,4 @@ function get_pdf_thumbnail_url($pdf_attachment_id)
         return wp_get_attachment_url($pdf_attachment_id);
     }
 }
+

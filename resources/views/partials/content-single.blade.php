@@ -3,7 +3,7 @@ $categories = get_the_category();
 $category = !empty($categories) ? $categories[0] : null;
 @endphp
 
-<section data-gsap-anim="section" class="hero-blog bg-brand relative overflow-hidden">
+<section data-gsap-anim="section" class="hero-blog bg-background-brand relative overflow-hidden">
 	<div class="__wrapper c-main relative z-10 -spt">
 		<div class="__content w-full sm:w-3/4 mx-auto pb-30">
 			@if (function_exists('woocommerce_breadcrumb'))
@@ -16,7 +16,7 @@ $category = !empty($categories) ? $categories[0] : null;
 				@endif
 				<h1 data-gsap-element="header" class="text-h2 text-white mt-6">{{ get_the_title() }}</h1>
 				@if(has_excerpt())
-				<div data-gsap-element="content" class="text-white">
+				<div data-gsap-element="content" class="text-white mt-4">
 					{!! get_the_excerpt() !!}
 				</div>
 				@endif
@@ -59,7 +59,7 @@ $related_query = new WP_Query($related_args);
 @if($related_query->have_posts())
 
 <section data-gsap-anim="section" class="related-posts -smt pb-26">
-	<div class="c-main border-top-p pt-20">
+	<div class="c-main border-primary border-t border-dotted pt-20">
 		<h3 data-gsap-element="header" class="text-center">Podobne wpisy</h3>
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-14">
 

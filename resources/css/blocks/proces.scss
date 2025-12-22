@@ -19,7 +19,6 @@
     width: 100%;
     overflow: hidden;
     margin-bottom: 16px !important;
-    border: 1px solid var(--border);
   }
 
   .proces-label {
@@ -36,16 +35,17 @@
   }
 
   .proces-label::after {
-    content: url('http://flowsys.local/wp-content/uploads/2025/12/plus.svg');
+    content: url('/wp-content/uploads/2025/12/plus.svg');
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
     top: 1px;
     position: relative;
-	background-color: var(--bg-p-light);
+	background-color: var(--color-primary-light);
 	border-radius: 50px;
 	width: 24px;
 	height: 24px;
 	text-align: center;
+	padding:1px
   }
 
   .proces-content {
@@ -76,7 +76,7 @@
   }
 
   input:checked + .proces-label::after {
-    content: url('http://flowsys.local/wp-content/uploads/2025/12/minus.svg');
+    content: url('/wp-content/uploads/2025/12/minus.svg');
   }
 
   .proces:has(input:checked) {

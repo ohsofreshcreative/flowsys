@@ -17,7 +17,7 @@ $sectionClass .= ' ' . $background;
 
 	<div class="__wrapper c-main grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 my-10">
 		@if (!empty($g_proces['image']))
-		<img data-gsap-element="img-left" class="__img object-cover order1 h-full radius-img" src="{{ $g_proces['image']['url'] }}" alt="{{ $g_proces['image']['alt'] ?? '' }}">
+		<img data-gsap-element="img" class="__img object-cover order1 h-full radius-img" src="{{ $g_proces['image']['url'] }}" alt="{{ $g_proces['image']['alt'] ?? '' }}">
 		@endif
 		<div class="__content relative order2">
 			<div class="__inner relative z-10">
@@ -28,12 +28,12 @@ $sectionClass .= ' ' . $background;
 				@endif
 				<div data-gsap-element="proces" class="proces-wrapper grid mt-10">
 					@foreach ($repeater as $item)
-					<div class="proces rounded-2xl bg-p-lighter">
+					<div class="proces rounded-2xl bg-primary-lighter">
 						<input class="acc-check" type="radio" name="radio-a" id="check{{ $loop->index }}" {{ $loop->first ? 'checked' : '' }}>
 						<label class="proces-label font-semibold text-md md:text-h5 gap-4" for="check{{ $loop->index }}">
-							<div><span class="primary">{{ $loop->iteration }}.</span> {{ $item['title'] }}</div>
+							<div><span class="text-primary">{{ $loop->iteration }}.</span> {{ $item['title'] }}</div>
 						</label>
-						<div class="proces-content border-left-p">
+						<div class="proces-content border-primary border-l-2">
 							<p>{!! $item['txt'] !!}</p>
 						</div>
 					</div>

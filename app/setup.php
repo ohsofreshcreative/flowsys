@@ -298,45 +298,57 @@ add_action('after_setup_theme', function () {
     remove_action('woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
 });
 
+
+
+
 /**
- * Shortcode do wyświetlania opcji z kalkulatora w CF7.
+ * Dynamically generate checkboxes for subsidies in Contact Form 7.
  */
-add_shortcode('cf7_calculator_options', function() {
-    if (!function_exists('get_field')) {
-        return 'ACF not found.';
+add_action('after_setup_theme', function () {
+    remove_action('woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
+    remove_action('woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
+});
+
+
+/**
+ * Register custom form tag for CF7 to display subsidies.
+ */
+add_action('wpcf7_init', function () {
+    wpcf7_add_form_tag('subsidy_checkboxes', 'App\\custom_subsidy_checkboxes_handler');
+});
+
+/**
+ * Handler for the [subsidy_checkboxes] form tag.
+ *
+ * @param WPCF7_FormTag $tag
+ * @return string
+ */
+function custom_subsidy_checkboxes_handler($tag)
+{
+    $subsidies = get_field('subsidies', 'option');
+    $output = '';
+
+    if ($subsidies) {
+        $output .= '<h2 class="text-2xl font-bold mb-4">Dofinansowania</h2>';
+        $output .= '<div class="flex flex-col gap-2">';
+        foreach ($subsidies as $subsidy) {
+            if (!empty($subsidy['subsidy_name'])) {
+                $name = esc_attr($subsidy['subsidy_name']);
+                $output .= sprintf(
+                    '<label class="flex items-center gap-2"><input type="checkbox" name="subsidies[]" value="%s" /> <span>%s</span></label>',
+                    $name,
+                    esc_html($name)
+                );
+            }
+        }
+        $output .= '</div>';
     }
-
-   $options = get_field('services', 'option'); 
-    if (empty($options)) {
-        return '';
-    }
-
-    $output = '<div class="cf7-calculator-wrapper">';
-    $output .= '<span class="wpcf7-form-control-wrap zainteresowania">';
-    
-    foreach ($options as $option) {
-        $title = esc_attr($option['title']);
-        $icon_url = esc_url($option['icon']);
-
-        // Generujemy checkbox dla CF7. Każdy element to label dla ukrytego checkboxa.
-        $output .= sprintf(
-            '<label class="cf7-calculator-option">
-                <input type="checkbox" name="zainteresowania[]" value="%s" class="hidden">
-                <span class="option-content">
-                    <img src="%s" alt="%s" class="option-icon">
-                    <span class="option-title">%s</span>
-                    <span class="option-circle"></span>
-                </span>
-            </label>',
-            $title,
-            $icon_url,
-            $title,
-            esc_html($option['title'])
-        );
-    }
-
-    $output .= '</span>';
-    $output .= '</div>';
 
     return $output;
-});
+}
+
+
+/**
+ * Disable Contact Form 7 auto <p> tags.
+ */
+add_filter('wpcf7_autop_or_not', '__return_false');

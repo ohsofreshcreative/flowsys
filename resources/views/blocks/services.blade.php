@@ -31,7 +31,7 @@ $sectionClass .= ' ' . $background;
 					<h5 class="mt-4">
 						{{ $sector->post_title }}
 					</h5>
-					<div class="__arrow bg-p-light w-max rounded-full p-3 transition-all duration-500 mt-6">
+					<div class="__arrow bg-primary-light w-max rounded-full p-3 transition-all duration-500 mt-6">
 						<img class="" src="/wp-content/uploads/2025/12/arrow-right.svg" />
 					</div>
 				</div>

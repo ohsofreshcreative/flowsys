@@ -17,7 +17,7 @@ $sectionClass .= $brandbg ? ' section-brand' : '';
 		<div class="__wrapper px-0 md:px-10 py-0 md:py-2 relative z-2">
 			<div class="grid grid-cols-1 lg:grid-cols-[1.3fr_2fr] gap-8 lg:gap-20 my-10">
 				@if (!empty($g_accordion['image']))
-				<img data-gsap-element="img-left" class="__img object-cover order1 h-full radius-img" src="{{ $g_accordion['image']['url'] }}" alt="{{ $g_accordion['image']['alt'] ?? '' }}">
+				<img data-gsap-element="img" class="__img object-cover order1 h-full radius-img" src="{{ $g_accordion['image']['url'] }}" alt="{{ $g_accordion['image']['alt'] ?? '' }}">
 				@endif
 				<div class="__content order2">
 					<h2 data-gsap-element="header" class="">{{ $g_accordion['title'] }}</h2>

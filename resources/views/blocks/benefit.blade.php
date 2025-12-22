@@ -48,7 +48,7 @@ $sectionClass .= $secondarybg ? ' section-secondary' : '';
 
 			<!-- IMG -->
 			@if (!empty($g_benefit['image']))
-			<div data-gsap-element="img-left" class="__img radius-img order1">
+			<div data-gsap-element="img" class="__img radius-img order1">
 				<img class="img-m w-full radius-img object-cover" src="{{ $g_benefit['image']['url'] }}" alt="{{ $g_benefit['image']['alt'] ?? '' }}">
 			</div>
 			@endif

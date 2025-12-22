@@ -43,7 +43,7 @@ $sectionClass .= $brandbg ? ' section-brand' : '';
 		<div class="grid {{ $gridClass }} pt-14 gap-8">
 			@foreach ($repeater as $item)
 			<div data-gsap-element="card" class="__card relative">
-			<div data-gsap-element="img-left" class="radius-img">
+			<div data-gsap-element="img" class="radius-img">
 				<img class="img-xl w-full radius-img object-cover mb-6" src="{{ $item['card_image']['url'] }}" alt="{{ $item['card_image']['alt'] ?? '' }}" />
 				</div>
 

@@ -17,8 +17,8 @@ $sectionClass .= ' ' . $background;
 
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
 			<div class="__content">
-				<h3 class="m-header">{{ strip_tags($g_complex['header']) }}</h3>
-				<div>{!! $g_complex['text'] !!}</div>
+				<h3 data-gsap-element="header" class="m-header">{{ strip_tags($g_complex['header']) }}</h3>
+				<div data-gsap-element="text">{!! $g_complex['text'] !!}</div>
 			</div>
 
 			@if (!empty($g_complex['image']))
@@ -30,7 +30,7 @@ $sectionClass .= ' ' . $background;
 
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
 			@foreach ($r_complex as $item)
-			<div class="__card relative bg-gray radius flex items-center gap-6 p-10">
+			<div data-gsap-element="card" class="__card relative bg-gray radius flex items-center gap-6 p-10">
 				@if (!empty($item['image']['url']))
 				<img class="" src="{{ $item['image']['url'] }}" alt="{{ $item['image']['alt'] ?? '' }}" />
 				@endif

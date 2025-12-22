@@ -7,87 +7,85 @@ use StoutLogic\AcfBuilder\FieldsBuilder;
 
 class Calculator extends Field
 {
+    /**
+     * The option page menu name.
+     *
+     * @var string
+     */
     public $name = 'Kalkulator';
+
+    /**
+     * The option page document title.
+     *
+     * @var string
+     */
     public $title = 'Ustawienia Kalkulatora | Opcje';
 
+    /**
+     * The option page field group.
+     *
+     * @return array
+     */
     public function fields()
     {
         $calculator = new FieldsBuilder('calculator_settings');
 
         $calculator
             ->addTab('Usługi i Cenniki')
-            ->addRepeater('services', [
-                'label' => 'Usługi w kalkulatorze',
-                'button_label' => 'Dodaj usługę',
-                'layout' => 'block',
-            ])
-                ->addImage('icon', ['label' => 'Ikona', 'return_format' => 'url'])
-                ->addText('title', ['label' => 'Nazwa usługi'])
-                ->addSelect('calculation_type', [
-                    'label' => 'Typ kalkulacji',
-                    'choices' => [
-                        'area_tiered' => 'Cena progowa za m²',
-                        'fixed_tiered' => 'Cena progowa stała',
-                        'per_room' => 'Cena za pomieszczenie',
-                        'package' => 'Pakiety do wyboru',
-                    ],
+                ->addRepeater('services', [
+                    'label' => 'Usługi w kalkulatorze',
+                    'instructions' => 'Dodaj usługi, które pojawią się jako kafelki do wyboru.',
+                    'button_label' => 'Dodaj usługę',
+                    'layout' => 'block'
                 ])
-
-                // --- Cennik progowy za m² (np. Ogrzewanie podłogowe, Instalacja elektryczna) ---
-                ->addRepeater('area_tiers', [
-                    'label' => 'Progi cenowe (za m²)',
-                    'instructions' => 'Np. od 0 do 100m², cena 100zł/m². Kolejny próg: od 100 do 250m², cena 90zł/m².',
-                    'button_label' => 'Dodaj próg',
-                ])
-                    ->conditional('calculation_type', '==', 'area_tiered')
-                    ->addNumber('from_area', ['label' => 'Powierzchnia OD (m²)', 'default_value' => 0])
-                    ->addNumber('to_area', ['label' => 'Powierzchnia DO (m²)', 'append' => 'm²'])
-                    ->addNumber('price_per_meter', ['label' => 'Cena za m²', 'append' => 'zł'])
+                    ->addImage('icon', [
+                        'label' => 'Ikona',
+                        'return_format' => 'array',
+                        'required' => 1,
+                    ])
+                    ->addText('title', [
+                        'label' => 'Nazwa usługi',
+                        'required' => 1,
+                    ])
+                    ->addSelect('cost_type', [
+                        'label' => 'Typ kosztu',
+                        'choices' => [
+                            'fixed' => 'Koszt stały (Fixed)',
+                            'per_meter' => 'Za metr kwadratowy (Per Meter)',
+                            'per_room' => 'Za pomieszczenie (Per Room)',
+                            'hybrid' => 'Mieszany (Hybrid)',
+                        ],
+                        'default_value' => 'per_meter',
+                        'required' => 1,
+                    ])
+                    ->addNumber('base_cost', [
+                        'label' => 'Koszt bazowy',
+                        'instructions' => 'Używany przy typie "Fixed" i "Hybrid".',
+                        'default_value' => 0,
+                    ])
+                    ->addNumber('per_meter_cost', [
+                        'label' => 'Koszt za metr kwadratowy',
+                        'instructions' => 'Używany przy typie "Per Meter" i "Hybrid".',
+                        'default_value' => 0,
+                    ])
+                    ->addNumber('per_room_cost', [
+                        'label' => 'Koszt za pomieszczenie',
+                        'instructions' => 'Używany przy typie "Per Room" i "Hybrid".',
+                        'default_value' => 0,
+                    ])
                 ->endRepeater()
-
-                // --- Cennik progowy stały (np. Pompa ciepła, Rekuperacja) ---
-                ->addRepeater('fixed_tiers', [
-                    'label' => 'Progi cenowe (stałe)',
-                ])
-                    ->conditional('calculation_type', '==', 'fixed_tiered')
-                    ->addNumber('from_area', ['label' => 'Powierzchnia OD (m²)', 'default_value' => 0])
-                    ->addNumber('to_area', ['label' => 'Powierzchnia DO (m²)', 'append' => 'm²'])
-                    ->addNumber('price', ['label' => 'Cena "od"', 'append' => 'zł'])
-                ->endRepeater()
-
-                // --- Cena za pomieszczenie (np. Klimatyzacja) ---
-                ->addNumber('price_per_room', ['label' => 'Cena za pomieszczenie', 'append' => 'zł'])
-                    ->conditional('calculation_type', '==', 'per_room')
-
-                // --- Pakiety (np. Fotowoltaika) ---
-                ->addRepeater('packages', [
-                    'label' => 'Pakiety',
-                ])
-                    ->conditional('calculation_type', '==', 'package')
-                    ->addText('package_name', ['label' => 'Nazwa pakietu'])
-                    ->addNumber('package_price', ['label' => 'Cena "od"', 'append' => 'zł'])
-                ->endRepeater()
-
-                // --- Opcje dodatkowe dla usługi ---
-                ->addRepeater('sub_options', [
-                    'label' => 'Opcje dodatkowe do tej usługi',
-                    'button_label' => 'Dodaj opcję podrzędną',
-                ])
-                    ->addText('option_name', ['label' => 'Nazwa opcji (np. Smart Home)'])
-                    ->addNumber('option_price', ['label' => 'Cena "od"', 'append' => 'zł'])
-                    ->addTrueFalse('requires_thickness', ['label' => 'Wymaga podania grubości styropianu?'])
-                ->endRepeater()
-
-            ->endRepeater()
 
             ->addTab('Dofinansowania')
-            ->addRepeater('subsidies', [
-                'label' => 'Dofinansowania',
-                'button_label' => 'Dodaj dofinansowanie',
-            ])
-                ->addText('subsidy_name', ['label' => 'Nazwa (np. Moje Ciepło)'])
-            ->endRepeater();
-
+                ->addRepeater('subsidies', [
+                    'label' => 'Dostępne dofinansowania',
+                    'instructions' => 'Dodaj opcje, które pojawią się jako checkboxy.',
+                    'button_label' => 'Dodaj dofinansowanie',
+                ])
+                    ->addText('subsidy_name', [
+                        'label' => 'Nazwa (np. Moje Ciepło)',
+                        'required' => 1,
+                    ])
+                ->endRepeater();
 
         return $calculator->build();
     }

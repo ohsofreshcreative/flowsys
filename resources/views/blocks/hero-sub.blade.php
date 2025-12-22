@@ -17,7 +17,7 @@ $sectionClass .= $nomt ? ' !mt-0' : '';
 				<h1 data-gsap-element="header" class=" text-white">
 					{!! $g_hero_sub['title'] !!}
 				</h1>
-				<div data-gsap-element="txt" class="text-2xl text-white mt-2 w-full md:w-2/3">
+				<div data-gsap-element="txt" class="text-xl md:text-2xl text-white mt-2 w-full md:w-2/3">
 					{!! $g_hero_sub['txt'] !!}
 				</div>
 				@if (!empty($g_hero_sub['button1']))
