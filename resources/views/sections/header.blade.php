@@ -15,17 +15,17 @@ use App\Walkers\MobileDropdownWalker;
 			@endif
 		</a>
 		@if (has_nav_menu('primary_navigation'))
-		<nav class="ml-4 lg:ml-15 nav-primary w-max" aria-label="{{ wp_get_nav_menu_name('primary_navigation') }}">
+		<nav class="ml-4  nav-primary w-max" aria-label="{{ wp_get_nav_menu_name('primary_navigation') }}">
 			{!! wp_nav_menu([
 			'theme_location' => 'primary_navigation',
-			'menu_class' => 'nav flex gap-x-2 md:gap-x-3 lg:gap-x-4 text-sm font-medium items-center',
+			'menu_class' => 'nav flex gap-x-2 md:gap-x-3 lg:gap-x-6 text-sm font-medium items-center',
 			'container' => false,
 			'echo' => false,
 			'walker' => new DropdownWalker(),
 			]) !!}
 		</nav>
 		@endif
-		<a class="__menu-btn bg-primary !text-white font-semibold rounded-full whitespace-nowrap py-2 px-2 lg:px-3" href="/kontakt">Skontaktuj się z nami</a>
+		<a class="__menu-btn bg-primary !text-white font-semibold rounded-full whitespace-nowrap py-2 px-2 lg:px-3 ml-2" href="/kontakt">Skontaktuj się z nami</a>
 	</div>
 
 	<!-- Mobile Header Bar -->

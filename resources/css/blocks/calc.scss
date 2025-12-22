@@ -11,8 +11,8 @@
 			width: 100%;
 			background-color: #FFF;
 			border: none;
-			color: var(--p-dark);
-			border: 1px solid var(--border-p);
+			color: var(--color-primary-dark);
+			border: 1px solid var(--color-primary);
 			padding: 12px 16px;
 			transition: all 0.2s ease-out;
 			border-radius: 4px;
@@ -31,8 +31,8 @@
 		input[type='number']:focus,
 		textarea:focus {
 			width: 100%;
-			background-color: var(--p-100);
-			border: 1px dashed var(--p-600);
+			background-color: var(--color-primary-100);
+			border: 1px dashed var(--color-primary-600);
 			outline: none;
 			transition: all 0.2s ease-out;
 		}
@@ -43,7 +43,7 @@
 
 		input[type='submit'] {
 			font-size: 16px;
-			background: var(--primary);
+			background: var(--color-primary);
 			color: #fff;
 			padding: 15px 45px;
 			display: inline-block;
@@ -60,7 +60,7 @@
 
 		input[type='submit']:hover {
 			color: #fff;
-			background: var(--s-hover);
+			background: var(--color-secondary-hover);
 			transition: all 0.2s ease-out;
 			border: 1px solid transparent;
 		}
