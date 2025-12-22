@@ -6,26 +6,26 @@ use App\Walkers\MobileDropdownWalker;
 <header x-data="{ mobileOpen: false }" class="relative top-0 z-50 bg-white masthead fixed-top mt-4 rounded-full">
 
 	<!-- Desktop Header -->
-	<div class="items-center justify-between hidden h-full py-4 px-12 mx-auto md:flex">
-		<a class="brand shrink-0" href="{{ home_url('/') }}">
+	<div class="items-center justify-between hidden h-full py-4 md:px-4 lg:px-12 mx-auto md:flex">
+		<a class="brand w-1/6 min-w-25" href="{{ home_url('/') }}">
 			@if ($logo)
-			<img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] ?? 'Logo' }}" class="relative w-auto max-w-[200px] h-12 -top-0.5">
+			<img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] ?? 'Logo' }}" class="relative w-auto h-12 -top-0.5">
 			@else
 			<span class="text-xl font-bold">{{ $siteName }}</span>
 			@endif
 		</a>
 		@if (has_nav_menu('primary_navigation'))
-		<nav class="ml-15 nav-primary w-max" aria-label="{{ wp_get_nav_menu_name('primary_navigation') }}">
+		<nav class="ml-4 lg:ml-15 nav-primary w-max" aria-label="{{ wp_get_nav_menu_name('primary_navigation') }}">
 			{!! wp_nav_menu([
 			'theme_location' => 'primary_navigation',
-			'menu_class' => 'nav flex gap-x-5 lg:gap-x-8 text-sm font-medium items-center', // Usunięto 'nav-link' jeśli jest zbędne
+			'menu_class' => 'nav flex gap-x-2 md:gap-x-3 lg:gap-x-4 text-sm font-medium items-center',
 			'container' => false,
 			'echo' => false,
 			'walker' => new DropdownWalker(),
 			]) !!}
 		</nav>
 		@endif
-		<a class="small-btn" href="/kontakt">Skontaktuj się z nami</a>
+		<a class="__menu-btn bg-primary !text-white font-semibold rounded-full whitespace-nowrap py-2 px-2 lg:px-3" href="/kontakt">Skontaktuj się z nami</a>
 	</div>
 
 	<!-- Mobile Header Bar -->
@@ -68,7 +68,7 @@ use App\Walkers\MobileDropdownWalker;
 		aria-label="Menu mobilne">
 		<div class="p-4 relative z-10">
 			<div class="flex items-center justify-between mb-6">
-				<span class=""><a class="brand shrink-0" href="{{ home_url('/') }}"><img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] ?? 'Logo' }}" class="invert w-auto max-w-[200px] h-12"></a></span>
+				<span class=""><a class="brand shrink-0" href="{{ home_url('/') }}"><img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] ?? 'Logo' }}" class="w-auto max-w-[200px] h-12"></a></span>
 				<button
 					@click="mobileOpen = false"
 					class="p-2 text-white rounded-md">

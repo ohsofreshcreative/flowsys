@@ -39,7 +39,7 @@ class MobileDropdownWalker extends Walker_Nav_Menu
             $output .= '<button @click.stop.prevent="open = !open" class="p-2 -mr-2 shrink-0">';
             $output .= '<span class="sr-only">Rozwiń podmenu</span>';
             // Ikona strzałki, która obraca się w zależności od stanu `open`.
-            $output .= '<svg class="w-5 h-5 text-gray-500 transition-transform duration-200" :class="{ \'rotate-180\': open }" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>';
+            $output .= '<svg class="w-5 h-5 text-primary-light transition-transform duration-200" :class="{ \'rotate-180\': open }" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>';
             $output .= '</button>';
             
             $output .= '</div>';

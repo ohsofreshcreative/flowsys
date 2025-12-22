@@ -11,9 +11,9 @@ class DropdownWalker extends Walker_Nav_Menu
      */
     public function start_lvl(&$output, $depth = 0, $args = null)
     {
-        $classes = 'absolute z-10 mt-2 w-max origin-top-right bg-white b-border-light focus:outline-none';
+        $classes = 'absolute z-10 mt-2 w-max origin-top-right bg-white border-primary focus:outline-none';
         
-        $output .= "<ul x-show=\"open\" @click.away=\"open = false\" x-transition:enter=\"transition ease-out duration-200\" x-transition:enter-start=\"opacity-0 transform -translate-y-2\" x-transition:enter-end=\"opacity-100 transform translate-y-0\" x-transition:leave=\"transition ease-in duration-150\" x-transition:leave-start=\"opacity-100 transform translate-y-0\" x-transition:leave-end=\"opacity-0 transform -translate-y-2\" class=\"{$classes}\" style=\"display: none;\">";
+        $output .= "<ul x-show=\"open\" @click.away=\"open = false\" x-transition:enter=\"transition ease-out duration-200\" x-transition:enter-start=\"opacity-0 transform -translate-y-2\" x-transition:enter-end=\"opacity-100 transform translate-y-0\" x-transition:leave=\"transition ease-in duration-150\" x-transition:leave-start=\"opacity-100 transform translate-y-0\" x-transition:leave-end=\"opacity-0 transform -translate-y-2\" class=\"{$classes} rounded-xl p-2\" style=\"display: none;\">";
     }
 
     /**
@@ -45,7 +45,7 @@ class DropdownWalker extends Walker_Nav_Menu
 
             $link_classes = '';
             if ($depth > 0) {
-                $link_classes = 'block px-6 py-4 text-sm text-gray-700 hover:bg-gray-100';
+                $link_classes = 'block rounded-xl px-6 py-4 text-sm text-gray-700 hover:bg-primary';
             } else {
                 $link_classes = 'text-sm font-medium hover:text-indigo-600';
             }

@@ -253,12 +253,18 @@ body {
 	background: var(--color-background-brand);
 	padding: var(--smt) 0;
 
-	h1, .text-h1,
-	h2, .text-h2,
-	h3, .text-h3,
-	h4, .text-h4,
-	h5, .text-h5,
-	h6, .text-h6,
+	h1,
+	.text-h1,
+	h2,
+	.text-h2,
+	h3,
+	.text-h3,
+	h4,
+	.text-h4,
+	h5,
+	.text-h5,
+	h6,
+	.text-h6,
 	p,
 	b,
 	strong,
@@ -274,12 +280,18 @@ body {
 	background: var(--color-primary);
 	padding: var(--smt) 0;
 
-	h1, .text-h1,
-	h2, .text-h2,
-	h3, .text-h3,
-	h4, .text-h4,
-	h5, .text-h5,
-	h6, .text-h6,
+	h1,
+	.text-h1,
+	h2,
+	.text-h2,
+	h3,
+	.text-h3,
+	h4,
+	.text-h4,
+	h5,
+	.text-h5,
+	h6,
+	.text-h6,
 	p,
 	b,
 	strong,
@@ -295,12 +307,18 @@ body {
 	background: var(--gradient);
 	padding: var(--smt) 0;
 
-	h1, .text-h1,
-	h2, .text-h2,
-	h3, .text-h3,
-	h4, .text-h4,
-	h5, .text-h5,
-	h6, .text-h6,
+	h1,
+	.text-h1,
+	h2,
+	.text-h2,
+	h3,
+	.text-h3,
+	h4,
+	.text-h4,
+	h5,
+	.text-h5,
+	h6,
+	.text-h6,
 	p,
 	b,
 	strong,
@@ -322,12 +340,18 @@ body {
 	background: var(--color-secondary);
 	padding: var(--smt) 0;
 
-	h1, .text-h1,
-	h2, .text-h2,
-	h3, .text-h3,
-	h4, .text-h4,
-	h5, .text-h5,
-	h6, .text-h6,
+	h1,
+	.text-h1,
+	h2,
+	.text-h2,
+	h3,
+	.text-h3,
+	h4,
+	.text-h4,
+	h5,
+	.text-h5,
+	h6,
+	.text-h6,
 	p,
 	b,
 	strong,
@@ -517,7 +541,7 @@ h6,
 	color: var(--color-primary);
 }
 
-/*--- !COLORS ---*/ 
+/*--- !COLORS ---*/
 
 .bg-background {
 	background: var(--bg) !important;
@@ -904,6 +928,7 @@ h6,
 .fixed-top #menu-menu a {
 	color: var(--body) !important;
 	font-size: 16px;
+	white-space: nowrap;
 }
 
 .fixed-top.scrollUp {
@@ -1138,7 +1163,7 @@ input[type='checkbox'] {
 .category-tabs {
 	.__tab {
 		transition: all 0.3s;
-		border:1px solid var(--color-primary);
+		border: 1px solid var(--color-primary);
 	}
 
 	.__tab:hover {
@@ -1554,6 +1579,14 @@ footer {
 		.area img {
 			--img-xl: 100%;
 		}
+	}
+
+	.fixed-top #menu-menu a {
+		font-size: 14px;
+	}
+
+	.__menu-btn {
+		font-size:14px !important;
 	}
 
 	.order-flip {
