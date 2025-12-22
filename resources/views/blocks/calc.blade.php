@@ -97,7 +97,30 @@
 					<b class="font-semibold text-gray-700">Szacowany koszt</b>
 					<p id="summary-cost" class="primary text-2xl font-bold">0 zł</p>
 				</div>
+
+                <div class="mt-6">
+                    <button id="trigger-cf7-submit" class="w-full text-white bg-primary hover:bg-primary-dark focus:ring-4 focus:outline-none focus:ring-primary-light font-medium rounded-lg text-sm px-5 py-2.5 text-center">Wyślij zapytanie</button>
+                </div>
 			</div>
 		</div>
 	</div>
 </div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const triggerButton = document.getElementById('trigger-cf7-submit');
+    const cf7Form = document.querySelector('.wpcf7-form');
+
+    if (triggerButton && cf7Form) {
+        const cf7SubmitButton = cf7Form.querySelector('input[type="submit"]');
+        
+        if (cf7SubmitButton) {
+            triggerButton.addEventListener('click', function() {
+                // Użyj requestSubmit() na formularzu, aby uruchomić walidację CF7
+                cf7Form.requestSubmit(cf7SubmitButton);
+            });
+        }
+    }
+});
+</script>
