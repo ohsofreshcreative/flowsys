@@ -10,17 +10,26 @@
 				<div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-6 mb-8">
 					@foreach($services as $service)
 					<div>
+   @php
+    // Poprawne kodowanie danych o progach do formatu JSON, bez htmlspecialchars
+    $fixed_tiers_json = !empty($service['fixed_tiers']) ? json_encode($service['fixed_tiers']) : '[]';
+    $per_meter_tiers_json = !empty($service['per_meter_tiers']) ? json_encode($service['per_meter_tiers']) : '[]';
+@endphp
 						<input
-							type="checkbox"
-							name="selected_service[]"
-							id="service-{{ $loop->index }}"
-							value="{{ $service['title'] }}"
-							class="hidden peer"
-							data-cost-type="{{ $service['cost_type'] ?? 'per_meter' }}"
-							data-base-cost="{{ $service['base_cost'] ?? 0 }}"
-							data-per-meter-cost="{{ $service['per_meter_cost'] ?? 0 }}"
-							data-per-room-cost="{{ $service['per_room_cost'] ?? 0 }}">
-						<label for="service-{{ $loop->index }}" class="service-tile flex flex-col justify-between items-center bg-white border-2 border-p-light rounded-lg p-4 h-full text-center cursor-pointer hover:shadow-lg transition-all duration-300 peer-checked:!border-primary">
+    type="checkbox"
+    name="selected_service[]"
+    id="service-{{ $loop->index }}"
+    value="{{ $service['title'] }}"
+    class="hidden peer"
+    data-cost-type="{{ $service['cost_type'] ?? 'per_meter' }}"
+    data-base-cost="{{ $service['base_cost'] ?? 0 }}"
+    data-per-meter-cost="{{ $service['per_meter_cost'] ?? 0 }}"
+    data-per-room-cost="{{ $service['per_room_cost'] ?? 0 }}"
+    data-fixed-tiers='{{ $fixed_tiers_json }}'
+    data-per-meter-tiers='{{ $per_meter_tiers_json }}'
+>
+    <label for="service-{{ $loop->index }}" class="service-tile flex flex-col justify-between items-center bg-white border-2 border-p-light rounded-lg p-4 h-full text-center cursor-pointer hover:shadow-lg transition-all duration-300 peer-checked:!border-primary">
+        
 							<div>
 								@if($service['icon'])
 								{!! wp_get_attachment_image($service['icon']['ID'], 'thumbnail', false, ['class' => 'mx-auto mb-2 h-8 w-8 object-contain']) !!}

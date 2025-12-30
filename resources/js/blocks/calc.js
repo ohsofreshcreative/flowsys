@@ -40,46 +40,71 @@ const initializeCalculator = () => {
       if (checkbox.checked) {
         selectedServices.push(checkbox.value);
         const costType = checkbox.dataset.costType;
-        const baseCost = parseFloat(checkbox.dataset.baseCost) || 0;
-        const perMeterCost = parseFloat(checkbox.dataset.perMeterCost) || 0;
-        const perRoomCost = parseFloat(checkbox.dataset.perRoomCost) || 0;
-
         let serviceCost = 0;
-        
-        // NOWA LOGIKA OBLICZENIOWA
-        switch (costType) {
-          case 'fixed': // Tylko koszt stały (np. Fotowoltaika)
-            serviceCost = baseCost;
-            break;
-          case 'per_meter': // Koszt zależny od powierzchni (np. Podłogówka)
-            serviceCost = area * perMeterCost;
-            break;
 
-          case 'per_room': // Koszt zależny od liczby pokoi (np. Klimatyzacja)
-            serviceCost = rooms * perRoomCost;
+        switch (costType) {
+          case 'fixed':
+            serviceCost = parseFloat(checkbox.dataset.baseCost) || 0;
+            break;
+          case 'per_meter':
+            serviceCost = area * (parseFloat(checkbox.dataset.perMeterCost) || 0);
+            break;
+          case 'per_room':
+            serviceCost = rooms * (parseFloat(checkbox.dataset.perRoomCost) || 0);
+            break;
+          case 'hybrid':
+            serviceCost = (parseFloat(checkbox.dataset.baseCost) || 0) +
+                          (area * (parseFloat(checkbox.dataset.perMeterCost) || 0)) +
+                          (rooms * (parseFloat(checkbox.dataset.perRoomCost) || 0));
             break;
           
-          case 'hybrid': // Koszt mieszany (np. Pompa ciepła, Hydraulika)
-            serviceCost = baseCost + (area * perMeterCost) + (rooms * perRoomCost);
+          case 'fixed_tiered': {
+            const tiersData = checkbox.dataset.fixedTiers;
+            if (tiersData) {
+              const tiers = JSON.parse(tiersData);
+              const matchingTier = tiers.find(tier => {
+                const min = parseFloat(tier.min_area);
+                const max = parseFloat(tier.max_area);
+                // **NOWA LOGIKA:** Jeśli max jest pusty lub 0, traktuj jako nieskończoność
+                return area >= min && (!max || area <= max);
+              });
+              if (matchingTier) {
+                serviceCost = parseFloat(matchingTier.price);
+              }
+            }
             break;
+          }
+            
+          case 'per_meter_tiered': {
+            const tiersData = checkbox.dataset.perMeterTiers;
+            if (tiersData) {
+              const tiers = JSON.parse(tiersData);
+              const matchingTier = tiers.find(tier => {
+                const min = parseFloat(tier.min_area);
+                const max = parseFloat(tier.max_area);
+                // **NOWA LOGIKA:** Jeśli max jest pusty lub 0, traktuj jako nieskończoność
+                return area >= min && (!max || area <= max);
+              });
+              if (matchingTier) {
+                serviceCost = area * parseFloat(matchingTier.price_per_meter);
+              }
+            }
+            break;
+          }
         }
         totalCost += serviceCost;
       }
     });
 
-    // Aktualizacja podsumowania wizualnego
+    // Aktualizacja podsumowania wizualnego (bez zmian)
     summary.services.innerHTML = selectedServices.length > 0 ? selectedServices.join('<br>') : 'Brak';
     summary.areaValue.textContent = area > 0 ? `${area} m²` : '';
     summary.floorsValue.textContent = floors > 0 ? floors : '';
     summary.roomsValue.textContent = rooms > 0 ? rooms : '';
-    
     const selectedSubsidies = Array.from(subsidyCheckboxes).filter(cb => cb.checked).map(cb => cb.value);
     summary.subsidies.innerHTML = selectedSubsidies.length > 0 ? selectedSubsidies.join('<br>') : 'Brak';
-
     const formattedCost = `${Math.round(totalCost).toLocaleString('pl-PL')} zł`;
     summary.cost.textContent = formattedCost;
-
-    // Wypełnienie ukrytego pola
     if (summaryInput) {
       let summaryContent = `PODSUMOWANIE:\nUsługi: ${selectedServices.join(', ') || 'Brak'}\nPowierzchnia: ${area} m²\nKondygnacje: ${floors}\nPomieszczenia: ${rooms}\nDofinansowania: ${selectedSubsidies.join(', ') || 'Brak'}\n\nKOSZT: ${formattedCost}`;
       summaryInput.value = summaryContent;
