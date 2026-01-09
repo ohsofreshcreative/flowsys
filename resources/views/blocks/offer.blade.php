@@ -28,7 +28,7 @@ $sectionClass .= ' ' . $background;
 			<div class="relative md:sticky top-0 lg:top-10 h-max">
 				@if (!empty($g_offer['image']))
 				<div class="__img order1">
-					<img data-gsap-element="img" class="absolute -bottom-10 -left-10 pointer-events-none" src="/wp-content/uploads/2025/12/sign_small.svg" />
+					<img data-gsap-element="img" class="absolute object -bottom-10 -left-10 pointer-events-none" src="/wp-content/uploads/2025/12/sign_small.svg" />
 					<img data-gsap-element="img" class="__img object-cover radius-img w-full img-xl" src="{{ $g_offer['image']['url'] }}" alt="{{ $g_offer['image']['alt'] ?? '' }}">
 				</div>
 				@endif
@@ -45,7 +45,7 @@ $sectionClass .= ' ' . $background;
 					<a data-gsap-element="item" href="{{ get_permalink($sector->ID) }}" class="">
 						<div class="__card b-bottom-p-light flex items-center gap-6 mb-4 pb-4">
 							@if (has_post_thumbnail($sector->ID))
-							<img class="w-20 aspect-square radius" src="{{ get_the_post_thumbnail_url($sector->ID, 'large') }}" alt="{{ $sector->post_title }}" class="w-full img-s object-cover rounded-t-2xl">
+							<img class="w-20 aspect-square radius object-cover" src="{{ get_the_post_thumbnail_url($sector->ID, 'large') }}" alt="{{ $sector->post_title }}" class="w-full img-s object-cover rounded-t-2xl">
 							@endif
 							<h5 class="">
 								{{ $sector->post_title }}

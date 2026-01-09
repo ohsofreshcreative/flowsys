@@ -106,7 +106,6 @@
 @import 'swiper/css';
 @import 'swiper/css/navigation';
 @import 'swiper/css/pagination';
-@import 'baguettebox.js/dist/baguetteBox.min.css';
 
 /*-- USED ---*/
 @import '../css/blocks/hero.scss';

@@ -17,7 +17,6 @@ import './blocks/how.js';
 import './blocks/overlap.js';
 import './blocks/calc.js';
 import './blocks/category-slider.js';
-import baguetteBox from 'baguettebox.js';
 
 /*--- INICJALIZACJA BIBLIOTEK ---*/
 // Uruchom Alpine.js

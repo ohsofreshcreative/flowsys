@@ -8,7 +8,7 @@ $sectionClass .= $nomt ? ' !mt-0' : '';
 <section data-gsap-anim="section" @if(!empty($section_id)) id="{{ $section_id }}" @endif  class="s-bottom-block relative overflow-hidden -smt bg-gradient {{ $sectionClass }} {{ $section_class }}">
 	<div class="grid grid-cols-1 md:grid-cols-2 items-center">
 
-		<div class="__content w-11/12 md:w-3/4 lg:w-1/2 py-20 m-auto">
+		<div class="__content relative z-20 w-11/12 md:w-3/4 lg:w-1/2 py-20 m-auto">
 			<div data-gsap-element="txt">
 				<h4 data-gsap-element="header" class="text-white">{{ $bottom['title'] }}</h4>
 				<div data-gsap-element="txt" class="mt-2 text-white">

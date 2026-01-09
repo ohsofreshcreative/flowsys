@@ -65,7 +65,6 @@ const initializeCalculator = () => {
               const matchingTier = tiers.find(tier => {
                 const min = parseFloat(tier.min_area);
                 const max = parseFloat(tier.max_area);
-                // **NOWA LOGIKA:** Jeśli max jest pusty lub 0, traktuj jako nieskończoność
                 return area >= min && (!max || area <= max);
               });
               if (matchingTier) {
@@ -82,7 +81,6 @@ const initializeCalculator = () => {
               const matchingTier = tiers.find(tier => {
                 const min = parseFloat(tier.min_area);
                 const max = parseFloat(tier.max_area);
-                // **NOWA LOGIKA:** Jeśli max jest pusty lub 0, traktuj jako nieskończoność
                 return area >= min && (!max || area <= max);
               });
               if (matchingTier) {
@@ -96,17 +94,40 @@ const initializeCalculator = () => {
       }
     });
 
-    // Aktualizacja podsumowania wizualnego (bez zmian)
+    // --- NOWA LOGIKA DLA DOFINANSOWAŃ ---
+    const selectedSubsidies = Array.from(subsidyCheckboxes)
+      .filter(cb => cb.checked)
+      .map(cb => {
+        const name = cb.value;
+        const amount = parseFloat(cb.dataset.amount) || 0;
+        return { name, amount };
+      });
+
+    // Aktualizacja podsumowania wizualnego
     summary.services.innerHTML = selectedServices.length > 0 ? selectedServices.join('<br>') : 'Brak';
     summary.areaValue.textContent = area > 0 ? `${area} m²` : '';
     summary.floorsValue.textContent = floors > 0 ? floors : '';
     summary.roomsValue.textContent = rooms > 0 ? rooms : '';
-    const selectedSubsidies = Array.from(subsidyCheckboxes).filter(cb => cb.checked).map(cb => cb.value);
-    summary.subsidies.innerHTML = selectedSubsidies.length > 0 ? selectedSubsidies.join('<br>') : 'Brak';
+    
+    // Formatowanie i wyświetlanie dofinansowań w nowym formacie
+    if (selectedSubsidies.length > 0) {
+      summary.subsidies.innerHTML = selectedSubsidies
+        .map(sub => `-${sub.amount.toLocaleString('pl-PL')} zł (${sub.name})`)
+        .join('<br>');
+    } else {
+      summary.subsidies.innerHTML = 'Brak';
+    }
+
     const formattedCost = `${Math.round(totalCost).toLocaleString('pl-PL')} zł`;
     summary.cost.textContent = formattedCost;
+    
+    // Aktualizacja ukrytego pola z podsumowaniem (summaryInput)
     if (summaryInput) {
-      let summaryContent = `PODSUMOWANIE:\nUsługi: ${selectedServices.join(', ') || 'Brak'}\nPowierzchnia: ${area} m²\nKondygnacje: ${floors}\nPomieszczenia: ${rooms}\nDofinansowania: ${selectedSubsidies.join(', ') || 'Brak'}\n\nKOSZT: ${formattedCost}`;
+      const subsidiesSummaryText = selectedSubsidies.length > 0
+        ? selectedSubsidies.map(sub => `-${sub.amount.toLocaleString('pl-PL')} zł (${sub.name})`).join(', ')
+        : 'Brak';
+      
+      let summaryContent = `PODSUMOWANIE:\nUsługi: ${selectedServices.join(', ') || 'Brak'}\nPowierzchnia: ${area} m²\nKondygnacje: ${floors}\nPomieszczenia: ${rooms}\n\nSzacunkowy koszt: ${formattedCost}\nDofinansowania: ${subsidiesSummaryText}`;
       summaryInput.value = summaryContent;
     }
   };

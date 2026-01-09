@@ -26,7 +26,7 @@ $sectionClass .= ' ' . $background;
 			<a href="{{ get_permalink($sector->ID) }}" class="">
 				<div data-gsap-element="stagger" class="__card bg-white radius p-10">
 					@if (has_post_thumbnail($sector->ID))
-					<img class="w-20 aspect-square radius" src="{{ get_the_post_thumbnail_url($sector->ID, 'large') }}" alt="{{ $sector->post_title }}" class="w-full img-s object-cover rounded-t-2xl">
+					<img class="w-20 aspect-square radius object-cover" src="{{ get_the_post_thumbnail_url($sector->ID, 'large') }}" alt="{{ $sector->post_title }}" class="w-full img-s object-cover rounded-t-2xl">
 					@endif
 					<h5 class="mt-4">
 						{{ $sector->post_title }}
