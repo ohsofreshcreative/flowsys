@@ -81,9 +81,7 @@
 
 				<div class="summary-item">
 					<b class="font-semibold text-gray-700">Czym jesteś zainteresowany</b>
-					<ul id="summary-services" class="text-gray-500 mb-4 min-h-[1.5em] list-disc">
-						<li>Brak</li>
-					</ul>
+					<p id="summary-services" class="text-gray-500 mb-4 min-h-[1.5em]">Brak</p>
 				</div>
 
 				<hr class="my-6 border-dotted border-primary-500">
@@ -106,9 +104,7 @@
 
 				<div class="summary-item">
 					<b class="font-semibold text-primary mt-4">Dofinansowania</b>
-					<ul id="summary-subsidies" class="text-secondary-500 mb-4 min-h-[1.5em] list-disc">
-						<li>Brak</li>
-					</ul>
+					<p id="summary-subsidies" class="text-secondary-500 mb-4 min-h-[1.5em]">Brak</p>
 				</div>
 
 				<div class="mt-6">

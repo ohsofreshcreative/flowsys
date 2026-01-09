@@ -94,30 +94,31 @@ const initializeCalculator = () => {
       }
     });
 
-    // --- NOWA LOGIKA DLA DOFINANSOWAŃ ---
-    const selectedSubsidies = Array.from(subsidyCheckboxes)
-      .filter(cb => cb.checked)
-      .map(cb => {
-        const name = cb.value;
-        const amount = parseFloat(cb.dataset.amount) || 0;
-        return { name, amount };
-      });
-
     // Aktualizacja podsumowania wizualnego
     summary.services.innerHTML = selectedServices.length > 0 ? selectedServices.join('<br>') : 'Brak';
     summary.areaValue.textContent = area > 0 ? `${area} m²` : '';
     summary.floorsValue.textContent = floors > 0 ? floors : '';
     summary.roomsValue.textContent = rooms > 0 ? rooms : '';
     
-    // Formatowanie i wyświetlanie dofinansowań w nowym formacie
-    if (selectedSubsidies.length > 0) {
-      summary.subsidies.innerHTML = selectedSubsidies
-        .map(sub => `-${sub.amount.toLocaleString('pl-PL')} zł (${sub.name})`)
-        .join('<br>');
-    } else {
-      summary.subsidies.innerHTML = 'Brak';
-    }
+    // --- NOWA LOGIKA DLA DOFINANSOWAŃ ---
+    const selectedSubsidies = Array.from(subsidyCheckboxes)
+      .filter(cb => cb.checked)
+      .map(cb => ({
+        name: cb.value,
+        amount: parseFloat(cb.dataset.amount) || 0,
+      }));
 
+    if (summary.subsidies) {
+      if (selectedSubsidies.length > 0) {
+        // Dodajemy span z klasą i pogrubienie
+        summary.subsidies.innerHTML = selectedSubsidies
+          .map(sub => `<span class="text-primary"><b>-${sub.amount.toLocaleString('pl-PL')} zł</b></span> (${sub.name})`)
+          .join('<br>');
+      } else {
+        summary.subsidies.innerHTML = 'Brak';
+      }
+    }
+    
     const formattedCost = `${Math.round(totalCost).toLocaleString('pl-PL')} zł`;
     summary.cost.textContent = formattedCost;
     
@@ -127,7 +128,7 @@ const initializeCalculator = () => {
         ? selectedSubsidies.map(sub => `-${sub.amount.toLocaleString('pl-PL')} zł (${sub.name})`).join(', ')
         : 'Brak';
       
-      let summaryContent = `PODSUMOWANIE:\nUsługi: ${selectedServices.join(', ') || 'Brak'}\nPowierzchnia: ${area} m²\nKondygnacje: ${floors}\nPomieszczenia: ${rooms}\n\nSzacunkowy koszt: ${formattedCost}\nDofinansowania: ${subsidiesSummaryText}`;
+      let summaryContent = `PODSUMOWANIE:\nUsługi: ${selectedServices.join(', ') || 'Brak'}\nPowierzchnia: ${area} m²\nKondygnacje: ${floors}\nPomieszczenia: ${rooms}\nDofinansowania: ${subsidiesSummaryText}\n\nKOSZT: ${formattedCost}`;
       summaryInput.value = summaryContent;
     }
   };
