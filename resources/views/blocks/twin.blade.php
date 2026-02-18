@@ -28,29 +28,32 @@ $sectionClass .= ' ' . $background;
 					<div data-gsap-element="txt" class="">{!! $item['txt'] !!}</div>
 					@endif
 				</div>
-				<div class="__cards relative grid grid-cols-1 sm:grid-cols-2 gap-4">
-					@if (!empty($item['selected_offers']))
-					@foreach ($item['selected_offers'] as $offer_post)
-					@php
-					$thumbnail_url = get_the_post_thumbnail_url($offer_post->ID, 'medium_large');
-					@endphp
-					<a data-gsap-element="img" href="{{ get_permalink($offer_post->ID) }}"
-						class="__card relative flex flex-col justify-end p-6 rounded-4xl text-white min-h-[250px] overflow-hidden group"
-						style="background-image: url('{{ $thumbnail_url }}'); background-size: cover; background-position: center;">
-
-						<div class="absolute inset-0 bg-black opacity-40 group-hover:opacity-60 transition-opacity"></div>
-
-						<div class="relative z-10">
-							<h6 class="text-white mb-4">{{ $offer_post->post_title }}</h6>
-							<div class="__arrow bg-primary-light w-max rounded-full p-3 transition-all duration-500 mt-6">
-								<img class="" src="/wp-content/uploads/2025/12/arrow-right.svg" />
-							</div>
-						</div>
-					</a>
-					@endforeach
-					@endif
-					<img data-gsap-element="img" class="__bg absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 max-w-14 pointer-events-none" src="/wp-content/uploads/2025/12/connection.svg" />
-				</div>
+				<div class="__cards relative grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] sm:items-center gap-4">
+                    @if (!empty($item['selected_offers']))
+                        @foreach ($item['selected_offers'] as $index => $offer_post)
+                            @php
+                                $thumbnail_url = get_the_post_thumbnail_url($offer_post->ID, 'medium_large');
+                            @endphp
+                            <a data-gsap-element="img" href="{{ get_permalink($offer_post->ID) }}"
+                                class="__card relative flex flex-col justify-end p-6 rounded-4xl text-white min-h-[250px] overflow-hidden group"
+                                style="background-image: url('{{ $thumbnail_url }}'); background-size: cover; background-position: center;">
+    
+                                <div class="absolute inset-0 bg-black opacity-40 group-hover:opacity-60 transition-opacity"></div>
+    
+                                <div class="relative z-10">
+                                    <h6 class="text-white mb-4">{{ $offer_post->post_title }}</h6>
+                                    <div class="__arrow bg-primary-light w-max rounded-full p-3 transition-all duration-500 mt-6">
+                                        <img class="" src="/wp-content/uploads/2025/12/arrow-right.svg" />
+                                    </div>
+                                </div>
+                            </a>
+    
+                            @if ($loop->first && count($item['selected_offers']) > 1)
+                                <img data-gsap-element="img" class="__bg max-w-14 -ml-7 -mr-12 pointer-events-none hidden sm:block z-20" src="/wp-content/uploads/2025/12/connection.svg" />
+                            @endif
+                        @endforeach
+                    @endif
+                </div>
 			</div>
 			@endforeach
 		</div>
