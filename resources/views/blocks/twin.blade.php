@@ -49,7 +49,7 @@ $sectionClass .= ' ' . $background;
 					</a>
 					@endforeach
 					@endif
-					<img data-gsap-element="img" class="__bg absolute top-1/2 left-1/2 -translate-1/2 max-w-14 pointer-events-none" src="/wp-content/uploads/2025/12/connection.svg" />
+					<img data-gsap-element="img" class="__bg absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 max-w-14 pointer-events-none" src="/wp-content/uploads/2025/12/connection.svg" />
 				</div>
 			</div>
 			@endforeach
